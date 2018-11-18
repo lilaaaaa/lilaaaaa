@@ -9,10 +9,10 @@ _  __  _____   _____   ____    _____   ____
 القيصر كرارWRITING THE SOURCE BY : @LLX8XLL
 
 WRITING THE SOURCE BY : @LLX8XLL
-CH SOURCE : @KEEPER_CH
+CH SOURCE : @Arab_Forum
 
 ]]
---- Start Source By Karrar KeePer »»»»»»»
+--- Start Source By Arab_Forum »»»»»»»
 local tdcli = dofile("tdcli.lua")
 local KPJS = dofile('./JSON.lua')
 local serpent = require("serpent")
@@ -142,7 +142,7 @@ print("\027[" .. color.black[1] .. ";" .. color.green[2] .. "m\n➡➡[•• ا
 end
 create_config_auto()
 
-file = io.open("keeper", "w")
+file = io.open("Arab_Forum", "w")
 file:write([[
 token="]]..Token_..[["
 COUNTER=1
@@ -150,7 +150,7 @@ while(true) do
 while true ; do
 
 curl "https://api.telegram.org/bot"$token"/sendmessage" -F
-./TG -s ./KEEPER.lua $@ --bot=$token
+./TG -s ./Arab_Forum.lua $@ --bot=$token
 
 sleep 5
 done
@@ -160,7 +160,7 @@ done
 ]])
 file:close()
 sleep(1)
-os.execute(' screen -S keeper ./keeper')
+os.execute(' screen -S Arab_Forum ./Arab_Forum')
 end
 local serialize_to_file = function(data, file, uglify)
 file = io.open(file, "w+")
@@ -186,39 +186,39 @@ return config
 end
 _redis = load_redis()
 sudos = dofile("Config.lua") ---- all sudos
-KEEPER_SUDO = sudos.KpOwner   -------bot owner
-KEEPER_TOKEN = sudos.Token -----KEEPER_TOKEN
+Arab_Forum = sudos.KpOwner   -------bot owner
+Arab_Forum_TOKEN = sudos.Token -----itachi_TOKEN
 bot_id = sudos.Bot_ID ---id bot
-KEEPER = tonumber(_redis.Bot_ID)
+itachi = tonumber(_redis.Bot_ID)
 
 function Run()
-print('\27[93m>Developer:\27[39m'..' '..'@keeper_ch')
+print('\27[93m>Developer:\27[39m'..' '..'@Arab_Forum')
 end
-------------------------boT ID   BY keePer ----------------------
+------------------------boT ID   BY Arab_Forum ----------------------
 print(string.sub(_redis.Bot_ID,1,0))
-local bot_id = redis:get(KEEPER.."Bot:KpBotAccount") or tonumber(_redis.Bot_ID)
+local bot_id = redis:get(Arab_Forum.."Bot:KpBotAccount") or tonumber(_redis.Bot_ID)
 local save_config = function()
 serialize_to_file(_config, "./Config.lua")
 end
 local setdata = function()
 local config = loadfile("./Config.lua")()
 for v, user in pairs(config.Sudo_Users) do
-redis:sadd(KEEPER.."Bot:KpSudos", user)
+redis:sadd(itachi.."Bot:KpSudos", user)
 end
-redis:setex(KEEPER.."bot:reload", 7230, true)
-redis:set(KEEPER.."Bot:KpOwnerBot", config.KpOwner or 0)
-redis:set(KEEPER.."Bot:Run", config.Run or 0)
+redis:setex(itachi.."bot:reload", 7230, true)
+redis:set(Arab_Forum.."Bot:KpOwnerBot", config.KpOwner or 0)
+redis:set(Arab_Forum.."Bot:Run", config.Run or 0)
 local Api = config.Token:match("(%d+)")
 local RD = RNM or 0
 if Api then
-redis:set(KEEPER.."Bot:Api_ID", Api)
+redis:set(Arab_Forum.."Bot:Api_ID", Api)
 end
 function AuthoritiesEn()
 local hash = "Bot:KpSudos"
-local list = redis:smembers(KEEPER..hash)
-local OwnerKP_ = redis:get(KEEPER.."Bot:KpOwnerBot")
+local list = redis:smembers(Arab_Forum..hash)
+local OwnerKP_ = redis:get(Arab_Forum.."Bot:KpOwnerBot")
 local text = "List of Authorities :\n"
-local user_info_ = redis:get(KEEPER.."user:Name" .. OwnerKP_)
+local user_info_ = redis:get(Arab_Forum.."user:Name" .. OwnerKP_)
 local username = user_info_
 if user_info_ then
 text = text .. [[
@@ -236,14 +236,14 @@ text = text .. [[
 else
 end
 for k, v in pairs(list) do
-local user_info = redis:get(KEEPER.."user:Name" .. v)
+local user_info = redis:get(Arab_Forum.."user:Name" .. v)
 if user_info then
 local username = user_info
 text = text .. k .. " - [" .. username .. "] \n"
 end
 end
 local hash2 = "Bot:Admins"
-local list2 = redis:smembers(KEEPER..hash2)
+local list2 = redis:smembers(Arab_Forum..hash2)
 if #list2 ~= 0 then
 text = text .. [[
 
@@ -254,20 +254,20 @@ text = text .. [[
 else
 end
 for k, v in pairs(list2) do
-local user_info = redis:get(KEEPER.."user:Name" .. v)
+local user_info = redis:get(Arab_Forum.."user:Name" .. v)
 if user_info then
 local username = user_info
 text = text .. k .. " - [" .. username .. "] \n"
 end
 end
-redis:set(KEEPER.."AuthoritiesEn", text)
+redis:set(Arab_Forum.."AuthoritiesEn", text)
 end
 function AuthoritiesFa()
 local hash = "Bot:KpSudos"
-local list = redis:smembers(KEEPER..hash)
-local OwnerKP_ = redis:get(KEEPER.."Bot:KpOwnerBot")
+local list = redis:smembers(Arab_Forum..hash)
+local OwnerKP_ = redis:get(Arab_Forum.."Bot:KpOwnerBot")
 local text = "◯↲ قائمه قاده المجموعه :\n"
-local user_info_ = redis:get(KEEPER.."user:Name" .. OwnerKP_)
+local user_info_ = redis:get(Arab_Forum.."user:Name" .. OwnerKP_)
 local username = user_info_
 if user_info_ then
 text = text .. "✧↲ المدراء : \n" .. username
@@ -277,36 +277,36 @@ text = text .. "\n◯↲ المطورين :\n"
 else
 end
 for k, v in pairs(list) do
-local user_info = redis:get(KEEPER.."user:Name" .. v)
+local user_info = redis:get(Arab_Forum.."user:Name" .. v)
 if user_info then
 local username = user_info
 text = text .. k .. " - [" .. username .. "] \n"
 end
 end
 local hash2 = "Bot:Admins"
-local list2 = redis:smembers(KEEPER..hash2)
+local list2 = redis:smembers(Arab_Forum..hash2)
 if #list2 ~= 0 then
 text = text .. "\n⇦ الادمنيــه :\n"
 else
 end
 for k, v in pairs(list2) do
-local user_info = redis:get(KEEPER.."user:Name" .. v)
+local user_info = redis:get(Arab_Forum.."user:Name" .. v)
 if user_info then
 local username = user_info
 text = text .. k .. " - [" .. username .. "] \n"
 end
 end
-redis:set(KEEPER.."AuthoritiesFa", text)
+redis:set(Arab_Forum.."AuthoritiesFa", text)
 end
 AuthoritiesEn()
 AuthoritiesFa()
 end
 ---------------------deldata----------------------------------------
 local deldata = function()
-redis:del(KEEPER.."Bot:KpSudos")
-redis:del(KEEPER.."Bot:KpOwnerBot")
-redis:del(KEEPER.."Bot:Token")
-redis:del(KEEPER.."Bot:Channel")
+redis:del(Arab_Forum.."Bot:KpSudos")
+redis:del(Arab_Forum.."Bot:KpOwnerBot")
+redis:del(Arab_Forum.."Bot:Token")
+redis:del(Arab_Forum.."Bot:Channel")
 setdata()
 end
 local sendBotStartMessage = function(bot_user_id, chat_id, parameter, cb)
@@ -332,17 +332,17 @@ local usr = io.popen("whoami"):read("*a")-------whoami server
 usr = string.gsub(usr, "^%s+", "")
 usr = string.gsub(usr, "%s+$", "")
 usr = string.gsub(usr, "[\n\r]+", " ")
-redis:set(KEEPER.."Bot:ServerUser", usr)----------ServerUser
-redis:del(KEEPER.."MatchApi")
-redis:del(KEEPER.."Set_Our_ID")
-redis:del(KEEPER.."Open:Chats")
-local KPdata = redis:get(KEEPER.."Botid" .. bot_id) or "\n"
+redis:set(Arab_Forum.."Bot:ServerUser", usr)----------ServerUser
+redis:del(Arab_Forum.."MatchApi")
+redis:del(Arab_Forum.."Set_Our_ID")
+redis:del(Arab_Forum.."Open:Chats")
+local KPdata = redis:get(Arab_Forum.."Botid" .. bot_id) or "\n"
 local BotKPdata = redis:get(KEEPER.."KpOwnerBot" .. config.KpOwner) or "\n"
-if redis:get(KEEPER.."Rank:Data") then
+if redis:get(Arab_Forum.."Rank:Data") then
 print("\027[" .. color.yellow[1] .. ";" .. color.black[2] .. "m" .. KPdata .. "\027[00m")
 print("\027[" .. color.yellow[1] .. ";" .. color.black[2] .. "m" .. BotKPdata .. "\027[00m")
 for v, user in pairs(config.Sudo_Users) do
-local SudoData = redis:get(KEEPER.."KpSudos" .. user)
+local SudoData = redis:get(Arab_Forum.."KpSudos" .. user)
 if SudoData then
 print("\027[" .. color.yellow[1] .. ";" .. color.black[2] .. "m" .. SudoData .. "\027[00m")
 end
@@ -371,7 +371,7 @@ local result = cmd:read("*all")
 return result
 end
 local BotInfo = function(extra, result)
-redis:set(KEEPER.."Our_ID", result.id_)
+redis:set(Arab_Forum.."Our_ID", result.id_)
 end
 local getindex = function(t, id)
 for i, v in pairs(t) do
@@ -384,38 +384,38 @@ end
 local setnumbergp = function()
 local setnumbergp_two = function(user_id)
 local hashs = "sudo:data:" .. user_id
-local lists = redis:smembers(KEEPER..hashs)
+local lists = redis:smembers(Arab_Forum..hashs)
 redis:del(KEEPER.."SudoNumberGp" .. user_id)
 for k, v in pairs(lists) do
-redis:incr(KEEPER.."SudoNumberGp" .. user_id)
+redis:incr(Arab_Forum.."SudoNumberGp" .. user_id)
 end
 end
 local setnumbergp_three = function(user_id)
 local hashss = "sudo:data:" .. user_id
-local lists = redis:smembers(KEEPER..hashss)
-redis:del(KEEPER.."SudoNumberGp" .. user_id)
+local lists = redis:smembers(Arab_Forum..hashss)
+redis:del(Arab_Forum.."SudoNumberGp" .. user_id)
 for k, v in pairs(lists) do
-redis:incr(KEEPER.."SudoNumberGp" .. user_id)
+redis:incr(Arab_Forum.."SudoNumberGp" .. user_id)
 end
 end
-local list = redis:smembers(KEEPER.."Bot:Admins")
+local list = redis:smembers(Arab_Forum.."Bot:Admins")
 for k, v in pairs(list) do
 setnumbergp_two(v)
 end
-local lists = redis:smembers(KEEPER.."Bot:KpSudos")
+local lists = redis:smembers(Arab_Forum.."Bot:KpSudos")
 for k, v in pairs(lists) do
 setnumbergp_three(v)
 end
-redis:setex(KEEPER.."bot:reload", 7230, true)
+redis:setex(Arab_Forum.."bot:reload", 7230, true)
 end
 
-local Bot_Channel = redis:get(KEEPER.."Bot:Channel") or tostring(_redis.Channel)
+local Bot_Channel = redis:get(Arab_Forum.."Bot:Channel") or tostring(_redis.Channel)
 local sudo_users = _config.Sudo_Users
-local Kp_Owner = redis:get(KEEPER.."Bot:KpOwnerBot")
-local run = redis:get(KEEPER.."Bot:Run") or "True"
-if not redis:get(KEEPER.."setnumbergp") then
+local Kp_Owner = redis:get(Arab_Forum.."Bot:KpOwnerBot")
+local run = redis:get(Arab_Forum.."Bot:Run") or "True"
+if not redis:get(Arab_Forum.."setnumbergp") then
 setnumbergp()
-redis:setex(KEEPER.."setnumbergp", 5 * hour, true)
+redis:setex(Arab_Forum.."setnumbergp", 5 * hour, true)
 end
 
 print("\27[0;31m>>"..[[
@@ -449,7 +449,7 @@ end
 ----------------is_sudo----------------------------------------------
 local is_sudo = function(msg)
 local var = false
-if redis:sismember(KEEPER.."Bot:KpSudos", msg.sender_user_id_) then
+if redis:sismember(Arab_Forum.."Bot:KpSudos", msg.sender_user_id_) then
 var = true
 end
 if msg.sender_user_id_ == tonumber(Kp_Owner) then
@@ -459,7 +459,7 @@ return var
 end
 local is_sudoid = function(user_id)
 local var = false
-if redis:sismember(KEEPER.."Bot:KpSudos", user_id) then
+if redis:sismember(Arab_Forum.."Bot:KpSudos", user_id) then
 var = true
 end
 if user_id == tonumber(Kp_Owner) then
@@ -474,7 +474,7 @@ local admin = redis:sismember(KEEPER..hashsb, user_id)
 if admin then
 var = true
 end
-if redis:sismember(KEEPER.."Bot:KpSudos", user_id) then
+if redis:sismember(Arab_Forum.."Bot:KpSudos", user_id) then
 var = true
 end
 if user_id == tonumber(Kp_Owner) then
@@ -486,16 +486,16 @@ end
 local is_monshi = function(user_id, chat_id)
 local var = false
 local hashssk = "bot:monshis:" .. chat_id
-local monshi = redis:sismember(KEEPER..hashssk, user_id)
+local monshi = redis:sismember(Arab_Forum..hashssk, user_id)
 local hashs = "Bot:Admins"
-local admin = redis:sismember(KEEPER..hashs, user_id)
+local admin = redis:sismember(Arab_Forum..hashs, user_id)
 if monshi then
 var = true
 end
 if admin then
 var = true
 end
-if redis:sismember(KEEPER.."Bot:KpSudos", user_id) then
+if redis:sismember(Arab_Forum.."Bot:KpSudos", user_id) then
 var = true
 end
 if user_id == tonumber(Kp_Owner) then
@@ -507,11 +507,11 @@ end
 local is_owner = function(user_id, chat_id)
 local var = false
 local hashssk = "bot:monshis:" .. chat_id
-local monshi = redis:sismember(KEEPER..hashssk, user_id)
+local monshi = redis:sismember(Arab_Forum..hashssk, user_id)
 local hashs = "Bot:Admins"
-local admin = redis:sismember(KEEPER..hashs, user_id)
+local admin = redis:sismember(Arab_Forum..hashs, user_id)
 local hash = "bot:owners:" .. chat_id
-local owner = redis:sismember(KEEPER..hash, user_id)
+local owner = redis:sismember(Arab_Forum..hash, user_id)
 if monshi then
 var = true
 end
@@ -521,7 +521,7 @@ end
 if owner then
 var = true
 end
-if redis:sismember(KEEPER.."Bot:KpSudos", user_id) then
+if redis:sismember(Arab_Forum.."Bot:KpSudos", user_id) then
 var = true
 end
 if user_id == tonumber(Kp_Owner) then
@@ -533,14 +533,14 @@ end
 local is_momod = function(user_id, chat_id)
 local var = false
 local hash = "bot:momod:" .. chat_id
-local momod = redis:sismember(KEEPER..hash, user_id)
+local momod = redis:sismember(Arab_Forum..hash, user_id)
 local hashs = "Bot:Admins"
-local admin = redis:sismember(KEEPER..hashs, user_id)
+local admin = redis:sismember(Arab_Forum..hashs, user_id)
 local hashssk = "bot:monshis:" .. chat_id
-local monshi = redis:sismember(KEEPER..hashssk, user_id)
+local monshi = redis:sismember(Arab_Forum..hashssk, user_id)
 local hashss = "bot:owners:" .. chat_id
-local owner = redis:sismember(KEEPER..hashss, user_id)
-local our_id = redis:get(KEEPER.."Our_ID") or 0
+local owner = redis:sismember(Arab_Forum..hashss, user_id)
+local our_id = redis:get(Arab_Forum.."Our_ID") or 0
 if momod then
 var = true
 end
@@ -554,7 +554,7 @@ end
 if admin then
 var = true
 end
-if redis:sismember(KEEPER.."Bot:KpSudos", user_id) then
+if redis:sismember(Arab_Forum.."Bot:KpSudos", user_id) then
 var = true
 end
 if user_id == tonumber(Kp_Owner) then
@@ -569,15 +569,15 @@ end
 local is_vipmem = function(user_id, chat_id)
 local var = false
 local hash = "bot:momod:" .. chat_id
-local momod = redis:sismember(KEEPER..hash, user_id)
+local momod = redis:sismember(Arab_Forum..hash, user_id)
 local hashs = "Bot:Admins"
-local admin = redis:sismember(KEEPER..hashs, user_id)
+local admin = redis:sismember(Arab_Forum..hashs, user_id)
 local hashssk = "bot:monshis:" .. chat_id
-local monshi = redis:sismember(KEEPER..hashssk, user_id)
+local monshi = redis:sismember(Arab_Forum..hashssk, user_id)
 local hashss = "bot:owners:" .. chat_id
-local owner = redis:sismember(KEEPER..hashss, user_id)
+local owner = redis:sismember(Arab_Forum..hashss, user_id)
 local hashsss = "bot:vipmem:" .. chat_id
-local vipmem = redis:sismember(KEEPER..hashsss, user_id)
+local vipmem = redis:sismember(Arab_Forum..hashsss, user_id)
 if vipmem then
 var = true
 end
@@ -593,7 +593,7 @@ end
 if admin then
 var = true
 end
-if redis:sismember(KEEPER.."Bot:KpSudos", user_id) then
+if redis:sismember(Arab_Forum.."Bot:KpSudos", user_id) then
 var = true
 end
 if user_id == tonumber(Kp_Owner) then
@@ -605,11 +605,11 @@ end
 local is_vipmems = function(user_id)
 local var = false
 local hashsss = "bot:vipmems:"
-local vipmems = redis:sismember(KEEPER..hashsss, user_id)
+local vipmems = redis:sismember(Arab_Forum..hashsss, user_id)
 if vipmems then
 var = true
 end
-if redis:sismember(KEEPER.."Bot:KpSudos", user_id) then
+if redis:sismember(Arab_Forum.."Bot:KpSudos", user_id) then
 var = true
 end
 if user_id == tonumber(Kp_Owner) then
@@ -635,7 +635,7 @@ end
 local is_banned = function(user_id, chat_id)
 local var = false
 local hash = "bot:banned:" .. chat_id
-local banned = redis:sismember(KEEPER..hash, user_id)
+local banned = redis:sismember(Arab_Forum..hash, user_id)
 if banned then
 var = true
 end
@@ -645,7 +645,7 @@ end
 local is_gbanned = function(user_id)
 local var = false
 local hash = "bot:gban:"
-local gbanned = redis:sismember(KEEPER..hash, user_id)
+local gbanned = redis:sismember(Arab_Forum..hash, user_id)
 if gbanned then
 var = true
 end
@@ -656,8 +656,8 @@ local is_muted = function(user_id, chat_id)
 local var = false
 local hash = "bot:muted:" .. chat_id
 local hash2 = "bot:muted:" .. chat_id .. ":" .. user_id
-local muted = redis:sismember(KEEPER..hash, user_id)
-local muted2 = redis:get(KEEPER..hash2)
+local muted = redis:sismember(Arab_Forum..hash, user_id)
+local muted2 = redis:get(Arab_Forum..hash2)
 if muted then
 var = true
 end
@@ -666,7 +666,7 @@ var = true
 end
 return var
 end
------------------------------------------BY KEEPER-----------------------------------
+-----------------------------------------BY Arab_Forum-----------------------------------
 local Forward = function(chat_id, from_chat_id, message_id, cb)
 tdcli_function({
 ID = "ForwardMessages",
@@ -845,8 +845,8 @@ end
 return P
 end
 local Time = function()--------------Time--
-if redis:get(KEEPER.."GetTime") then
-local data = redis:get(KEEPER.."GetTime")
+if redis:get(Arab_Forum.."GetTime") then
+local data = redis:get(Arab_Forum.."GetTime")
 local jdat = json.decode(data)
 local A = jdat.FAtime
 local B = jdat.FAdate
@@ -856,7 +856,7 @@ else
 local url, res = http.request("")
 if res == 200 then
 local jdat = json.decode(url)
-redis:setex(KEEPER.."GetTime", 10, url)
+redis:setex(Arab_Forum.."GetTime", 10, url)
 local A = jdat.FAtime
 local B = jdat.FAdate
 if A and B then
@@ -998,9 +998,9 @@ end
 ------------------function Join CH------------------------------------------
 function Kp_JoinCh(msg)
 local var = true
-if redis:get(KEEPER.."Kpjoin1") then
-local channel = ''..(redis:get(KEEPER..'Kpch1') or '@keeper_ch')..''
-local url , res = https.request('https://api.telegram.org/bot'..KEEPER_TOKEN..'/getchatmember?chat_id='..channel..'&user_id='..msg.sender_user_id_)
+if redis:get(Arab_Forum.."Kpjoin1") then
+local channel = ''..(redis:get(Arab_Forum..'Kpch1') or '@Arab_Forum')..''
+local url , res = https.request('https://api.telegram.org/bot'..itachi_TOKEN..'/getchatmember?chat_id='..channel..'&user_id='..msg.sender_user_id_)
 local data = KPJS:decode(url)
 if res ~= 200 or data.result.status == "left" or data.result.status == "kicked" then
 var = false
@@ -1013,29 +1013,29 @@ return var
 end
 end
 --------------function retba---------------------------------
-local tmkeeper = function(msg)
+local tmArabForum = function(msg)
 if is_KpiD(msg.sender_user_id_) then
-keeper  = "المطور 🌿"
+Arab_Forum  = "المطور 🌿"
 elseif is_sudoid(msg.sender_user_id_) then
-keeper = "المطور 🌿"
+Arab_Forum = "المطور 🌿"
 elseif is_admin(msg.sender_user_id_) then
-keeper = "الادمن 🐾"
+Arab_Forum = "الادمن 🐾"
 elseif is_vipmems(msg.sender_user_id_) then
-keeper = "مميز عام 🐾"
+Arab_Forum = "مميز عام 🐾"
 elseif is_monshi(msg.sender_user_id_, msg.chat_id_) then
-keeper = "المنشىء 🌿"
+Arab_Forum = "المنشىء 🌿"
 elseif is_owner(msg.sender_user_id_, msg.chat_id_) then
-keeper = "المدير 🌿"
+Arab_Forum = "المدير 🌿"
 elseif is_momod(msg.sender_user_id_, msg.chat_id_) then
-keeper = "الادمن 🐾"
+Arab_Forum = "الادمن 🐾"
 elseif is_vipmem(msg.sender_user_id_, msg.chat_id_) then
-keeper = "عضو مميز 🌿 "
+Arab_Forum = "عضو مميز 🌿 "
 else
-keeper = "عضو 🐾"
+Arab_Forum = "عضو 🐾"
 end
-return keeper
+return Arab_Forum
 end
-----------------KP_TM_NM----BY KEEPER-----------------------------------
+----------------KP_TM_NM----BY Arab_Forum-----------------------------------
 local KP_TM_NM = function(msgs)
 if msgs < 100 then KP_TM = 'ضعيف جدا 🌿'
 elseif msgs < 200 then KP_TM = 'ضعيف' elseif msgs < 555 then KP_TM = 'متفاعل 🔥'
@@ -1264,7 +1264,7 @@ end
 -----------------------getGroupLink by ID---------------------------------------------
 local getGroupLink = function(msg, chat_id)
 local chat = tostring(chat_id)
-link = redis:get(KEEPER.."bot:group:link" .. chat)
+link = redis:get(Arab_Forum.."bot:group:link" .. chat)
 if link then
 send(msg.chat_id_, msg.id_, 1, "📬¦ رابط المجموعه :\n" .. link, 1, "md")
 else
@@ -1390,150 +1390,149 @@ file_id_ = file_id
 end
 -------------SETING antispam-------------------------------------------------------------------------
 local resetgroup = function(chat_id)
-redis:del(KEEPER.."bot:muteall" .. chat_id)
-redis:del(KEEPER.."bot:text:mute" .. chat_id)
-redis:del(KEEPER.."bot:photo:mute" .. chat_id)
-redis:del(KEEPER.."bot:video:mute" .. chat_id)
-redis:del(KEEPER.."bot:selfvideo:mute" .. chat_id)
-redis:del(KEEPER.."bot:gifs:mute" .. chat_id)
-redis:del(KEEPER.."anti-flood:" .. chat_id)
-redis:del(KEEPER.."flood:max:" .. chat_id)
-redis:del(KEEPER.."bot:sens:spam" .. chat_id)
-redis:del(KEEPER.."floodstatus" .. chat_id)
-redis:del(KEEPER.."bot:music:mute" .. chat_id)
-redis:del(KEEPER.."bot:bots:mute" .. chat_id)
-redis:del(KEEPER.."bot:duplipost:mute" .. chat_id)
-redis:del(KEEPER.."bot:inline:mute" .. chat_id)
-redis:del(KEEPER.."bot:cmds" .. chat_id)
-redis:del(KEEPER.."bot:bots:mute" .. chat_id)
-redis:del(KEEPER.."bot:voice:mute" .. chat_id)
-redis:del(KEEPER.."editmsg" .. chat_id)
-redis:del(KEEPER.."bot:links:mute" .. chat_id)
-redis:del(KEEPER.."bot:pin:mute" .. chat_id)
-redis:del(KEEPER.."bot:sticker:mute" .. chat_id)
-redis:del(KEEPER.."bot:tgservice:mute" .. chat_id)
-redis:del(KEEPER.."bot:webpage:mute" .. chat_id)
-redis:del(KEEPER.."bot:strict" .. chat_id)
-redis:del(KEEPER.."bot:hashtag:mute" .. chat_id)
-redis:del(KEEPER.."tags:lock" .. chat_id)
-redis:del(KEEPER.."bot:location:mute" .. chat_id)
-redis:del(KEEPER.."bot:contact:mute" .. chat_id)
-redis:del(KEEPER.."bot:english:mute" .. chat_id)
-redis:del(KEEPER.."bot:arabic:mute" .. chat_id)
-redis:del(KEEPER.."bot:forward:mute" .. chat_id)
-redis:del(KEEPER.."bot:member:lock" .. chat_id)
-redis:del(KEEPER.."bot:document:mute" .. chat_id)
-redis:del(KEEPER.."markdown:lock" .. chat_id)
-redis:del(KEEPER.."Game:lock" .. chat_id)
-redis:del(KEEPER.."bot:spam:mute" .. chat_id)
-redis:del(KEEPER.."post:lock" .. chat_id)
-redis:del(KEEPER.."bot:welcome" .. chat_id)
-redis:del(KEEPER.."delidstatus" .. chat_id)
-redis:del(KEEPER.."delpro:" .. chat_id)
-redis:del(KEEPER.."sharecont" .. chat_id)
-redis:del(KEEPER.."sayedit" .. chat_id)
-redis:del(KEEPER.."welcome:" .. chat_id)
-redis:del(KEEPER.."bot:group:link" .. chat_id)
-redis:del(KEEPER.."bot:filters:" .. chat_id)
-redis:del(KEEPER.."bot:muteall:Time" .. chat_id)
-redis:del(KEEPER.."bot:muteall:start" .. chat_id)
-redis:del(KEEPER.."bot:muteall:stop" .. chat_id)
-redis:del(KEEPER.."bot:muteall:start_Unix" .. chat_id)
-redis:del(KEEPER.."bot:muteall:stop_Unix" .. chat_id)
-redis:del(KEEPER.."bot:muteall:Run" .. chat_id)
-redis:del(KEEPER.."bot:muted:" .. chat_id)
+redis:del(Arab_Forum.."bot:muteall" .. chat_id)
+redis:del(Arab_Forum.."bot:text:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:photo:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:video:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:selfvideo:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:gifs:mute" .. chat_id)
+redis:del(Arab_Forum.."anti-flood:" .. chat_id)
+redis:del(Arab_Forum.."flood:max:" .. chat_id)
+redis:del(Arab_Forum.."bot:sens:spam" .. chat_id)
+redis:del(Arab_Forum.."floodstatus" .. chat_id)
+redis:del(Arab_Forum.."bot:music:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:bots:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:duplipost:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:inline:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:cmds" .. chat_id)
+redis:del(Arab_Forum.."bot:bots:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:voice:mute" .. chat_id)
+redis:del(Arab_Forum.."editmsg" .. chat_id)
+redis:del(Arab_Forum.."bot:links:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:pin:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:sticker:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:tgservice:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:webpage:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:strict" .. chat_id)
+redis:del(Arab_Forum.."bot:hashtag:mute" .. chat_id)
+redis:del(Arab_Forum.."tags:lock" .. chat_id)
+redis:del(Arab_Forum.."bot:location:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:contact:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:english:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:arabic:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:forward:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:member:lock" .. chat_id)
+redis:del(Arab_Forum.."bot:document:mute" .. chat_id)
+redis:del(Arab_Forum.."markdown:lock" .. chat_id)
+redis:del(Arab_Forum.."Game:lock" .. chat_id)
+redis:del(Arab_Forum.."bot:spam:mute" .. chat_id)
+redis:del(Arab_Forum.."post:lock" .. chat_id)
+redis:del(Arab_Forum.."bot:welcome" .. chat_id)
+redis:del(Arab_Forum.."delidstatus" .. chat_id)
+redis:del(Arab_Forum.."delpro:" .. chat_id)
+redis:del(Arab_Forum.."sharecont" .. chat_id)
+redis:del(Arab_Forum.."sayedit" .. chat_id)
+redis:del(Arab_Forum.."welcome:" .. chat_id)
+redis:del(Arab_Forum.."bot:filters:" .. chat_id)
+redis:del(Arab_Forum.."bot:muteall:Time" .. chat_id)
+redis:del(Arab_Forum.."bot:muteall:start" .. chat_id)
+redis:del(Arab_Forum.."bot:muteall:stop" .. chat_id)
+redis:del(Arab_Forum.."bot:muteall:start_Unix" .. chat_id)
+redis:del(Arab_Forum.."bot:muteall:stop_Unix" .. chat_id)
+redis:del(Arab_Forum.."bot:muteall:Run" .. chat_id)
+redis:del(Arab_Forum.."bot:muted:" .. chat_id)
 end
 local resetsettings = function(chat_id, cb)
-redis:del(KEEPER.."bot:muteall" .. chat_id)
-redis:del(KEEPER.."bot:text:mute" .. chat_id)
-redis:del(KEEPER.."bot:photo:mute" .. chat_id)
-redis:del(KEEPER.."bot:video:mute" .. chat_id)
-redis:del(KEEPER.."bot:selfvideo:mute" .. chat_id)
-redis:del(KEEPER.."bot:gifs:mute" .. chat_id)
-redis:del(KEEPER.."anti-flood:" .. chat_id)
-redis:del(KEEPER.."flood:max:" .. chat_id)
-redis:del(KEEPER.."bot:sens:spam" .. chat_id)
-redis:del(KEEPER.."bot:music:mute" .. chat_id)
-redis:del(KEEPER.."bot:bots:mute" .. chat_id)
-redis:del(KEEPER.."bot:duplipost:mute" .. chat_id)
-redis:del(KEEPER.."bot:inline:mute" .. chat_id)
-redis:del(KEEPER.."bot:cmds" .. chat_id)
-redis:del(KEEPER.."bot:voice:mute" .. chat_id)
-redis:del(KEEPER.."editmsg" .. chat_id)
-redis:del(KEEPER.."bot:links:mute" .. chat_id)
-redis:del(KEEPER.."bot:pin:mute" .. chat_id)
-redis:del(KEEPER.."bot:sticker:mute" .. chat_id)
-redis:del(KEEPER.."bot:tgservice:mute" .. chat_id)
-redis:del(KEEPER.."bot:webpage:mute" .. chat_id)
-redis:del(KEEPER.."bot:strict" .. chat_id)
-redis:del(KEEPER.."bot:hashtag:mute" .. chat_id)
-redis:del(KEEPER.."tags:lock" .. chat_id)
-redis:del(KEEPER.."bot:location:mute" .. chat_id)
-redis:del(KEEPER.."bot:contact:mute" .. chat_id)
-redis:del(KEEPER.."bot:english:mute" .. chat_id)
-redis:del(KEEPER.."bot:member:lock" .. chat_id)
-redis:del(KEEPER.."bot:arabic:mute" .. chat_id)
-redis:del(KEEPER.."bot:forward:mute" .. chat_id)
-redis:del(KEEPER.."bot:document:mute" .. chat_id)
-redis:del(KEEPER.."markdown:lock" .. chat_id)
-redis:del(KEEPER.."Game:lock" .. chat_id)
-redis:del(KEEPER.."bot:spam:mute" .. chat_id)
-redis:del(KEEPER.."post:lock" .. chat_id)
-redis:del(KEEPER.."sayedit" .. chat_id)
-redis:del(KEEPER.."bot:muteall:Time" .. chat_id)
-redis:del(KEEPER.."bot:muteall:start" .. chat_id)
-redis:del(KEEPER.."bot:muteall:stop" .. chat_id)
-redis:del(KEEPER.."bot:muteall:start_Unix" .. chat_id)
-redis:del(KEEPER.."bot:muteall:stop_Unix" .. chat_id)
-redis:del(KEEPER.."bot:muteall:Run" .. chat_id)
+redis:del(Arab_Forum.."bot:muteall" .. chat_id)
+redis:del(Arab_Forum.."bot:text:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:photo:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:video:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:selfvideo:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:gifs:mute" .. chat_id)
+redis:del(Arab_Forum.."anti-flood:" .. chat_id)
+redis:del(Arab_Forum.."flood:max:" .. chat_id)
+redis:del(Arab_Forum.."bot:sens:spam" .. chat_id)
+redis:del(Arab_Forum.."bot:music:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:bots:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:duplipost:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:inline:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:cmds" .. chat_id)
+redis:del(Arab_Forum.."bot:voice:mute" .. chat_id)
+redis:del(Arab_Forum.."editmsg" .. chat_id)
+redis:del(Arab_Forum.."bot:links:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:pin:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:sticker:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:tgservice:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:webpage:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:strict" .. chat_id)
+redis:del(Arab_Forum.."bot:hashtag:mute" .. chat_id)
+redis:del(Arab_Forum.."tags:lock" .. chat_id)
+redis:del(Arab_Forum.."bot:location:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:contact:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:english:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:member:lock" .. chat_id)
+redis:del(Arab_Forum.."bot:arabic:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:forward:mute" .. chat_id)
+redis:del(Arab_Forum.."bot:document:mute" .. chat_id)
+redis:del(Arab_Forum.."markdown:lock" .. chat_id)
+redis:del(Arab_Forum.."Game:lock" .. chat_id)
+redis:del(Arab_Forum.."bot:spam:mute" .. chat_id)
+redis:del(Arab_Forum.."post:lock" .. chat_id)
+redis:del(Arab_Forum.."sayedit" .. chat_id)
+redis:del(Arab_Forum.."bot:muteall:Time" .. chat_id)
+redis:del(Arab_Forum.."bot:muteall:start" .. chat_id)
+redis:del(Arab_Forum.."bot:muteall:stop" .. chat_id)
+redis:del(Arab_Forum.."bot:muteall:start_Unix" .. chat_id)
+redis:del(Arab_Forum.."bot:muteall:stop_Unix" .. chat_id)
+redis:del(Arab_Forum.."bot:muteall:Run" .. chat_id)
 end
 local panel_one = function(chat_id)
-redis:set(KEEPER.."bot:webpage:mute" .. chat_id, true)
-redis:set(KEEPER.."bot:inline:mute" .. chat_id, true)
-redis:set(KEEPER.."bot:bots:mute" .. chat_id, true)
-redis:set(KEEPER.."tags:lock" .. chat_id, true)
-redis:set(KEEPER.."markdown:lock" .. chat_id, true)
-redis:set(KEEPER.."bot:links:mute" .. chat_id, true)
-redis:set(KEEPER.."bot:hashtag:mute" .. chat_id, true)
-redis:set(KEEPER.."bot:spam:mute" .. chat_id, true)
-redis:set(KEEPER.."anti-flood:" .. chat_id, true)
-redis:set(KEEPER.."Game:lock" .. chat_id, true)
-redis:set(KEEPER.."bot:panel" .. chat_id, "one")
+redis:set(Arab_Forum.."bot:webpage:mute" .. chat_id, true)
+redis:set(Arab_Forum.."bot:inline:mute" .. chat_id, true)
+redis:set(Arab_Forum.."bot:bots:mute" .. chat_id, true)
+redis:set(Arab_Forum.."tags:lock" .. chat_id, true)
+redis:set(Arab_Forum.."markdown:lock" .. chat_id, true)
+redis:set(Arab_Forum.."bot:links:mute" .. chat_id, true)
+redis:set(Arab_Forum.."bot:hashtag:mute" .. chat_id, true)
+redis:set(Arab_Forum.."bot:spam:mute" .. chat_id, true)
+redis:set(Arab_Forum.."anti-flood:" .. chat_id, true)
+redis:set(Arab_Forum.."Game:lock" .. chat_id, true)
+redis:set(Arab_Forum.."bot:panel" .. chat_id, "one")
 end
 local panel_two = function(chat_id)
-redis:set(KEEPER.."bot:webpage:mute" .. chat_id, true)
-redis:set(KEEPER.."bot:inline:mute" .. chat_id, true)
-redis:set(KEEPER.."bot:bots:mute" .. chat_id, true)
-redis:set(KEEPER.."tags:lock" .. chat_id, true)
-redis:set(KEEPER.."markdown:lock" .. chat_id, true)
-redis:set(KEEPER.."bot:links:mute" .. chat_id, true)
-redis:set(KEEPER.."bot:hashtag:mute" .. chat_id, true)
-redis:set(KEEPER.."bot:spam:mute" .. chat_id, true)
-redis:set(KEEPER.."anti-flood:" .. chat_id, true)
-redis:set(KEEPER.."Game:lock" .. chat_id, true)
-redis:set(KEEPER.."post:lock" .. chat_id, true)
-redis:set(KEEPER.."bot:forward:mute" .. chat_id, true)
-redis:set(KEEPER.."bot:photo:mute" .. chat_id, true)
-redis:set(KEEPER.."bot:video:mute" .. chat_id, true)
-redis:set(KEEPER.."bot:selfvideo:mute" .. chat_id, true)
-redis:set(KEEPER.."bot:gifs:mute" .. chat_id, true)
-redis:set(KEEPER.."bot:sticker:mute" .. chat_id, true)
-redis:set(KEEPER.."bot:location:mute" .. chat_id, true)
-redis:set(KEEPER.."bot:document:mute" .. chat_id, true)
-redis:set(KEEPER.."bot:panel" .. chat_id, "two")
+redis:set(Arab_Forum.."bot:webpage:mute" .. chat_id, true)
+redis:set(Arab_Forum.."bot:inline:mute" .. chat_id, true)
+redis:set(Arab_Forum.."bot:bots:mute" .. chat_id, true)
+redis:set(Arab_Forum.."tags:lock" .. chat_id, true)
+redis:set(Arab_Forum.."markdown:lock" .. chat_id, true)
+redis:set(Arab_Forum.."bot:links:mute" .. chat_id, true)
+redis:set(Arab_Forum.."bot:hashtag:mute" .. chat_id, true)
+redis:set(Arab_Forum.."bot:spam:mute" .. chat_id, true)
+redis:set(Arab_Forum.."anti-flood:" .. chat_id, true)
+redis:set(Arab_Forum.."Game:lock" .. chat_id, true)
+redis:set(Arab_Forum.."post:lock" .. chat_id, true)
+redis:set(Arab_Forum.."bot:forward:mute" .. chat_id, true)
+redis:set(Arab_Forum.."bot:photo:mute" .. chat_id, true)
+redis:set(Arab_Forum.."bot:video:mute" .. chat_id, true)
+redis:set(Arab_Forum.."bot:selfvideo:mute" .. chat_id, true)
+redis:set(Arab_Forum.."bot:gifs:mute" .. chat_id, true)
+redis:set(Arab_Forum.."bot:sticker:mute" .. chat_id, true)
+redis:set(Arab_Forum.."bot:location:mute" .. chat_id, true)
+redis:set(Arab_Forum.."bot:document:mute" .. chat_id, true)
+redis:set(Arab_Forum.."bot:panel" .. chat_id, "two")
 end
 local panel_three = function(chat_id)
-redis:set(KEEPER.."bot:inline:mute" .. chat_id, true)
-redis:set(KEEPER.."bot:bots:mute" .. chat_id, true)
-redis:set(KEEPER.."markdown:lock" .. chat_id, true)
-redis:set(KEEPER.."bot:links:mute" .. chat_id, true)
-redis:set(KEEPER.."bot:spam:mute" .. chat_id, true)
-redis:set(KEEPER.."bot:sens:spam" .. chat_id, 500)
-redis:set(KEEPER.."anti-flood:" .. chat_id, true)
-redis:set(KEEPER.."Game:lock" .. chat_id, true)
-redis:set(KEEPER.."bot:cmds" .. chat_id, true)
-redis:set(KEEPER.."bot:duplipost:mute" .. chat_id, true)
-redis:set(KEEPER.."bot:panel" .. chat_id, "three")
+redis:set(Arab_Forum.."bot:inline:mute" .. chat_id, true)
+redis:set(Arab_Forum.."bot:bots:mute" .. chat_id, true)
+redis:set(Arab_Forum.."markdown:lock" .. chat_id, true)
+redis:set(Arab_Forum.."bot:links:mute" .. chat_id, true)
+redis:set(Arab_Forum.."bot:spam:mute" .. chat_id, true)
+redis:set(Arab_Forum.."bot:sens:spam" .. chat_id, 500)
+redis:set(Arab_Forum.."anti-flood:" .. chat_id, true)
+redis:set(Arab_Forum.."Game:lock" .. chat_id, true)
+redis:set(Arab_Forum.."bot:cmds" .. chat_id, true)
+redis:set(Arab_Forum.."bot:duplipost:mute" .. chat_id, true)
+redis:set(Arab_Forum.."bot:panel" .. chat_id, "three")
 end
 local function exportChatInviteLink(chat_id, cb, cmd)
   tdcli_function ({
@@ -1828,24 +1827,24 @@ end
 end
 end
 end
-redis:set(KEEPER.."bot:Uptime", os.time())
+redis:set(Arab_Forum.."bot:Uptime", os.time())
 ----------------tdcli_update_callback---------------------------------------------------------------------------
 function tdcli_update_callback(data)
-local our_id = redis:get(KEEPER.."Our_ID") or 0
-local api_id = redis:get(KEEPER.."Bot:Api_ID") or 0
+local our_id = redis:get(Arab_Forum.."Our_ID") or 0
+local api_id = redis:get(Arab_Forum.."Bot:Api_ID") or 0
 if data.ID == "UpdateNewMessage" then
 local msg = data.message_
 local d = data.disable_notification_
 local chat = chats[msg.chat_id_]
-redis:sadd(KEEPER.."groups:users" .. msg.chat_id_, msg.sender_user_id_)--save users gp
-redis:incr(KEEPER.."msgs:"..msg.sender_user_id_..":"..msg.chat_id_.."")--save msgs gp
+redis:sadd(Arab_Forum.."groups:users" .. msg.chat_id_, msg.sender_user_id_)--save users gp
+redis:incr(Arab_Forum.."msgs:"..msg.sender_user_id_..":"..msg.chat_id_.."")--save msgs gp
 if msg.content_.ID == "MessageChatAddMembers" then
-redis:incr(KEEPER..'kpaddcon'..msg.chat_id_..':'..msg.sender_user_id_)
+redis:incr(Arab_Forum..'kpaddcon'..msg.chat_id_..':'..msg.sender_user_id_)
 if msg.date_ < os.time() - 40 then
 print("\027[" .. color.white[1] .. ";" .. color.magenta[2] .. "m>>> OLD MSG <<<\027[00m")
 return false
 end
-if not redis:get(KEEPER.."Set_Our_ID") then
+if not redis:get(Arab_Forum.."Set_Our_ID") then
 tdcli_function({ID = "GetMe"}, BotInfo, nil)
 end
 if tonumber(msg.sender_user_id_) == tonumber(api_id) then
@@ -1857,7 +1856,7 @@ print("\027[" .. color.red[1] .. ";" .. color.black[2] .. "m>>>>>>> [ Config.Ero
 return false
 end
 end
-if not redis:get(KEEPER.."Rank:Data") then
+if not redis:get(Arab_Forum.."Rank:Data") then
 for v, user in pairs(sudo_users) do
 do
 -------------------function outputsudo--------------------------------------------------------
@@ -1872,7 +1871,7 @@ sudousername = "---"
 end
 local sudouserid = result.id_ or "---"
 if result.first_name_ then
-redis:set(KEEPER.."KpSudos" .. user, "> Sudo User ID : " .. sudouserid .. [[
+redis:set(Arab_Forum.."KpSudos" .. user, "> Sudo User ID : " .. sudouserid .. [[
 
 > Sudo User Name : ]] .. sudoname .. [[
 
@@ -1896,7 +1895,7 @@ else
 botownerusername = "---"
 end
 local botowneruserid = result.id_ or "---"
-redis:set(KEEPER.."KpOwnerBot" .. Kp_Owner, "> Bot Owner ID : " .. botowneruserid .. [[
+redis:set(Arab_Forum.."KpOwnerBot" .. Kp_Owner, "> Bot Owner ID : " .. botowneruserid .. [[
 
 > Bot Owner Name : ]] .. botownername .. [[
 
@@ -1917,7 +1916,7 @@ else
 botusername = "---"
 end
 local botuserid = result.id_ or "---"
-redis:set(KEEPER.."Botid" .. result.id_, "> Bot ID : " .. botuserid .. [[
+redis:set(Arab_Forum.."Botid" .. result.id_, "> Bot ID : " .. botuserid .. [[
 
 > Bot Name : ]] .. botname .. [[
 
@@ -1925,7 +1924,7 @@ redis:set(KEEPER.."Botid" .. result.id_, "> Bot ID : " .. botuserid .. [[
 
 ---------------]])
 else
-redis:set(KEEPER.."Botid" .. bot_id, [[
+redis:set(Arab_Forum.."Botid" .. bot_id, [[
 > Bot ID : ---
 > Bot Name : ---
 > Bot Username : ---
@@ -1933,57 +1932,57 @@ redis:set(KEEPER.."Botid" .. bot_id, [[
 end
 end
 getUser(bot_id, outputbot)
-redis:setex(KEEPER.."Rank:Data", 700, true)
+redis:setex(Arab_Forum.."Rank:Data", 700, true)
 end
-if redis:get(KEEPER.."bot:reload") and 30 > tonumber(redis:ttl(KEEPER.."bot:reload")) then
+if redis:get(Arab_Forum.."bot:reload") and 30 > tonumber(redis:ttl(Arab_Forum.."bot:reload")) then
 load_config()
 setnumbergp()
-redis:setex(KEEPER.."bot:reload", 7230, true)
+redis:setex(Arab_Forum.."bot:reload", 7230, true)
 print("\027[" .. color.black[1] .. ";" .. color.green[2] .. "m>>> Bot Reloaded <<<\027[00m")
 end
-if not redis:get(KEEPER.."bot:reload2") then
-redis:del(KEEPER.."bot:groups")
-redis:del(KEEPER.."bot:userss")
-redis:setex(KEEPER.."bot:reloadingtime", 22 * hour, true)
-redis:setex(KEEPER.."bot:reload2", week, true)
-redis:setex(KEEPER.."bot:reload3", 2222 * day, true)
-redis:setex(KEEPER.."bot:reload4", 2222 * day, true)
+if not redis:get(Arab_Forum.."bot:reload2") then
+redis:del(Arab_Forum.."bot:groups")
+redis:del(Arab_Forum.."bot:userss")
+redis:setex(Arab_Forum.."bot:reloadingtime", 22 * hour, true)
+redis:setex(Arab_Forum.."bot:reload2", week, true)
+redis:setex(Arab_Forum.."bot:reload3", 2222 * day, true)
+redis:setex(Arab_Forum.."bot:reload4", 2222 * day, true)
 end
-if redis:get(KEEPER.."bot:reload3") and 500 >= tonumber(redis:ttl(KEEPER.."bot:reload3")) then
+if redis:get(Arab_Forum.."bot:reload3") and 500 >= tonumber(redis:ttl(Arab_Forum.."bot:reload3")) then
 local hash = "bot:groups"
-local list = redis:smembers(KEEPER..hash)
+local list = redis:smembers(Arab_Forum..hash)
 for k, v in pairs(list) do
-if not redis:get(KEEPER.."bot:enable:" .. v) and not redis:get(KEEPER.."bot:charge:" .. v) then
+if not redis:get(Arab_Forum.."bot:enable:" .. v) and not redis:get(Arab_Forum.."bot:charge:" .. v) then
 resetgroup(v)
 chat_leave(v, bot_id)
-redis:srem(KEEPER..hash, v)
+redis:srem(Arab_Forum..hash, v)
 end
 end
-redis:del(KEEPER.."bot:reload3")
+redis:del(Arab_Forum.."bot:reload3")
 end
-if redis:get(KEEPER.."bot:reload4") and redis:ttl(KEEPER.."bot:reload4") <= 600 then
+if redis:get(Arab_Forum.."bot:reload4") and redis:ttl(Arab_Forum.."bot:reload4") <= 600 then
 local reload_data_sudo = function()
 local hashsudo = "Bot:KpSudos"
-local listsudo = redis:smembers(KEEPER..hashsudo)
+local listsudo = redis:smembers(Arab_Forum..hashsudo)
 for k, v in pairs(listsudo) do
 local hashdata = "sudo:data:" .. v
-local listdata = redis:smembers(KEEPER..hashdata)
+local listdata = redis:smembers(Arab_Forum..hashdata)
 for k, gp in pairs(listdata) do
-if not redis:sismember(KEEPER.."bot:groups", gp) then
-redis:srem(KEEPER..hashdata, gp)
+if not redis:sismember(Arab_Forum.."bot:groups", gp) then
+redis:srem(Arab_Forum..hashdata, gp)
 end
 end
 end
 end
 local reload_data_admins = function()
 local hashadmin = "Bot:Admins"
-local listadmin = redis:smembers(KEEPER..hashadmin)
+local listadmin = redis:smembers(Arab_Forum..hashadmin)
 for k, v in pairs(listadmin) do
 local hashdata = "sudo:data:" .. v
-local listdata = redis:smembers(KEEPER..hashdata)
+local listdata = redis:smembers(Arab_Forum..hashdata)
 for k, gp in pairs(listdata) do
-if not redis:sismember(KEEPER.."bot:groups", gp) then
-redis:srem(KEEPER..hashdata, gp)
+if not redis:sismember(Arab_Forum.."bot:groups", gp) then
+redis:srem(Arab_Forum..hashdata, gp)
 end
 end
 end
@@ -1992,21 +1991,21 @@ reload_data_sudo()
 reload_data_admins()
 end
 ------------------------------EXpirepannel GP ----------------------------------------------------------
-local expiretime = redis:ttl(KEEPER.."bot:charge:" .. msg.chat_id_)
-if not redis:get(KEEPER.."bot:charge:" .. msg.chat_id_) and redis:get(KEEPER.."bot:enable:" .. msg.chat_id_) then
-redis:del(KEEPER.."bot:enable:" .. msg.chat_id_)
-redis:srem(KEEPER.."bot:groups", msg.chat_id_)
+local expiretime = redis:ttl(Arab_Forum.."bot:charge:" .. msg.chat_id_)
+if not redis:get(Arab_Forum.."bot:charge:" .. msg.chat_id_) and redis:get(Arab_Forum.."bot:enable:" .. msg.chat_id_) then
+redis:del(Arab_Forum.."bot:enable:" .. msg.chat_id_)
+redis:srem(Arab_Forum.."bot:groups", msg.chat_id_)
 end
-if redis:get(KEEPER.."bot:charge:" .. msg.chat_id_) and not redis:get(KEEPER.."bot:enable:" .. msg.chat_id_) then
-redis:set(KEEPER.."bot:enable:" .. msg.chat_id_, true)
+if redis:get(Arab_Forum.."bot:charge:" .. msg.chat_id_) and not redis:get(Arab_Forum.."bot:enable:" .. msg.chat_id_) then
+redis:set(Arab_Forum.."bot:enable:" .. msg.chat_id_, true)
 end
-if not redis:get(KEEPER.."bot:expirepannel:" .. msg.chat_id_) and redis:get(KEEPER.."bot:charge:" .. msg.chat_id_) and tonumber(expiretime) < tonumber(day) and tonumber(expiretime) >= 3600 then
+if not redis:get(Arab_Forum.."bot:expirepannel:" .. msg.chat_id_) and redis:get(Arab_Forum.."bot:charge:" .. msg.chat_id_) and tonumber(expiretime) < tonumber(day) and tonumber(expiretime) >= 3600 then
 local id = tostring(msg.chat_id_)
 if id:match("-100(%d+)") then
 local v = tonumber(Kp_Owner)
-local list = redis:smembers(KEEPER.."bot:owners:" .. msg.chat_id_)
+local list = redis:smembers(Arab_Forum.."bot:owners:" .. msg.chat_id_)
 if list[1] or list[2] or list[3] or list[4] then
-user_info = redis:get(KEEPER.."user:Name" .. (list[1] or list[2] or list[3] or list[4]))
+user_info = redis:get(Arab_Forum.."user:Name" .. (list[1] or list[2] or list[3] or list[4]))
 end
 if user_info then
 owner = user_info
@@ -2019,47 +2018,47 @@ sudo = User
 else
 sudo = "لا يوجد  "
 end
-send(v, 0, 1, "💲┊ سوف تنتهي صلاحيه المجموعه\n🔅┊الرابط : " .. (redis:get(KEEPER.."bot:group:link" .. msg.chat_id_) or "لا يوجد ") .. "\n🚫┊ الايدي » " .. msg.chat_id_ .. "", 1, "html")
-redis:setex(KEEPER.."bot:expirepannel:" .. msg.chat_id_, 43200, true)
+send(v, 0, 1, "💲┊ سوف تنتهي صلاحيه المجموعه\n🔅┊الرابط : " .. (redis:get(Arab_Forum.."bot:group:link" .. msg.chat_id_) or "لا يوجد ") .. "\n🚫┊ الايدي » " .. msg.chat_id_ .. "", 1, "html")
+redis:setex(Arab_Forum.."bot:expirepannel:" .. msg.chat_id_, 43200, true)
 end
 end
 ------------------------Autoleave FOR BOT----------------------------------------------------
-if redis:get(KEEPER.."autoleave") == "On" then
+if redis:get(Arab_Forum.."autoleave") == "On" then
 local id = tostring(msg.chat_id_)
-if not redis:get(KEEPER.."bot:enable:" .. msg.chat_id_) and id:match("-100(%d+)") and not redis:get(KEEPER.."bot:autoleave:" .. msg.chat_id_) then
-redis:setex(KEEPER.."bot:autoleave:" .. msg.chat_id_, 1400, true)
+if not redis:get(Arab_Forum.."bot:enable:" .. msg.chat_id_) and id:match("-100(%d+)") and not redis:get(Arab_Forum.."bot:autoleave:" .. msg.chat_id_) then
+redis:setex(Arab_Forum.."bot:autoleave:" .. msg.chat_id_, 1400, true)
 end
-local autoleavetime = tonumber(redis:ttl(KEEPER.."bot:autoleave:" .. msg.chat_id_))
+local autoleavetime = tonumber(redis:ttl(Arab_Forum.."bot:autoleave:" .. msg.chat_id_))
 local time = 400
 if tonumber(autoleavetime) < tonumber(time) and tonumber(autoleavetime) > 150 then
-redis:set(KEEPER.."lefting" .. msg.chat_id_, true)
+redis:set(Arab_Forum.."lefting" .. msg.chat_id_, true)
 end
 local id = tostring(msg.chat_id_)
-if id:match("-100(%d+)") and redis:get(KEEPER.."lefting" .. msg.chat_id_) then
-if not redis:get(KEEPER.."bot:enable:" .. msg.chat_id_) and not redis:get(KEEPER.."bot:charge:" .. msg.chat_id_) then
-redis:del(KEEPER.."lefting" .. msg.chat_id_)
-redis:del(KEEPER.."bot:autoleave:" .. msg.chat_id_)
+if id:match("-100(%d+)") and redis:get(Arab_Forum.."lefting" .. msg.chat_id_) then
+if not redis:get(Arab_Forum.."bot:enable:" .. msg.chat_id_) and not redis:get(Arab_Forum.."bot:charge:" .. msg.chat_id_) then
+redis:del(Arab_Forum.."lefting" .. msg.chat_id_)
+redis:del(Arab_Forum.."bot:autoleave:" .. msg.chat_id_)
 chat_leave(msg.chat_id_, bot_id)
 local v = tonumber(Kp_Owner)
 send(v, 0, 1, "💲┊ تم مغادره المجموعــه\n🔱┊ الاسم » 👇🏾\n🏮┊ ("..title_name(msg.chat_id_)..")\n🚫┊ الايدي » " .. msg.chat_id_, 1, "html")
-redis:srem(KEEPER.."bot:groups", msg.chat_id_)
-elseif redis:get(KEEPER.."bot:enable:" .. msg.chat_id_) then
-redis:del(KEEPER.."lefting" .. msg.chat_id_)
+redis:srem(Arab_Forum.."bot:groups", msg.chat_id_)
+elseif redis:get(Arab_Forum.."bot:enable:" .. msg.chat_id_) then
+redis:del(Arab_Forum.."lefting" .. msg.chat_id_)
 end
 end
-elseif redis:get(KEEPER.."bot:charge:" .. msg.chat_id_) == "Trial" and 500 > redis:ttl(KEEPER.."bot:charge:" .. msg.chat_id_) then
+elseif redis:get(Arab_Forum.."bot:charge:" .. msg.chat_id_) == "Trial" and 500 > redis:ttl(Arab_Forum.."bot:charge:" .. msg.chat_id_) then
 local v = tonumber(Kp_Owner)
 send(v, 0, 1, "💲┊ تم مغادره المجموعــه\n🔱┊ الاسم » ("..title_name(msg.chat_id_)..")\n🚫┊ الايدي » " .. msg.chat_id_, 1, "html")
-redis:srem(KEEPER.."bot:groups", msg.chat_id_)
+redis:srem(Arab_Forum.."bot:groups", msg.chat_id_)
 chat_leave(msg.chat_id_, bot_id)
-redis:del(KEEPER.."bot:charge:" .. msg.chat_id_)
+redis:del(Arab_Forum.."bot:charge:" .. msg.chat_id_)
 end
 local idf = tostring(msg.chat_id_)
 if idf:match("-100(%d+)") then
 local chatname = chat and chat and chat.title_
 local svgroup = "group:Name" .. msg.chat_id_
 if chat and chatname then
-redis:set(KEEPER..svgroup, chatname)
+redis:set(Arab_Forum..svgroup, chatname)
 end
 end
 local check_username = function(extra, result)
@@ -2070,17 +2069,17 @@ local username = result.username_
 local svuser = "user:Name" .. result.id_
 local id = result.id_
 if username then
-redis:set(KEEPER..svuser, "@" .. username)
+redis:set(Arab_Forum..svuser, "@" .. username)
 else
-redis:set(KEEPER..svuser, name)
+redis:set(Arab_Forum..svuser, name)
 end
 end
 getUser(msg.sender_user_id_, check_username)
-if redis:get(KEEPER.."clerk") == "On" then
+if redis:get(Arab_Forum.."clerk") == "On" then
 local clerk = function(extra, result)
 if not is_admin(result.id_) then
-local textc = redis:get(KEEPER.."textsec")
-if not redis:get(KEEPER.."secretary_:" .. msg.chat_id_) and textc then
+local textc = redis:get(Arab_Forum.."textsec")
+if not redis:get(Arab_Forum.."secretary_:" .. msg.chat_id_) and textc then
 textc = textc:gsub("FIRSTNAME", result.first_name_ or "")
 textc = textc:gsub("LASTNAME", result.last_name_ or "")
 if result.username_ then
@@ -2090,7 +2089,7 @@ textc = textc:gsub("USERNAME", "")
 end
 textc = textc:gsub("USERID", result.id_ or "")
 send(msg.chat_id_, msg.id_, 1, textc, 1, "html")
-redis:setex(KEEPER.."secretary_:" .. msg.chat_id_, day, true)
+redis:setex(Arab_Forum.."secretary_:" .. msg.chat_id_, day, true)
 end
 end
 end
@@ -2099,13 +2098,13 @@ getUser(msg.sender_user_id_, clerk)
 end
 end
 -----------------status_welcome IN GP-------------------------------------------------------------------------
-local status_welcome = (redis:get(KEEPER..'status:welcome:'..msg.chat_id_) or 'disable')
+local status_welcome = (redis:get(Arab_Forum..'status:welcome:'..msg.chat_id_) or 'disable')
 if status_welcome == 'enable' then
 if msg.content_.ID == "MessageChatJoinByLink" then
 if not is_banned(msg.chat_id_,msg.sender_user_id_) then
 function wlc(extra,result,success)
-if redis:get(KEEPER..'welcome:'..msg.chat_id_) then
-text = redis:get(KEEPER..'welcome:'..msg.chat_id_)
+if redis:get(Arab_Forum..'welcome:'..msg.chat_id_) then
+text = redis:get(Arab_Forum..'welcome:'..msg.chat_id_)
 else
 text = 'اهلا عزيزي {firstname}\nنورت المجموعه 🌸'
 end
@@ -2120,8 +2119,8 @@ end
 if msg.content_.members_ and msg.content_.members_[0] and msg.content_.members_[0].type_.ID == 'UserTypeGeneral' then
 if msg.content_.ID == "MessageChatAddMembers" then
 if not is_banned(msg.chat_id_,msg.content_.members_[0].id_) then
-if redis:get(KEEPER..'welcome:'..msg.chat_id_) then
-text = redis:get(KEEPER..'welcome:'..msg.chat_id_)
+if redis:get(Arab_Forum..'welcome:'..msg.chat_id_) then
+text = redis:get(Arab_Forum..'welcome:'..msg.chat_id_)
 else
 text = 'اهلا عزيزي {firstname}\nنورت المجموعه 🌸'
 end
@@ -2131,31 +2130,31 @@ local text = text:gsub('{username}',('@'..msg.content_.members_[0].username_ or 
 send(msg.chat_id_, msg.id_, 1, text, 1, 'html')
 end end end end
 ----------------- save all msg bot --------------------------
-redis:incr(KEEPER.."bot:allmsgs")
+redis:incr(Arab_Forum.."bot:allmsgs")
 if msg.chat_id_ then
 local id = tostring(msg.chat_id_)
 if id:match("-100(%d+)") then
-if not redis:sismember(KEEPER.."bot:groups", msg.chat_id_) then
-redis:sadd(KEEPER.."bot:groups", msg.chat_id_)
+if not redis:sismember(Arab_Forum.."bot:groups", msg.chat_id_) then
+redis:sadd(Arab_Forum.."bot:groups", msg.chat_id_)
 end
 elseif id:match("^(%d+)") then
-if not redis:sismember(KEEPER.."bot:userss", msg.chat_id_) then
-redis:sadd(KEEPER.."bot:userss", msg.chat_id_)
+if not redis:sismember(Arab_Forum.."bot:userss", msg.chat_id_) then
+redis:sadd(Arab_Forum.."bot:userss", msg.chat_id_)
 end
-elseif not redis:sismember(KEEPER.."bot:groups", msg.chat_id_) then
-redis:sadd(KEEPER.."bot:groups", msg.chat_id_)
+elseif not redis:sismember(Arab_Forum.."bot:groups", msg.chat_id_) then
+redis:sadd(Arab_Forum.."bot:groups", msg.chat_id_)
 end
 end
 ---------------type the msg--------------------------------------------------
 if msg.content_ then
 if msg.content_.ID == "MessageText" then
-redis:incr(KEEPER.."text:"..msg.sender_user_id_..":"..msg.chat_id_.."")
+redis:incr(Arab_Forum.."text:"..msg.sender_user_id_..":"..msg.chat_id_.."")
 text = msg.content_.text_
 print("\027[" .. color.black[1] .. ";" .. color.yellow[2] .. "m>> [ Text ] <<\027[00m")
 msg_type = "MSG:Text"
 end
 if msg.content_.ID == "MessagePhoto" then
-redis:incr(KEEPER.."Photo:"..msg.sender_user_id_..":"..msg.chat_id_.."")
+redis:incr(Arab_Forum.."Photo:"..msg.sender_user_id_..":"..msg.chat_id_.."")
 print("\027[" .. color.black[1] .. ";" .. color.yellow[2] .. "m>> [ Photo ] <<\027[00m")
 msg_type = "MSG:Photo"
 end
@@ -2168,11 +2167,11 @@ print("\027[" .. color.black[1] .. ";" .. color.yellow[2] .. "m>> [ Document ] <
 msg_type = "MSG:Document"
 end
 if msg.content_.ID == "MessageSticker" then
-redis:incr(KEEPER.."sticker:"..msg.sender_user_id_..":"..msg.chat_id_.."")
-if not redis:get(KEEPER.."lock_STCK"..msg.chat_id_) then
-if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
-local KEEPER = {"منور انت ، 😙","اه باع وجهك شكد نضيف 😅","هذا منو ، 😏","تسمحلي ابوسك ☹️😹","مليان ضحك مليان 😹❤️","تف على هذا  ويهك 💦😹","اذا حاته ممكن الرقم 😆😹","تدري صار "..(redis:get(KEEPER.."sticker:"..msg.sender_user_id_..":"..msg.chat_id_.."")).." ملصق داز  شهالتبذير 🤔😹","كافي ملصقات مشايف 😫"}
-send(msg.chat_id_, msg.id_, 1,""..KEEPER[math.random(#KEEPER)].."", 1, 'md')
+redis:incr(Arab_Forum.."sticker:"..msg.sender_user_id_..":"..msg.chat_id_.."")
+if not redis:get(Arab_Forum.."lock_STCK"..msg.chat_id_) then
+if not redis:get(Arab_Forum..'lock:add'..msg.chat_id_) then
+local Arab_Forum = {"منور انت ، 😙","اه باع وجهك شكد نضيف 😅","هذا منو ، 😏","تسمحلي ابوسك ☹️😹","مليان ضحك مليان 😹❤️","تف على هذا  ويهك 💦😹","اذا حاته ممكن الرقم 😆😹","تدري صار "..(redis:get(KEEPER.."sticker:"..msg.sender_user_id_..":"..msg.chat_id_.."")).." ملصق داز  شهالتبذير 🤔😹","كافي ملصقات مشايف 😫"}
+send(msg.chat_id_, msg.id_, 1,""..Arab_Forum[math.random(#Arab_Forum)].."", 1, 'md')
 end
 end
 print("\027[" .. color.black[1] .. ";" .. color.yellow[2] .. "m>> [ Sticker ] <<\027[00m")
@@ -2187,17 +2186,17 @@ print("\027[" .. color.black[1] .. ";" .. color.yellow[2] .. "m>> [ Game ] <<\02
 msg_type = "MSG:Game"
 end
 if msg.content_.ID == "MessageVoice" then
-redis:incr(KEEPER.."Voice:"..msg.sender_user_id_..":"..msg.chat_id_.."")
+redis:incr(Arab_Forum.."Voice:"..msg.sender_user_id_..":"..msg.chat_id_.."")
 print("\027[" .. color.black[1] .. ";" .. color.yellow[2] .. "m>> [ Voice ] <<\027[00m")
 msg_type = "MSG:Voice"
 end
 if msg.content_.ID == "MessageVideo" then
-redis:incr(KEEPER.."Video:"..msg.sender_user_id_..":"..msg.chat_id_.."")
+redis:incr(Arab_Forum.."Video:"..msg.sender_user_id_..":"..msg.chat_id_.."")
 print("\027[" .. color.black[1] .. ";" .. color.yellow[2] .. "m>> [ Video ] <<\027[00m")
 msg_type = "MSG:Video"
 end
 if msg.content_.ID == "MessageAnimation" then
-redis:incr(KEEPER.."Gif:"..msg.sender_user_id_..":"..msg.chat_id_.."")
+redis:incr(Arab_Forum.."Gif:"..msg.sender_user_id_..":"..msg.chat_id_.."")
 print("\027[" .. color.black[1] .. ";" .. color.yellow[2] .. "m>> [ Gif ] <<\027[00m")
 msg_type = "MSG:Gif"
 end
@@ -2206,7 +2205,7 @@ print("\027[" .. color.black[1] .. ";" .. color.yellow[2] .. "m>> [ Location ] <
 msg_type = "MSG:Location"
 end
 if msg.content_.ID == "MessageUnsupported" then
-redis:incr(KEEPER.."SelfVideo:"..msg.sender_user_id_..":"..msg.chat_id_.."")
+redis:incr(Arab_Forum.."SelfVideo:"..msg.sender_user_id_..":"..msg.chat_id_.."")
 print("\027[" .. color.black[1] .. ";" .. color.yellow[2] .. "m>> [ Self Video ] <<\027[00m")
 msg_type = "MSG:SelfVideo"
 end
@@ -2243,87 +2242,87 @@ end end
 ----------------------------------save_rep_in_gp----------------------------------------------
 text = msg.content_.text_
 if msg.content_.text_  or msg.content_.video_ or msg.content_.sticker_ or msg.content_.voice_ or msg.content_.animation_ then
-local content_text = redis:get(KEEPER..'add:repgp'..msg.sender_user_id_..''..msg.chat_id_..'')
+local content_text = redis:get(Arab_Forum..'add:repgp'..msg.sender_user_id_..''..msg.chat_id_..'')
 if content_text == 'save_repgp' then
-redis:del(KEEPER..'add:repgp'..msg.sender_user_id_..''..msg.chat_id_..'')
-local content_text = redis:get(KEEPER..'addreplaygp:'..msg.sender_user_id_..''..msg.chat_id_..'')
+redis:del(Arab_Forum..'add:repgp'..msg.sender_user_id_..''..msg.chat_id_..'')
+local content_text = redis:get(Arab_Forum..'addreplaygp:'..msg.sender_user_id_..''..msg.chat_id_..'')
 if msg.content_.video_ then
-redis:set(KEEPER..'video_repgp'..content_text..''..msg.chat_id_..'', msg.content_.video_.video_.persistent_id_)
+redis:set(Arab_Forum..'video_repgp'..content_text..''..msg.chat_id_..'', msg.content_.video_.video_.persistent_id_)
 end
 if msg.content_.sticker_ then
-redis:set(KEEPER..'stecker_repgp'..content_text..''..msg.chat_id_..'', msg.content_.sticker_.sticker_.persistent_id_)
+redis:set(Arab_Forum..'stecker_repgp'..content_text..''..msg.chat_id_..'', msg.content_.sticker_.sticker_.persistent_id_)
 end
 if msg.content_.voice_ then
-redis:set(KEEPER..'voice_repgp'..content_text..''..msg.chat_id_..'', msg.content_.voice_.voice_.persistent_id_)
+redis:set(Arab_Forum..'voice_repgp'..content_text..''..msg.chat_id_..'', msg.content_.voice_.voice_.persistent_id_)
 end
 if msg.content_.animation_ then
-redis:set(KEEPER..'gif_repgp'..content_text..''..msg.chat_id_..'', msg.content_.animation_.animation_.persistent_id_)
+redis:set(Arab_Forum..'gif_repgp'..content_text..''..msg.chat_id_..'', msg.content_.animation_.animation_.persistent_id_)
 end
 if msg.content_.text_ then
-redis:set(KEEPER..'text_repgp'..content_text..''..msg.chat_id_..'', msg.content_.text_)
+redis:set(Arab_Forum..'text_repgp'..content_text..''..msg.chat_id_..'', msg.content_.text_)
 end
 redis:sadd('rep_owner'..msg.chat_id_..'',content_text)
 send(msg.chat_id_, msg.id_, 1, "📌┊ تم حفظ الرد بنجاح\n", 1, 'md')
-redis:del(KEEPER..'addreplaygp:'..msg.sender_user_id_..''..msg.chat_id_..'')
+redis:del(Arab_Forum..'addreplaygp:'..msg.sender_user_id_..''..msg.chat_id_..'')
 return false end end
-if msg.content_.text_ and not redis:get(KEEPER..'lock_reeeep'..msg.chat_id_) then
-if redis:get(KEEPER..'video_repgp'..msg.content_.text_..''..msg.chat_id_..'') then
-sendVideo(msg.chat_id_, msg.id_, 0, 1,nil, redis:get(KEEPER..'video_repgp'..msg.content_.text_..''..msg.chat_id_..''))
+if msg.content_.text_ and not redis:get(Arab_Forum..'lock_reeeep'..msg.chat_id_) then
+if redis:get(Arab_Forum..'video_repgp'..msg.content_.text_..''..msg.chat_id_..'') then
+sendVideo(msg.chat_id_, msg.id_, 0, 1,nil, redis:get(Arab_Forum..'video_repgp'..msg.content_.text_..''..msg.chat_id_..''))
 end
-if redis:get(KEEPER..'voice_repgp'..msg.content_.text_..''..msg.chat_id_..'')  then
-sendVoice(msg.chat_id_, msg.id_, 0, 1, nil, redis:get(KEEPER..'voice_repgp'..msg.content_.text_..''..msg.chat_id_..''))
+if redis:get(Arab_Forum..'voice_repgp'..msg.content_.text_..''..msg.chat_id_..'')  then
+sendVoice(msg.chat_id_, msg.id_, 0, 1, nil, redis:get(Arab_Forum..'voice_repgp'..msg.content_.text_..''..msg.chat_id_..''))
 end
-if  redis:get(KEEPER..'gif_repgp'..msg.content_.text_..''..msg.chat_id_..'') then
-sendDocument(msg.chat_id_, msg.id_, 0, 1, nil, redis:get(KEEPER..'gif_repgp'..msg.content_.text_..''..msg.chat_id_..''))
+if  redis:get(Arab_Forum..'gif_repgp'..msg.content_.text_..''..msg.chat_id_..'') then
+sendDocument(msg.chat_id_, msg.id_, 0, 1, nil, redis:get(Arab_Forum..'gif_repgp'..msg.content_.text_..''..msg.chat_id_..''))
 end
-if redis:get(KEEPER..'stecker_repgp'..msg.content_.text_..''..msg.chat_id_..'') then
-sendSticker(msg.chat_id_, msg.id_, 0, 1,nil, redis:get(KEEPER..'stecker_repgp'..msg.content_.text_..''..msg.chat_id_..''))
+if redis:get(Arab_Forum..'stecker_repgp'..msg.content_.text_..''..msg.chat_id_..'') then
+sendSticker(msg.chat_id_, msg.id_, 0, 1,nil, redis:get(Arab_Forum..'stecker_repgp'..msg.content_.text_..''..msg.chat_id_..''))
 end
-if redis:get(KEEPER..'text_repgp'..msg.content_.text_..''..msg.chat_id_..'') then
-send(msg.chat_id_, msg.id_, 1, redis:get(KEEPER..'text_repgp'..msg.content_.text_..''..msg.chat_id_..'') ,  1, 'md')
+if redis:get(Arab_Forum..'text_repgp'..msg.content_.text_..''..msg.chat_id_..'') then
+send(msg.chat_id_, msg.id_, 1, redis:get(Arab_Forum..'text_repgp'..msg.content_.text_..''..msg.chat_id_..'') ,  1, 'md')
 end
 end
 ---------------------------------in all gps---------------------------------------------------
 text = msg.content_.text_
 if msg.content_.text_  or msg.content_.video_ or msg.content_.sticker_ or msg.content_.voice_ or msg.content_.animation_ then
-local content_text = redis:get(KEEPER.."add:repallt"..msg.sender_user_id_)
+local content_text = redis:get(Arab_Forum.."add:repallt"..msg.sender_user_id_)
 if content_text == 'save_rep' then
-redis:del(KEEPER.."add:repallt"..msg.sender_user_id_)
-local content_text = redis:get(KEEPER.."addreply2:"..msg.sender_user_id_)
+redis:del(Arab_Forum.."add:repallt"..msg.sender_user_id_)
+local content_text = redis:get(Arab_Forum.."addreply2:"..msg.sender_user_id_)
 if msg.content_.video_ then
-redis:set(KEEPER.."video_repall"..content_text, msg.content_.video_.video_.persistent_id_)
+redis:set(Arab_Forum.."video_repall"..content_text, msg.content_.video_.video_.persistent_id_)
 end
 if msg.content_.sticker_ then
-redis:set(KEEPER.."stecker_repall"..content_text, msg.content_.sticker_.sticker_.persistent_id_)
+redis:set(Arab_Forum.."stecker_repall"..content_text, msg.content_.sticker_.sticker_.persistent_id_)
 end
 if msg.content_.voice_ then
-redis:set(KEEPER.."voice_repall"..content_text, msg.content_.voice_.voice_.persistent_id_)
+redis:set(Arab_Forum.."voice_repall"..content_text, msg.content_.voice_.voice_.persistent_id_)
 end
 if msg.content_.animation_ then
-redis:set(KEEPER.."gif_repall"..content_text, msg.content_.animation_.animation_.persistent_id_)
+redis:set(Arab_Forum.."gif_repall"..content_text, msg.content_.animation_.animation_.persistent_id_)
 end
 if msg.content_.text_ then
-redis:set(KEEPER.."text_repall"..content_text, msg.content_.text_)
+redis:set(Arab_Forum.."text_repall"..content_text, msg.content_.text_)
 end
 redis:sadd('rep_sudo',content_text)
 send(msg.chat_id_, msg.id_, 1, "📌┊ تم حفظ الرد بنجاح\n", 1, 'md')
-redis:del(KEEPER.."addreply2:"..msg.sender_user_id_)
+redis:del(Arab_Forum.."addreply2:"..msg.sender_user_id_)
 return false end end
-if msg.content_.text_ and not redis:get(KEEPER..'lock_reeeep'..msg.chat_id_) then
+if msg.content_.text_ and not redis:get(Arab_Forum..'lock_reeeep'..msg.chat_id_) then
 if redis:get(KEEPER.."video_repall"..msg.content_.text_) then
-sendVideo(msg.chat_id_, msg.id_, 0, 1,nil, redis:get(KEEPER.."video_repall"..msg.content_.text_))
+sendVideo(msg.chat_id_, msg.id_, 0, 1,nil, redis:get(Arab_Forum.."video_repall"..msg.content_.text_))
 end
-if redis:get(KEEPER.."voice_repall"..msg.content_.text_)  then
-sendVoice(msg.chat_id_, msg.id_, 0, 1, nil, redis:get(KEEPER.."voice_repall"..msg.content_.text_))
+if redis:get(Arab_Forum.."voice_repall"..msg.content_.text_)  then
+sendVoice(msg.chat_id_, msg.id_, 0, 1, nil, redis:get(Arab_Forum.."voice_repall"..msg.content_.text_))
 end
-if  redis:get(KEEPER.."gif_repall"..msg.content_.text_) then
-sendDocument(msg.chat_id_, msg.id_, 0, 1, nil, redis:get(KEEPER.."gif_repall"..msg.content_.text_))
+if  redis:get(Arab_Forum.."gif_repall"..msg.content_.text_) then
+sendDocument(msg.chat_id_, msg.id_, 0, 1, nil, redis:get(Arab_Forum.."gif_repall"..msg.content_.text_))
 end
-if redis:get(KEEPER.."stecker_repall"..msg.content_.text_) then
-sendSticker(msg.chat_id_, msg.id_, 0, 1,nil, redis:get(KEEPER.."stecker_repall"..msg.content_.text_))
+if redis:get(Arab_Forum.."stecker_repall"..msg.content_.text_) then
+sendSticker(msg.chat_id_, msg.id_, 0, 1,nil, redis:get(Arab_Forum.."stecker_repall"..msg.content_.text_))
 end
-if redis:get(KEEPER.."text_repall"..msg.content_.text_) then
-send(msg.chat_id_, msg.id_, 1, redis:get(KEEPER.."text_repall"..msg.content_.text_) ,  1, "md")
+if redis:get(Arab_Forum.."text_repall"..msg.content_.text_) then
+send(msg.chat_id_, msg.id_, 1, redis:get(Arab_Forum.."text_repall"..msg.content_.text_) ,  1, "md")
 end
 end
 if not d and chat then
@@ -2334,42 +2333,42 @@ do_notify(chat and chat.title_, msg.content_.ID)
 end
 end
 local flmax = "flood:max:" .. msg.chat_id_
-if not redis:get(KEEPER..flmax) then
+if not redis:get(Arab_Forum..flmax) then
 floodMax = 5
 else
-floodMax = tonumber(redis:get(KEEPER..flmax))
+floodMax = tonumber(redis:get(Arab_Forum..flmax))
 end
 local pm = "flood:" .. msg.sender_user_id_ .. ":" .. msg.chat_id_ .. ":msgs"
-if not redis:get(KEEPER..pm) then
+if not redis:get(Arab_Forum..pm) then
 msgs = 0
 else
-msgs = tonumber(redis:get(KEEPER..pm))
+msgs = tonumber(redis:get(Arab_Forum..pm))
 end
 local TIME_CHECK = 2
 local TIME_CHECK_PV = 2
 local hashflood = "anti-flood:" .. msg.chat_id_
 if msgs > floodMax - 1 then
-if redis:get(KEEPER.."floodstatus" .. msg.chat_id_) == "Kicked" then
+if redis:get(Arab_Forum.."floodstatus" .. msg.chat_id_) == "Kicked" then
 del_all_msgs(msg.chat_id_, msg.sender_user_id_)
 chat_kick(msg.chat_id_, msg.sender_user_id_)
-elseif redis:get(KEEPER.."floodstatus" .. msg.chat_id_) == "DelMsg" then
+elseif redis:get(Arab_Forum.."floodstatus" .. msg.chat_id_) == "DelMsg" then
 del_all_msgs(msg.chat_id_, msg.sender_user_id_)
 else
 del_all_msgs(msg.chat_id_, msg.sender_user_id_)
 end
 end
 local pmonpv = "antiattack:" .. msg.sender_user_id_ .. ":" .. msg.chat_id_ .. ":msgs"
-if not redis:get(KEEPER..pmonpv) then
+if not redis:get(Arab_Forum..pmonpv) then
 msgsonpv = 0
 else
-msgsonpv = tonumber(redis:get(KEEPER..pmonpv))
+msgsonpv = tonumber(redis:get(Arab_Forum..pmonpv))
 end
 if msgsonpv > 12 then
 blockUser(msg.sender_user_id_)
 end
 local idmem = tostring(msg.chat_id_)
-if idmem:match("^(%d+)") and not is_admin(msg.sender_user_id_) and not redis:get(KEEPER.."Filtering:" .. msg.sender_user_id_) then
-redis:setex(KEEPER..pmonpv, TIME_CHECK_PV, msgsonpv + 1)
+if idmem:match("^(%d+)") and not is_admin(msg.sender_user_id_) and not redis:get(Arab_Forum.."Filtering:" .. msg.sender_user_id_) then
+redis:setex(Arab_Forum..pmonpv, TIME_CHECK_PV, msgsonpv + 1)
 end
 function delmsg(extra, result)
 for k, v in pairs(result.messages_) do
@@ -2386,7 +2385,7 @@ if not is_momod(msg.sender_user_id_, msg.chat_id_) and not is_vipmem(msg.sender_
 if msg.content_.caption_ then
 text = msg.content_.caption_
 if text and (text:match("[Hh][Tt][Tt][Pp][Ss]://") or text:match("[Hh][Tt][Tt][Pp]://") or text:match(".[Ii][Rr]") or text:match(".[Cc][Oo][Mm]") or text:match(".[Oo][Rr][Gg]") or text:match("[Ww][Ww][Ww].")) then
-if redis:get(KEEPER.."keed_link"..msg.chat_id_) then
+if redis:get(Arab_Forum.."keed_link"..msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -2394,7 +2393,7 @@ local msgs = {
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
 HTTPS.request("https://api.telegram.org/bot" .. KEEPER_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
 print_del_msg("Deleted Because [Lock] [keed_link]")
 end
 end
@@ -2402,15 +2401,15 @@ end
 if msg.content_.text_ then
 text = msg.content_.text_
 if text:match("كس") or text:match("طيز") or text:match("ديس") or text:match("زب") or text:match("انيجمك") or text:match("انيج") or text:match("نيج") or text:match("ديوس") or text:match("عير") or text:match("كسختك") or text:match("كسمك") or text:match("كسربك") or text:match("بلاع") or text:match("ابو العيوره") or text:match("منيوج") or text:match("كحبه") or text:match("اخ الكحبه") or text:match("اخو الكحبه") or text:match("الكحبه") or text:match("كسك") or text:match("طيزك") or text:match("عير بطيزك") or text:match("كس امك") or text:match("امك الكحبه") or text:match("عيرك") or text:match("عير بيك") or text:match("صرمك") then
-if redis:get(KEEPER.."keed_fosh"..msg.chat_id_) then
+if redis:get(Arab_Forum.."keed_fosh"..msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
 }
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
-HTTPS.request("https://api.telegram.org/bot" .. KEEPER_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+HTTPS.request("https://api.telegram.org/bot" .. itachi_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
 print_del_msg("Deleted Because [Lock] [keed_fosh]")
 end
 end
@@ -2418,240 +2417,240 @@ end
 if msg.content_.caption_ then
 text = msg.content_.caption_
 if text and text:match("(.*)(@)(.*)")  then
-if redis:get(KEEPER.."keed_user"..msg.chat_id_) then
+if redis:get(Arab_Forum.."keed_user"..msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
 }
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
-HTTPS.request("https://api.telegram.org/bot" .. KEEPER_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+HTTPS.request("https://api.telegram.org/bot" .. itachi_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
 print_del_msg("Deleted Because [Lock] [keed_user]")
 end
 end
 end
 if text and text:match("(.*)(@)(.*)")  then
-if redis:get(KEEPER.."keed_user"..msg.chat_id_) then
+if redis:get(Arab_Forum.."keed_user"..msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
 }
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
-HTTPS.request("https://api.telegram.org/bot" .. KEEPER_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+HTTPS.request("https://api.telegram.org/bot" .. itachi_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
 print_del_msg("Deleted Because [Lock] [keed_user]")
 end
 end
 if msg.content_.ID == "MessagePhoto" then
-if redis:get(KEEPER.."keed_photo" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."keed_photo" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
 }
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
-HTTPS.request("https://api.telegram.org/bot" .. KEEPER_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+HTTPS.request("https://api.telegram.org/bot" .. itachi_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
 print_del_msg("Deleted Because [Lock] [keed_photo]")
 end end
 if text and (text:match("[Hh][Tt][Tt][Pp][Ss]://") or text:match("[Hh][Tt][Tt][Pp]://") or text:match(".[Ii][Rr]") or text:match(".[Cc][Oo][Mm]") or text:match(".[Oo][Rr][Gg]") or text:match("[Ww][Ww][Ww].")) then
-if redis:get(KEEPER.."keed_link"..msg.chat_id_) then
+if redis:get(Arab_Forum.."keed_link"..msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
 }
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
-HTTPS.request("https://api.telegram.org/bot" .. KEEPER_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+HTTPS.request("https://api.telegram.org/bot" .. itachi_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
 print_del_msg("Deleted Because [Lock] [keed_link]")
 end
 end
-if redis:get(KEEPER.."keed_text"..msg.chat_id_) then
+if redis:get(Arab_Forum.."keed_text"..msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
 }
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
-HTTPS.request("https://api.telegram.org/bot" .. KEEPER_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+HTTPS.request("https://api.telegram.org/bot" .. itachi_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
 print_del_msg("Deleted Because [Lock] [keed_text]")
 end
 if text and text:match("(.*)(#)(.*)")  then
-if redis:get(KEEPER.."keed_hashtag"..msg.chat_id_) then
+if redis:get(Arab_Forum.."keed_hashtag"..msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
 }
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
-HTTPS.request("https://api.telegram.org/bot" .. KEEPER_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+HTTPS.request("https://api.telegram.org/bot" .. itachi_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
 print_del_msg("Deleted Because [Lock] [keed_hashtag]")
 end
 end
 if msg.forward_info_ then
 if msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost" then
-if redis:get(KEEPER.."keed_fwd"..msg.chat_id_) then
+if redis:get(Arab_Forum.."keed_fwd"..msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
 }
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
-HTTPS.request("https://api.telegram.org/bot" .. KEEPER_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+HTTPS.request("https://api.telegram.org/bot" .. itachi_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
 print_del_msg("Deleted Because [Lock] [keed_fwd]")
 end
 end
 end
 if msg.content_.ID == "MessageSticker" then
-if redis:get(KEEPER.."keed_stecker"..msg.chat_id_) then
+if redis:get(Arab_Forum.."keed_stecker"..msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
 }
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
-HTTPS.request("https://api.telegram.org/bot" .. KEEPER_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+HTTPS.request("https://api.telegram.org/bot" .. itachi_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
 print_del_msg("Deleted Because [Lock] [keed_stecker]")
 end
 end
 if msg.content_.ID == "MessageAudio" then
-if redis:get(KEEPER.."keed_audio"..msg.chat_id_) then
+if redis:get(Arab_Forum.."keed_audio"..msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
 }
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
-HTTPS.request("https://api.telegram.org/bot" .. KEEPER_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+HTTPS.request("https://api.telegram.org/bot" .. itachi_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
 print_del_msg("Deleted Because [Lock] [keed_audio]")
 end
 end
 if msg.content_.ID == "MessageVoice" then
-if redis:get(KEEPER.."keed_voice"..msg.chat_id_) then
+if redis:get(Arab_Forum.."keed_voice"..msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
 }
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
-HTTPS.request("https://api.telegram.org/bot" .. KEEPER_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+HTTPS.request("https://api.telegram.org/bot" .. itachi_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
 print_del_msg("Deleted Because [Lock] [keed_voice]")
 end
 end
 if msg.content_.ID == "MessageVideo" then
-if redis:get(KEEPER.."keed_video"..msg.chat_id_) then
+if redis:get(Arab_Forum.."keed_video"..msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
 }
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
-HTTPS.request("https://api.telegram.org/bot" .. KEEPER_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+redis:sadd(KEArab_ForumEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+HTTPS.request("https://api.telegram.org/bot" .. itachi_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
 print_del_msg("Deleted Because [Lock] [keed_video]")
 end
 end
 if msg.content_.ID == "MessageAnimation" then
-if redis:get(KEEPER.."keed_gif"..msg.chat_id_) then
+if redis:get(Arab_Forum.."keed_gif"..msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
 }
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
-HTTPS.request("https://api.telegram.org/bot" .. KEEPER_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+HTTPS.request("https://api.telegram.org/bot" .. itachi_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
 print_del_msg("Deleted Because [Lock] [keed_gif]")
 end
 end
 if msg.content_.ID == "MessageContact" then
-if redis:get(KEEPER.."keed_contect"..msg.chat_id_) then
+if redis:get(Arab_Forum.."keed_contect"..msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
 }
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
-HTTPS.request("https://api.telegram.org/bot" .. KEEPER_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+HTTPS.request("https://api.telegram.org/bot" .. itachi_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
 print_del_msg("Deleted Because [Lock] [keed_contect]")
 end
 end
 if text and text:match("[\216-\219][\128-\191]") then
-if redis:get(KEEPER.."keed_arbic"..msg.chat_id_) then
+if redis:get(Arab_Forum.."keed_arbic"..msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
 }
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
-HTTPS.request("https://api.telegram.org/bot" .. KEEPER_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+HTTPS.request("https://api.telegram.org/bot" .. itachi_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
 print_del_msg("Deleted Because [Lock] [keed_arbic]")
 end
 end
 if msg.content_.ID == "MessageDocument" then
-if redis:get(KEEPER.."keed_Document"..msg.chat_id_) then
+if redis:get(Arab_Forum.."keed_Document"..msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
 }
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
-HTTPS.request("https://api.telegram.org/bot" .. KEEPER_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+HTTPS.request("https://api.telegram.org/bot" .. itachi_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
 print_del_msg("Deleted Because [Lock] [keed_Document]")
 end
 end
 if text and text:match("[ASDFGHJKLQWERTYUIOPZXCVBNMasdfghjklqwertyuiopzxcvbnm]") then
-if redis:get(KEEPER.."keed_english"..msg.chat_id_) then
+if redis:get(Arab_Forum.."keed_english"..msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
 }
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
-HTTPS.request("https://api.telegram.org/bot" .. KEEPER_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+HTTPS.request("https://api.telegram.org/bot" .. itachi_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
 print_del_msg("Deleted Because [Lock] [keed_english]")
 end
 end
 if msg.content_.entities_ then
 if msg.content_.entities_[0] then
 if msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityUrl" or msg.content_.entities_[0].ID == "MessageEntityTextUrl" then
-if redis:get(KEEPER.."keed_markdon"..msg.chat_id_) then
+if redis:get(Arab_Forum.."keed_markdon"..msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
 }
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
-HTTPS.request("https://api.telegram.org/bot" .. KEEPER_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+HTTPS.request("https://api.telegram.org/bot" .. itachi_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
 print_del_msg("Deleted Because [Lock] [keed_markdon]")
 end
 end
@@ -2674,23 +2673,23 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 return
 end
-if not redis:get(KEEPER.."bot:muted:Time" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) and redis:sismember(KEEPER.."bot:muted:" .. msg.chat_id_, msg.sender_user_id_) then
-redis:srem(KEEPER.."bot:muted:" .. msg.chat_id_, msg.sender_user_id_)
+if not redis:get(Arab_Forum.."bot:muted:Time" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) and redis:sismember(Arab_Forum.."bot:muted:" .. msg.chat_id_, msg.sender_user_id_) then
+redis:srem(Arab_Forum.."bot:muted:" .. msg.chat_id_, msg.sender_user_id_)
 end
 if is_gbanned(msg.sender_user_id_) then
 chat_kick(msg.chat_id_, msg.sender_user_id_)
 return
 end
-if redis:get(KEEPER.."bot:muteall:Time" .. msg.chat_id_) then
-local start_ = redis:get(KEEPER.."bot:muteall:start" .. msg.chat_id_)
+if redis:get(Arab_Forum.."bot:muteall:Time" .. msg.chat_id_) then
+local start_ = redis:get(Arab_Forum.."bot:muteall:start" .. msg.chat_id_)
 local start = start_:gsub(":", "")
-local stop_ = redis:get(KEEPER.."bot:muteall:stop" .. msg.chat_id_)
+local stop_ = redis:get(Arab_Forum.."bot:muteall:stop" .. msg.chat_id_)
 local stop = stop_:gsub(":", "")
 local SVTime = os.date("%R")
 local Time = SVTime:gsub(":", "")
-if tonumber(Time) >= tonumber(start) and not redis:get(KEEPER.."bot:muteall:Run" .. msg.chat_id_) then
+if tonumber(Time) >= tonumber(start) and not redis:get(Arab_Forum.."bot:muteall:Run" .. msg.chat_id_) then
 local g = os.time()
-redis:set(KEEPER.."bot:muteall:start_Unix" .. msg.chat_id_, g)
+redis:set(Arab_Forum.."bot:muteall:start_Unix" .. msg.chat_id_, g)
 local year_0 = os.date("%Y")
 local Month_0 = os.date("%m")
 local day_0 = os.date("%d")
@@ -2703,13 +2702,13 @@ local minute_ = stop_:match(":%d+")
 local minute_0 = minute_:gsub(":", "")
 local sec_0 = 0
 local unix = os.time({day=tonumber(day_0),month=tonumber(Month_0),year=tonumber(year_0),hour=tonumber(hour_0),min=tonumber(minute_0),sec=0})+ 12600
-redis:set(KEEPER.."bot:muteall:stop_Unix" .. msg.chat_id_, unix)
-redis:set(KEEPER.."bot:muteall:Run" .. msg.chat_id_, true)
+redis:set(Arab_Forum.."bot:muteall:stop_Unix" .. msg.chat_id_, unix)
+redis:set(Arab_Forum.."bot:muteall:Run" .. msg.chat_id_, true)
 end
 end
-if redis:get(KEEPER.."bot:muteall:Time" .. msg.chat_id_) and redis:get(KEEPER.."bot:muteall:Run" .. msg.chat_id_) then
-local SR = redis:get(KEEPER.."bot:muteall:start_Unix" .. msg.chat_id_) or 0
-local SP = redis:get(KEEPER.."bot:muteall:stop_Unix" .. msg.chat_id_) or 0
+if redis:get(Arab_Forum.."bot:muteall:Time" .. msg.chat_id_) and redis:get(Arab_Forum.."bot:muteall:Run" .. msg.chat_id_) then
+local SR = redis:get(Arab_Forum.."bot:muteall:start_Unix" .. msg.chat_id_) or 0
+local SP = redis:get(Arab_Forum.."bot:muteall:stop_Unix" .. msg.chat_id_) or 0
 local MsgTime = msg.date_
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) and tonumber(MsgTime) >= tonumber(SR) and tonumber(MsgTime) < tonumber(SP) then
 local id = msg.id_
@@ -2721,29 +2720,29 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Auto] [Lock] [" .. SR .. "] [" .. SP .. "]")
 end
 if tonumber(MsgTime) >= tonumber(SP) then
-redis:del(KEEPER.."bot:muteall:Run" .. msg.chat_id_)
+redis:del(Arab_Forum.."bot:muteall:Run" .. msg.chat_id_)
 end
 end
 ---------------------pinnedmsg----------------------------------------------------------
 if msg.content_.ID == "MessagePinMessage" and not msg.sender_user_id_ == our_id and not is_owner(msg.sender_user_id_, msg.chat_id_) and redis:get(KEEPER.."pinnedmsg" .. msg.chat_id_) and redis:get(KEEPER.."bot:pin:mute" .. msg.chat_id_) then
 unpinmsg(msg.chat_id_)
-local pin_id = redis:get(KEEPER.."pinnedmsg" .. msg.chat_id_)
+local pin_id = redis:get(Arab_Forum.."pinnedmsg" .. msg.chat_id_)
 pinmsg(msg.chat_id_, pin_id, 0)
 end
-if not redis:get(KEEPER.."Resetdatapost" .. msg.chat_id_) then
-redis:del(KEEPER.."Gp:Post" .. msg.chat_id_)
-redis:setex(KEEPER.."Resetdatapost" .. msg.chat_id_, 12 * hour, true)
+if not redis:get(Arab_Forum.."Resetdatapost" .. msg.chat_id_) then
+redis:del(Arab_Forum.."Gp:Post" .. msg.chat_id_)
+redis:setex(Arab_Forum.."Resetdatapost" .. msg.chat_id_, 12 * hour, true)
 end
 ----------------------com viewget -----------------------------------------------------
-if redis:get(KEEPER.."bot:viewget" .. msg.sender_user_id_) then
+if redis:get(Arab_Forum.."bot:viewget" .. msg.sender_user_id_) then
 if not msg.forward_info_ then
 send(msg.chat_id_, msg.id_, 1, "✯↓ حدث خطا حاول مره اخرى", 1, "md")
-redis:del(KEEPER.."bot:viewget" .. msg.sender_user_id_)
+redis:del(Arab_Forum.."bot:viewget" .. msg.sender_user_id_)
 else
 send(msg.chat_id_, msg.id_, 1, "📛↓ عـــدد المشاهـــدات \n: " .. msg.views_ .. "", 1, "md")
-redis:del(KEEPER.."bot:viewget" .. msg.sender_user_id_)
+redis:del(Arab_Forum.."bot:viewget" .. msg.sender_user_id_)
 end end
-if redis:get(KEEPER.."bot:viewmsg") == "On" then
+if redis:get(Arab_Forum.."bot:viewmsg") == "On" then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -2753,20 +2752,20 @@ viewMessages(chat, msgs)
 end
 --------------save cam photo-------------------------------------------------------------------
 if msg.content_.photo_ then
-if redis:get(KEEPER..'bot:setphoto'..msg.chat_id_..':'..msg.sender_user_id_) then
+if redis:get(Arab_Forum..'bot:setphoto'..msg.chat_id_..':'..msg.sender_user_id_) then
 if msg.content_.photo_.sizes_[3] then
 photo_id = msg.content_.photo_.sizes_[3].photo_.persistent_id_
 else
 photo_id = msg.content_.photo_.sizes_[0].photo_.persistent_id_
 end
 send(msg.chat_id_, msg.id_, 1, '🌀┊ تم وضع صوره للمجموعه', 1, 'md')
-redis:del(KEEPER..'bot:setphoto'..msg.chat_id_..':'..msg.sender_user_id_)
+redis:del(Arab_Forum..'bot:setphoto'..msg.chat_id_..':'..msg.sender_user_id_)
 setphoto(msg.chat_id_, photo_id)
 end
 ------------------------------------------------------------------------------------------------
-if redis:get(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
-local gps = redis:scard(KEEPER.."bot:groups") or 0
-local gpss = redis:smembers(KEEPER.."bot:groups") or 0
+if redis:get(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
+local gps = redis:scard(Arab_Forum.."bot:groups") or 0
+local gpss = redis:smembers(Arab_Forum.."bot:groups") or 0
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -2775,19 +2774,19 @@ for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
 send(msg.chat_id_, msg.id_, 1, "◯↲  تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈",  1, "md")
-redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
+redis:del(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
-if redis:get(KEEPER.."anti-flood:" .. msg.chat_id_) then
-redis:setex(KEEPER..pm, TIME_CHECK, msgs + 1)
+if redis:get(Arab_Forum.."anti-flood:" .. msg.chat_id_) then
+redis:setex(Arab_Forum..pm, TIME_CHECK, msgs + 1)
 end
---«««««««««««««««««««««««« Developer By Karrar KeePer »»»»»»»»»»»»»»»»»»»»»»»»»»»--
+--«««««««««««««««««««««««« Developer By Arab_Forum »»»»»»»»»»»»»»»»»»»»»»»»»»»--
 if msg.content_.caption_ then
 if msg.content_.caption_:match("@") or msg.content_.caption_:match("#") then
 if string.len(msg.content_.caption_) > senspost.cappostwithtag then
 local post = msg.content_.caption_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -2796,10 +2795,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -2811,8 +2810,8 @@ end
 end
 elseif string.len(msg.content_.caption_) > senspost.cappost then
 local post = msg.content_.caption_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -2821,10 +2820,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -2835,7 +2834,7 @@ print_del_msg("Deleted Because [Lock] [Post]")
 end
 end
 end
-if msg.forward_info_ and redis:get(KEEPER.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
+if msg.forward_info_ and redis:get(Arab_Forum.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -2845,7 +2844,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Fwd] [Photo]")
 end
 if msg.content_.ID == "MessagePhoto" then
-if redis:get(KEEPER.."bot:photo:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:photo:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -2857,7 +2856,7 @@ end
 end
 if msg.content_.caption_ then
 check_filter_words(msg, msg.content_.caption_)
-if redis:get(KEEPER.."bot:links:mute" .. msg.chat_id_) and (msg.content_.caption_:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt].[Mm][Ee]")) then
+if redis:get(Arab_Forum.."bot:links:mute" .. msg.chat_id_) and (msg.content_.caption_:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt].[Mm][Ee]")) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -2865,12 +2864,12 @@ local msgs = {
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Link] [Photo]")
-if redis:get(KEEPER.."bot:strict" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:strict" .. msg.chat_id_) then
 chat_kick(msg.chat_id_, msg.sender_user_id_)
 end
 end
 if msg.content_.caption_:match("@") then
-if redis:get(KEEPER.."tags:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."tags:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -2889,7 +2888,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Tag] [Photo]")
 end
 if msg.content_.caption_:match("#") then
-if redis:get(KEEPER.."bot:hashtag:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:hashtag:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -2907,9 +2906,9 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Hashtag] [Photo]")
 end
---«««««««««««««««««««««««« Developer By Karrar KeePer »»»»»»»»»»»»»»»»»»»»»»»»»»»--
+--«««««««««««««««««««««««« Developer By Arab_Forum »»»»»»»»»»»»»»»»»»»»»»»»»»»--
 if msg.content_.caption_:match("[Hh][Tt][Tt][Pp][Ss]:[//]") or msg.content_.caption_:match("[Hh][Tt][Tt][Pp]:[//]") or msg.content_.caption_:match("[Ww][Ww][Ww]") or msg.content_.caption_:match(".[Cc][Oo]") or msg.content_.caption_:match(".[Ii][Rr]") or msg.content_.caption_:match(".[Oo][Rr][Gg]") then
-if redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -2927,7 +2926,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Web] [Photo]")
 end
-if msg.content_.web_page_ and redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+if msg.content_.web_page_ and redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -2935,7 +2934,7 @@ local msgs = {
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
 end
-if msg.content_.caption_:match("[\216-\219][\128-\191]") and redis:get(KEEPER.."bot:arabic:mute" .. msg.chat_id_) then
+if msg.content_.caption_:match("[\216-\219][\128-\191]") and redis:get(Arab_Forum.."bot:arabic:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -2956,9 +2955,9 @@ end
 end
 end
 elseif msg_type == "MSG:MarkDown" then
-if redis:get(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
-local gps = redis:scard(KEEPER.."bot:groups") or 0
-local gpss = redis:smembers(KEEPER.."bot:groups") or 0
+if redis:get(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
+local gps = redis:scard(Arab_Forum.."bot:groups") or 0
+local gpss = redis:smembers(Arab_Forum.."bot:groups") or 0
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -2967,18 +2966,18 @@ for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
 send(msg.chat_id_, msg.id_, 1, "◯↲ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ", 1, "md")
-redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
+redis:del(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
-if redis:get(KEEPER.."anti-flood:" .. msg.chat_id_) then
-redis:setex(KEEPER..pm, TIME_CHECK, msgs + 1)
+if redis:get(Arab_Forum.."anti-flood:" .. msg.chat_id_) then
+redis:setex(Arab_Forum..pm, TIME_CHECK, msgs + 1)
 end
 if msg.content_.caption_ then
 if msg.content_.caption_:match("@") or msg.content_.caption_:match("#") then
 if string.len(msg.content_.caption_) > senspost.cappostwithtag then
 local post = msg.content_.caption_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -2987,10 +2986,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3002,8 +3001,8 @@ end
 end
 elseif string.len(msg.content_.caption_) > senspost.cappost then
 local post = msg.content_.caption_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3012,10 +3011,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3026,7 +3025,7 @@ print_del_msg("Deleted Because [Lock] [Post]")
 end
 end
 end
-if msg.forward_info_ and redis:get(KEEPER.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
+if msg.forward_info_ and redis:get(Arab_Forum.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3035,7 +3034,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Fwd] [MarkDown]")
 end
-if redis:get(KEEPER.."markdown:lock" .. msg.chat_id_) and not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
+if redis:get(Arab_Forum.."markdown:lock" .. msg.chat_id_) and not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3047,16 +3046,16 @@ end
 end
 elseif msg_type == "MSG:Game" then
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
-if redis:get(KEEPER.."anti-flood:" .. msg.chat_id_) then
-redis:setex(KEEPER..pm, TIME_CHECK, msgs + 1)
+if redis:get(Arab_Forum.."anti-flood:" .. msg.chat_id_) then
+redis:setex(Arab_Forum..pm, TIME_CHECK, msgs + 1)
 end
---«««««««««««««««««««««««« Developer By Karrar KeePer »»»»»»»»»»»»»»»»»»»»»»»»»»»--
+--«««««««««««««««««««««««« Developer By Arab_Forum »»»»»»»»»»»»»»»»»»»»»»»»»»»--
 if msg.content_.caption_ then
 if msg.content_.caption_:match("@") or msg.content_.caption_:match("#") then
 if string.len(msg.content_.caption_) > senspost.cappostwithtag then
 local post = msg.content_.caption_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3065,10 +3064,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3080,8 +3079,8 @@ end
 end
 elseif string.len(msg.content_.caption_) > senspost.cappost then
 local post = msg.content_.caption_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3090,10 +3089,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3105,7 +3104,7 @@ end
 end
 end
 
-if msg.forward_info_ and redis:get(KEEPER.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
+if msg.forward_info_ and redis:get(Arab_Forum.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3114,7 +3113,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Fwd] [Game]")
 end
-if redis:get(KEEPER.."Game:lock" .. msg.chat_id_) and not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
+if redis:get(Arab_Forum.."Game:lock" .. msg.chat_id_) and not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3125,9 +3124,9 @@ print_del_msg("Deleted Because [Lock] [Game]")
 end
 end
 elseif msg_type == "MSG:Mention" then
-if redis:get(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
-local gps = redis:scard(KEEPER.."bot:groups") or 0
-local gpss = redis:smembers(KEEPER.."bot:groups") or 0
+if redis:get(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
+local gps = redis:scard(Arab_Forum.."bot:groups") or 0
+local gpss = redis:smembers(Arab_Forum.."bot:groups") or 0
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3136,18 +3135,18 @@ for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
 send(msg.chat_id_, msg.id_, 1, "◯↲ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ", 1, "md")
-redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
+redis:del(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
-if redis:get(KEEPER.."anti-flood:" .. msg.chat_id_) then
-redis:setex(KEEPER..pm, TIME_CHECK, msgs + 1)
+if redis:get(Arab_Forum.."anti-flood:" .. msg.chat_id_) then
+redis:setex(Arab_Forum..pm, TIME_CHECK, msgs + 1)
 end
 if msg.content_.caption_ then
 if msg.content_.caption_:match("@") or msg.content_.caption_:match("#") then
 if string.len(msg.content_.caption_) > senspost.cappostwithtag then
 local post = msg.content_.caption_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3156,10 +3155,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3171,8 +3170,8 @@ end
 end
 elseif string.len(msg.content_.caption_) > senspost.cappost then
 local post = msg.content_.caption_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3181,10 +3180,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3195,7 +3194,7 @@ print_del_msg("Deleted Because [Lock] [Post]")
 end
 end
 end
-if msg.forward_info_ and redis:get(KEEPER.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
+if msg.forward_info_ and redis:get(Arab_Forum.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3204,7 +3203,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Fwd] [Mention]")
 end
-if not is_vipmem(msg.sender_user_id_, msg.chat_id_) and redis:get(KEEPER.."tags:lock" .. msg.chat_id_) then
+if not is_vipmem(msg.sender_user_id_, msg.chat_id_) and redis:get(Arab_Forum.."tags:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3223,8 +3222,8 @@ if tonumber(result.id_) == our_id then
 return
 end
 if result.id_ then
-if redis:get(KEEPER.."warn:max:" .. msg.chat_id_) then
-sencwarn = tonumber(redis:get(KEEPER.."warn:max:" .. msg.chat_id_))
+if redis:get(Arab_Forum.."warn:max:" .. msg.chat_id_) then
+sencwarn = tonumber(redis:get(Arab_Forum.."warn:max:" .. msg.chat_id_))
 else
 sencwarn = 4
 end
@@ -3233,34 +3232,34 @@ local fname = result.first_name_ or ""
 local lname = result.last_name_ or ""
 local name = fname .. " " .. lname
 local userid = result.id_
-if redis:get(KEEPER.."user:warns" .. msg.chat_id_ .. ":" .. userid) then
-warns = tonumber(redis:get(KEEPER.."user:warns" .. msg.chat_id_ .. ":" .. userid))
+if redis:get(Arab_Forum.."user:warns" .. msg.chat_id_ .. ":" .. userid) then
+warns = tonumber(redis:get(Arab_Forum.."user:warns" .. msg.chat_id_ .. ":" .. userid))
 else
 warns = 1
-redis:set(KEEPER.."user:warns" .. msg.chat_id_ .. ":" .. userid, 1)
+redis:set(Arab_Forum.."user:warns" .. msg.chat_id_ .. ":" .. userid, 1)
 end
-redis:incr(KEEPER.."user:warns" .. msg.chat_id_ .. ":" .. userid)
+redis:incr(Arab_Forum.."user:warns" .. msg.chat_id_ .. ":" .. userid)
 if tonumber(sencwarn) == tonumber(warns) or tonumber(sencwarn) < tonumber(warns) then
-if redis:get(KEEPER.."warnstatus" .. msg.chat_id_) == "Muteuser" then
-redis:sadd(KEEPER.."bot:muted:" .. msg.chat_id_, userid)
-elseif redis:get(KEEPER.."warnstatus" .. msg.chat_id_) == "Remove" then
+if redis:get(Arab_Forum.."warnstatus" .. msg.chat_id_) == "Muteuser" then
+redis:sadd(Arab_Forum.."bot:muted:" .. msg.chat_id_, userid)
+elseif redis:get(Arab_Forum.."warnstatus" .. msg.chat_id_) == "Remove" then
 chat_kick(msg.chat_id_, userid)
 else
-redis:sadd(KEEPER.."bot:muted:" .. msg.chat_id_, userid)
+redis:sadd(Arab_Forum.."bot:muted:" .. msg.chat_id_, userid)
 end
-if redis:get(KEEPER.."lang:gp:" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."lang:gp:" .. msg.chat_id_) then
 send(msg.chat_id_, 0, 1, "✸↓ العضو  " .. name .. " \nبسبب المخالفه قررنا` " .. statusfa .. " `",  1, "md")
 else
 send(msg.chat_id_, 0, 1, "✸↓ العضو  " .. name .. " \nبسبب المخالفه قررنا` " .. statusfa .. " `",  1, "md")
 end
-redis:set(KEEPER.."user:warns" .. msg.chat_id_ .. ":" .. userid, 1)
-elseif redis:get(KEEPER.."lang:gp:" .. msg.chat_id_) then
+redis:set(Arab_Forum.."user:warns" .. msg.chat_id_ .. ":" .. userid, 1)
+elseif redis:get(Arab_Forum.."lang:gp:" .. msg.chat_id_) then
 send(msg.chat_id_, 0, 1, "" .. sencwarn .. "", 1, "md")
 else
 send(msg.chat_id_, 0, 1, "✸↓  العضو " .. name .. " :\n بسبب المخالفات قررنا : " .. warns .. "/" .. sencwarn, "md")
 end
 end
-elseif redis:get(KEEPER.."lang:gp:" .. msg.chat_id_) then
+elseif redis:get(Arab_Forum.."lang:gp:" .. msg.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, "➢  لا يوجد مستخدم 📍 ", 1, "md")
 else
 send(msg.chat_id_, msg.id_, 1, "➢  لا يوجد مستخدم 📍 ", 1, "md")
@@ -3271,9 +3270,9 @@ getUser(msg.content_.entities_[0].user_id_, warn_by_mention)
 end
 end end
 elseif msg_type == "MSG:Document" then
-if redis:get(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
-local gps = redis:scard(KEEPER.."bot:groups") or 0
-local gpss = redis:smembers(KEEPER.."bot:groups") or 0
+if redis:get(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
+local gps = redis:scard(Arab_Forum.."bot:groups") or 0
+local gpss = redis:smembers(Arab_Forum.."bot:groups") or 0
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3282,18 +3281,18 @@ for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
 send(msg.chat_id_, msg.id_, 1, "🌀┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ", 1, "md")
-redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
+redis:del(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
-if redis:get(KEEPER.."anti-flood:" .. msg.chat_id_) then
-redis:setex(KEEPER..pm, TIME_CHECK, msgs + 1)
+if redis:get(Arab_Forum.."anti-flood:" .. msg.chat_id_) then
+redis:setex(Arab_Forum..pm, TIME_CHECK, msgs + 1)
 end
 if msg.content_.caption_ then
 if msg.content_.caption_:match("@") or msg.content_.caption_:match("#") then
 if string.len(msg.content_.caption_) > senspost.cappostwithtag then
 local post = msg.content_.caption_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3302,10 +3301,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3317,8 +3316,8 @@ end
 end
 elseif string.len(msg.content_.caption_) > senspost.cappost then
 local post = msg.content_.caption_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3327,10 +3326,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3350,7 +3349,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Fwd] [Document]")
 end
-if redis:get(KEEPER.."bot:document:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:document:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3361,7 +3360,7 @@ print_del_msg("Deleted Because [Lock] [Document]")
 end
 if msg.content_.caption_ then
 check_filter_words(msg, msg.content_.caption_)
-if redis:get(KEEPER.."bot:links:mute" .. msg.chat_id_) and (msg.content_.caption_:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt].[Mm][Ee]")) then
+if redis:get(Arab_Forum.."bot:links:mute" .. msg.chat_id_) and (msg.content_.caption_:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt].[Mm][Ee]")) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3369,12 +3368,12 @@ local msgs = {
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Link] [Document]")
-if redis:get(KEEPER.."bot:strict" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:strict" .. msg.chat_id_) then
 chat_kick(msg.chat_id_, msg.sender_user_id_)
 end
 end
 if msg.content_.caption_:match("@") then
-if redis:get(KEEPER.."tags:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."tags:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3383,7 +3382,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Tag] [Document]")
 end
-elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityMention" and redis:get(KEEPER.."tags:lock" .. msg.chat_id_) then
+elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityMention" and redis:get(Arab_Forum.."tags:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3393,7 +3392,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Tag] [Document]")
 end
 if msg.content_.caption_:match("#") then
-if redis:get(KEEPER.."bot:hashtag:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:hashtag:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3412,7 +3411,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Hashtag] [Document]")
 end
 if msg.content_.caption_:match("[Hh][Tt][Tt][Pp][Ss]:[//]") or msg.content_.caption_:match("[Hh][Tt][Tt][Pp]:[//]") or msg.content_.caption_:match("[Ww][Ww][Ww]") or msg.content_.caption_:match(".[Cc][Oo]") or msg.content_.caption_:match(".[Ii][Rr]") or msg.content_.caption_:match(".[Oo][Rr][Gg]") then
-if redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3421,7 +3420,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Web] [Document]")
 end
-elseif msg.content_.entities_ and msg.content_.entities_[0] and (msg.content_.entities_[0].ID == "MessageEntityTextUrl" or msg.content_.entities_[0].ID == "MessageEntityUrl") and redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+elseif msg.content_.entities_ and msg.content_.entities_[0] and (msg.content_.entities_[0].ID == "MessageEntityTextUrl" or msg.content_.entities_[0].ID == "MessageEntityUrl") and redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3430,7 +3429,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Web] [Document]")
 end
-if msg.content_.web_page_ and redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+if msg.content_.web_page_ and redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3438,7 +3437,7 @@ local msgs = {
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
 end
-if msg.content_.caption_:match("[\216-\219][\121-\191]") and redis:get(KEEPER.."bot:arabic:mute" .. msg.chat_id_) then
+if msg.content_.caption_:match("[\216-\219][\121-\191]") and redis:get(Arab_Forum.."bot:arabic:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3460,10 +3459,10 @@ end
 end
 elseif msg_type == "MSG:Inline" then
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
-if redis:get(KEEPER.."anti-flood:" .. msg.chat_id_) then
-redis:setex(KEEPER..pm, TIME_CHECK, msgs + 1)
+if redis:get(Arab_Forum.."anti-flood:" .. msg.chat_id_) then
+redis:setex(Arab_Forum..pm, TIME_CHECK, msgs + 1)
 end
-if msg.forward_info_ and redis:get(KEEPER.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
+if msg.forward_info_ and redis:get(Arab_Forum.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3472,7 +3471,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Fwd] [Inline]")
 end
-if redis:get(KEEPER.."bot:inline:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:inline:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3489,12 +3488,12 @@ local sticker_id = result.content_.sticker_.sticker_.id_
 downloadFile(sticker_id, dl_cb)
 end
 end
-if redis:get(KEEPER.."clerk") == "On" or is_admin(msg.sender_user_id_) then
+if redis:get(Arab_Forum.."clerk") == "On" or is_admin(msg.sender_user_id_) then
 getMessage(msg.chat_id_, msg.id_, DownSticker)
 end
-if redis:get(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
-local gps = redis:scard(KEEPER.."bot:groups") or 0
-local gpss = redis:smembers(KEEPER.."bot:groups") or 0
+if redis:get(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
+local gps = redis:scard(Arab_Forum.."bot:groups") or 0
+local gpss = redis:smembers(Arab_Forum.."bot:groups") or 0
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3503,13 +3502,13 @@ for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
 send(msg.chat_id_, msg.id_, 1, "🌀┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ",   1, "md")
-redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
+redis:del(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
-if redis:get(KEEPER.."anti-flood:" .. msg.chat_id_) then
-redis:setex(KEEPER..pm, TIME_CHECK, msgs + 1)
+if redis:get(Arab_Forum.."anti-flood:" .. msg.chat_id_) then
+redis:setex(Arab_Forum..pm, TIME_CHECK, msgs + 1)
 end
-if msg.forward_info_ and redis:get(KEEPER.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
+if msg.forward_info_ and redis:get(Arab_Forum.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3518,7 +3517,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Fwd] [Sticker]")
 end
-if redis:get(KEEPER.."bot:sticker:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:sticker:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3529,7 +3528,7 @@ print_del_msg("Deleted Because [Lock] [Sticker]")
 end
 end
 elseif msg_type == "MSG:NewUserByLink" then
-if redis:get(KEEPER.."bot:tgservice:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:tgservice:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3538,11 +3537,11 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Tgservice] [JoinByLink]")
 end
-if not is_vipmem(msg.sender_user_id_, msg.chat_id_) and redis:get(KEEPER.."bot:member:lock" .. msg.chat_id_) then
+if not is_vipmem(msg.sender_user_id_, msg.chat_id_) and redis:get(Arab_Forum.."bot:member:lock" .. msg.chat_id_) then
 chat_kick(msg.chat_id_, msg.sender_user_id_)
 end
 elseif msg_type == "MSG:DeleteMember" then
-if redis:get(KEEPER.."bot:tgservice:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:tgservice:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3552,7 +3551,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Tgservice] [DeleteMember]")
 end
 elseif msg_type == "MSG:NewUserAdd" then
-if redis:get(KEEPER.."bot:tgservice:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:tgservice:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3564,24 +3563,24 @@ end
 if not is_momod(msg.sender_user_id_, msg.chat_id_) then
 local list = msg.content_.members_
 for i = 0, #list do
-if list[i].type_.ID == "UserTypeBot" and not is_momod(list[i].id_, msg.chat_id_) and redis:get(KEEPER.."bot:bots:mute" .. msg.chat_id_) then
+if list[i].type_.ID == "UserTypeBot" and not is_momod(list[i].id_, msg.chat_id_) and redis:get(Arab_Forum.."bot:bots:mute" .. msg.chat_id_) then
 chat_kick(msg.chat_id_, list[i].id_)
 end
-if list[i].type_.ID == "UserTypeBot" and not is_momod(list[i].id_, msg.chat_id_) and redis:get(KEEPER.."bot:botskick" .. msg.chat_id_) then
+if list[i].type_.ID == "UserTypeBot" and not is_momod(list[i].id_, msg.chat_id_) and redis:get(Arab_Forum.."bot:botskick" .. msg.chat_id_) then
 chat_kick(msg.chat_id_, list[i].id_)
 chat_kick(msg.chat_id_, msg.sender_user_id_)
 send(msg.chat_id_, msg.id_, 1, "👨💼┊ العضو » (*"..msg.sender_user_id_.."*)\n🗯┊ قام بأضافه بوت في المجموعه\n📌┊ تم طرد البوت مع العضو \n✓", 1, "md")
 end
-if list[i].type_.ID == "UserTypeBot" and not is_momod(list[i].id_, msg.chat_id_) and redis:get(KEEPER.."keed_bots"..msg.chat_id_) then
+if list[i].type_.ID == "UserTypeBot" and not is_momod(list[i].id_, msg.chat_id_) and redis:get(Arab_Forum.."keed_bots"..msg.chat_id_) then
 chat_kick(msg.chat_id_, list[i].id_)
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
-HTTPS.request("https://api.telegram.org/bot" .. KEEPER_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
-redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
+HTTPS.request("https://api.telegram.org/bot" .. itachi_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
+redis:sadd(Arab_Forum..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
 send(msg.chat_id_, msg.id_, 1, "👨💼┊ العضو » (*"..msg.sender_user_id_.."*)\n🗯┊ قام بأضافه بوت في المجموعه\n📌┊ تم طرد البوت وتقييد العضو \n✓", 1, "md")
 end
 end
 end
-if redis:get(KEEPER.."bot:member:lock" .. msg.chat_id_) and not is_vipmem(msg.content_.members_[0].id_, msg.chat_id_) and not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:member:lock" .. msg.chat_id_) and not is_vipmem(msg.content_.members_[0].id_, msg.chat_id_) and not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
 chat_kick(msg.chat_id_, msg.content_.members_[0].id_)
 end
 
@@ -3589,9 +3588,9 @@ if is_banned(msg.content_.members_[0].id_, msg.chat_id_) then
 chat_kick(msg.chat_id_, msg.content_.members_[0].id_)
 end
 elseif msg_type == "MSG:Contact" then
-if redis:get(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
-local gps = redis:scard(KEEPER.."bot:groups") or 0
-local gpss = redis:smembers(KEEPER.."bot:groups") or 0
+if redis:get(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
+local gps = redis:scard(Arab_Forum.."bot:groups") or 0
+local gpss = redis:smembers(Arab_Forum.."bot:groups") or 0
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3600,13 +3599,13 @@ for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
 send(msg.chat_id_, msg.id_, 1, "🌀┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ", 1, "md")
-redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
+redis:del(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
-if redis:get(KEEPER.."anti-flood:" .. msg.chat_id_) then
-redis:setex(KEEPER..pm, TIME_CHECK, msgs + 1)
+if redis:get(Arab_Forum.."anti-flood:" .. msg.chat_id_) then
+redis:setex(Arab_Forum..pm, TIME_CHECK, msgs + 1)
 end
-if msg.forward_info_ and redis:get(KEEPER.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
+if msg.forward_info_ and redis:get(Arab_Forum.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3615,7 +3614,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Fwd] [Contact]")
 end
-if redis:get(KEEPER.."bot:contact:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:contact:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3626,9 +3625,9 @@ print_del_msg("Deleted Because [Lock] [Contact]")
 end
 end
 elseif msg_type == "MSG:Audio" then
-if redis:get(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
-local gps = redis:scard(KEEPER.."bot:groups") or 0
-local gpss = redis:smembers(KEEPER.."bot:groups") or 0
+if redis:get(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
+local gps = redis:scard(Arab_Forum.."bot:groups") or 0
+local gpss = redis:smembers(Arab_Forum.."bot:groups") or 0
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3637,18 +3636,18 @@ for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
 send(msg.chat_id_, msg.id_, 1, "🌀┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ", 1, "md")
-redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
+redis:del(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
-if redis:get(KEEPER.."anti-flood:" .. msg.chat_id_) then
-redis:setex(KEEPER..pm, TIME_CHECK, msgs + 1)
+if redis:get(Arab_Forum.."anti-flood:" .. msg.chat_id_) then
+redis:setex(Arab_Forum..pm, TIME_CHECK, msgs + 1)
 end
 if msg.content_.caption_ then
 if msg.content_.caption_:match("@") or msg.content_.caption_:match("#") then
 if string.len(msg.content_.caption_) > senspost.cappostwithtag then
 local post = msg.content_.caption_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3657,10 +3656,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3672,8 +3671,8 @@ end
 end
 elseif string.len(msg.content_.caption_) > senspost.cappost then
 local post = msg.content_.caption_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3682,10 +3681,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3696,7 +3695,7 @@ print_del_msg("Deleted Because [Lock] [Post]")
 end
 end
 end
-if msg.forward_info_ and redis:get(KEEPER.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
+if msg.forward_info_ and redis:get(Arab_Forum.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3705,7 +3704,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Fwd] [Audio]")
 end
-if redis:get(KEEPER.."bot:music:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:music:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3716,7 +3715,7 @@ print_del_msg("Deleted Because [Lock] [Audio]")
 end
 if msg.content_.caption_ then
 check_filter_words(msg, msg.content_.caption_)
-if redis:get(KEEPER.."bot:links:mute" .. msg.chat_id_) and (msg.content_.caption_:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt].[Mm][Ee]")) then
+if redis:get(Arab_Forum.."bot:links:mute" .. msg.chat_id_) and (msg.content_.caption_:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt].[Mm][Ee]")) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3726,7 +3725,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Link] [Audio]")
 end
 if msg.content_.caption_:match("@") then
-if redis:get(KEEPER.."tags:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."tags:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3735,7 +3734,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Tag] [Audio]")
 end
-elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityMention" and redis:get(KEEPER.."tags:lock" .. msg.chat_id_) then
+elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityMention" and redis:get(Arab_Forum.."tags:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3744,9 +3743,9 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Tag] [Audio]")
 end
---«««««««««««««««««««««««« Developer By Karrar KeePer »»»»»»»»»»»»»»»»»»»»»»»»»»»--
+--«««««««««««««««««««««««« Developer By Arab_Forum »»»»»»»»»»»»»»»»»»»»»»»»»»»--
 if msg.content_.caption_:match("#") then
-if redis:get(KEEPER.."bot:hashtag:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:hashtag:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3765,7 +3764,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Hashtag] [Audio]")
 end
 if msg.content_.caption_:match("[Hh][Tt][Tt][Pp][Ss]:[//]") or msg.content_.caption_:match("[Hh][Tt][Tt][Pp]:[//]") or msg.content_.caption_:match("[Ww][Ww][Ww]") or msg.content_.caption_:match(".[Cc][Oo]") or msg.content_.caption_:match(".[Ii][Rr]") or msg.content_.caption_:match(".[Oo][Rr][Gg]") then
-if redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3783,7 +3782,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Web] [Audio]")
 end
-if msg.content_.web_page_ and redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+if msg.content_.web_page_ and redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3791,7 +3790,7 @@ local msgs = {
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
 end
-if msg.content_.caption_:match("[\216-\219][\121-\191]") and redis:get(KEEPER.."bot:arabic:mute" .. msg.chat_id_) then
+if msg.content_.caption_:match("[\216-\219][\121-\191]") and redis:get(Arab_Forum.."bot:arabic:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3800,7 +3799,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [arabic] [Audio]")
 end
-if (msg.content_.caption_:match("[A-Z]") or msg.content_.caption_:match("[a-z]")) and redis:get(KEEPER.."bot:english:mute" .. msg.chat_id_) then
+if (msg.content_.caption_:match("[A-Z]") or msg.content_.caption_:match("[a-z]")) and redis:get(Arab_Forum.."bot:english:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3812,9 +3811,9 @@ end
 end
 end
 elseif msg_type == "MSG:Voice" then
-if redis:get(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
-local gps = redis:scard(KEEPER.."bot:groups") or 0
-local gpss = redis:smembers(KEEPER.."bot:groups") or 0
+if redis:get(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
+local gps = redis:scard(Arab_Forum.."bot:groups") or 0
+local gpss = redis:smembers(Arab_Forum.."bot:groups") or 0
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3823,18 +3822,18 @@ for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
 send(msg.chat_id_, msg.id_, 1, "🌀┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ", 1, "md")
-redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
+redis:del(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
-if redis:get(KEEPER.."anti-flood:" .. msg.chat_id_) then
-redis:setex(KEEPER..pm, TIME_CHECK, msgs + 1)
+if redis:get(Arab_Forum.."anti-flood:" .. msg.chat_id_) then
+redis:setex(Arab_Forum..pm, TIME_CHECK, msgs + 1)
 end
 if msg.content_.caption_ then
 if msg.content_.caption_:match("@") or msg.content_.caption_:match("#") then
 if string.len(msg.content_.caption_) > senspost.cappostwithtag then
 local post = msg.content_.caption_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3843,10 +3842,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3858,8 +3857,8 @@ end
 end
 elseif string.len(msg.content_.caption_) > senspost.cappost then
 local post = msg.content_.caption_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3868,10 +3867,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3882,7 +3881,7 @@ print_del_msg("Deleted Because [Lock] [Post]")
 end
 end
 end
-if msg.forward_info_ and redis:get(KEEPER.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
+if msg.forward_info_ and redis:get(Arab_Forum.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3891,7 +3890,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Fwd] [Voice]")
 end
-if redis:get(KEEPER.."bot:voice:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:voice:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3902,7 +3901,7 @@ print_del_msg("Deleted Because [Lock] [Voice]")
 end
 if msg.content_.caption_ then
 check_filter_words(msg, msg.content_.caption_)
-if redis:get(KEEPER.."bot:links:mute" .. msg.chat_id_) and (msg.content_.caption_:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt].[Mm][Ee]")) then
+if redis:get(Arab_Forum.."bot:links:mute" .. msg.chat_id_) and (msg.content_.caption_:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt].[Mm][Ee]")) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3912,7 +3911,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Link] [Voice]")
 end
 if msg.content_.caption_:match("@") then
-if redis:get(KEEPER.."tags:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."tags:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3931,7 +3930,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Tag] [Voice]")
 end
 if msg.content_.caption_:match("#") then
-if redis:get(KEEPER.."bot:hashtag:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:hashtag:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3950,7 +3949,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Hashtag] [Voice]")
 end
 if msg.content_.caption_:match("[Hh][Tt][Tt][Pp][Ss]:[//]") or msg.content_.caption_:match("[Hh][Tt][Tt][Pp]:[//]") or msg.content_.caption_:match("[Ww][Ww][Ww]") or msg.content_.caption_:match(".[Cc][Oo]") or msg.content_.caption_:match(".[Ii][Rr]") or msg.content_.caption_:match(".[Oo][Rr][Gg]") then
-if redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3968,7 +3967,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Web] [Voice]")
 end
-if msg.content_.web_page_ and redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+if msg.content_.web_page_ and redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3976,7 +3975,7 @@ local msgs = {
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
 end
-if msg.content_.caption_:match("[\216-\219][\121-\191]") and redis:get(KEEPER.."bot:arabic:mute" .. msg.chat_id_) then
+if msg.content_.caption_:match("[\216-\219][\121-\191]") and redis:get(Arab_Forum.."bot:arabic:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3985,7 +3984,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [arabic] [Voice]")
 end
-if (msg.content_.caption_:match("[A-Z]") or msg.content_.caption_:match("[a-z]")) and redis:get(KEEPER.."bot:english:mute" .. msg.chat_id_) then
+if (msg.content_.caption_:match("[A-Z]") or msg.content_.caption_:match("[a-z]")) and redis:get(KEEPArab_Forum.."bot:english:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -3997,9 +3996,9 @@ end
 end
 end
 elseif msg_type == "MSG:Location" then
-if redis:get(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
-local gps = redis:scard(KEEPER.."bot:groups") or 0
-local gpss = redis:smembers(KEEPER.."bot:groups") or 0
+if redis:get(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
+local gps = redis:scard(Arab_Forum.."bot:groups") or 0
+local gpss = redis:smembers(Arab_Forum.."bot:groups") or 0
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4008,18 +4007,18 @@ for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
 send(msg.chat_id_, msg.id_, 1, "🌀┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ", 1, "md")
-redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
+redis:del(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
-if redis:get(KEEPER.."anti-flood:" .. msg.chat_id_) then
-redis:setex(KEEPER..pm, TIME_CHECK, msgs + 1)
+if redis:get(Arab_Forum.."anti-flood:" .. msg.chat_id_) then
+redis:setex(Arab_Forum..pm, TIME_CHECK, msgs + 1)
 end
 if msg.content_.caption_ then
 if msg.content_.caption_:match("@") or msg.content_.caption_:match("#") then
 if string.len(msg.content_.caption_) > senspost.cappostwithtag then
 local post = msg.content_.caption_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4028,10 +4027,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4043,8 +4042,8 @@ end
 end
 elseif string.len(msg.content_.caption_) > senspost.cappost then
 local post = msg.content_.caption_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4053,10 +4052,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4067,7 +4066,7 @@ print_del_msg("Deleted Because [Lock] [Post]")
 end
 end
 end
-if msg.forward_info_ and redis:get(KEEPER.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
+if msg.forward_info_ and redis:get(Arab_Forum.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4076,7 +4075,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Fwd] [Location]")
 end
-if redis:get(KEEPER.."bot:location:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:location:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4087,7 +4086,7 @@ print_del_msg("Deleted Because [Lock] [Location]")
 end
 if msg.content_.caption_ then
 check_filter_words(msg, msg.content_.caption_)
-if redis:get(KEEPER.."bot:links:mute" .. msg.chat_id_) and (msg.content_.caption_:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt].[Mm][Ee]")) then
+if redis:get(Arab_Forum.."bot:links:mute" .. msg.chat_id_) and (msg.content_.caption_:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt].[Mm][Ee]")) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4097,7 +4096,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Link] [Location]")
 end
 if msg.content_.caption_:match("@") then
-if redis:get(KEEPER.."tags:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."tags:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4106,7 +4105,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Tag] [Location]")
 end
-elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityMention" and redis:get(KEEPER.."tags:lock" .. msg.chat_id_) then
+elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityMention" and redis:get(Arab_Forum.."tags:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4116,7 +4115,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Tag] [Location]")
 end
 if msg.content_.caption_:match("#") then
-if redis:get(KEEPER.."bot:hashtag:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:hashtag:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4125,7 +4124,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Hashtag] [Location]")
 end
-elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityHashtag" and redis:get(KEEPER.."bot:hashtag:mute" .. msg.chat_id_) then
+elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityHashtag" and redis:get(Arab_Forum.."bot:hashtag:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4135,7 +4134,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Hashtag] [Location]")
 end
 if msg.content_.caption_:match("[Hh][Tt][Tt][Pp][Ss]:[//]") or msg.content_.caption_:match("[Hh][Tt][Tt][Pp]:[//]") or msg.content_.caption_:match("[Ww][Ww][Ww]") or msg.content_.caption_:match(".[Cc][Oo]") or msg.content_.caption_:match(".[Ii][Rr]") or msg.content_.caption_:match(".[Oo][Rr][Gg]") then
-if redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4144,7 +4143,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Web] [Location]")
 end
-elseif msg.content_.entities_ and msg.content_.entities_[0] and (msg.content_.entities_[0].ID == "MessageEntityTextUrl" or msg.content_.entities_[0].ID == "MessageEntityUrl") and redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+elseif msg.content_.entities_ and msg.content_.entities_[0] and (msg.content_.entities_[0].ID == "MessageEntityTextUrl" or msg.content_.entities_[0].ID == "MessageEntityUrl") and redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4153,7 +4152,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Web] [Location]")
 end
-if msg.content_.web_page_ and redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+if msg.content_.web_page_ and redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4161,7 +4160,7 @@ local msgs = {
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
 end
-if msg.content_.caption_:match("[\216-\219][\121-\191]") and redis:get(KEEPER.."bot:arabic:mute" .. msg.chat_id_) then
+if msg.content_.caption_:match("[\216-\219][\121-\191]") and redis:get(Arab_Forum.."bot:arabic:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4170,7 +4169,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [arabic] [Location]")
 end
-if (msg.content_.caption_:match("[A-Z]") or msg.content_.caption_:match("[a-z]")) and redis:get(KEEPER.."bot:english:mute" .. msg.chat_id_) then
+if (msg.content_.caption_:match("[A-Z]") or msg.content_.caption_:match("[a-z]")) and redis:get(Arab_Forum.."bot:english:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4182,9 +4181,9 @@ end
 end
 end
 elseif msg_type == "MSG:Video" then
-if redis:get(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
-local gps = redis:scard(KEEPER.."bot:groups") or 0
-local gpss = redis:smembers(KEEPER.."bot:groups") or 0
+if redis:get(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
+local gps = redis:scard(Arab_Forum.."bot:groups") or 0
+local gpss = redis:smembers(Arab_Forum.."bot:groups") or 0
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4193,18 +4192,18 @@ for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
 send(msg.chat_id_, msg.id_, 1, "🌀┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ", 1, "md")
-redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
+redis:del(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
-if redis:get(KEEPER.."anti-flood:" .. msg.chat_id_) then
-redis:setex(KEEPER..pm, TIME_CHECK, msgs + 1)
+if redis:get(Arab_Forum.."anti-flood:" .. msg.chat_id_) then
+redis:setex(Arab_Forum..pm, TIME_CHECK, msgs + 1)
 end
 if msg.content_.caption_ then
 if msg.content_.caption_:match("@") or msg.content_.caption_:match("#") then
 if string.len(msg.content_.caption_) > senspost.cappostwithtag then
 local post = msg.content_.caption_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4213,10 +4212,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4228,8 +4227,8 @@ end
 end
 elseif string.len(msg.content_.caption_) > senspost.cappost then
 local post = msg.content_.caption_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4238,10 +4237,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4252,7 +4251,7 @@ print_del_msg("Deleted Because [Lock] [Post]")
 end
 end
 end
-if msg.forward_info_ and redis:get(KEEPER.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
+if msg.forward_info_ and redis:get(Arab_Forum.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4261,7 +4260,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Fwd] [Video]")
 end
-if redis:get(KEEPER.."bot:video:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:video:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4272,7 +4271,7 @@ print_del_msg("Deleted Because [Lock] [Video]")
 end
 if msg.content_.caption_ then
 check_filter_words(msg, msg.content_.caption_)
-if redis:get(KEEPER.."bot:links:mute" .. msg.chat_id_) and (msg.content_.caption_:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt].[Mm][Ee]")) then
+if redis:get(Arab_Forum.."bot:links:mute" .. msg.chat_id_) and (msg.content_.caption_:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt].[Mm][Ee]")) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4282,7 +4281,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Link] [Video]")
 end
 if msg.content_.caption_:match("@") then
-if redis:get(KEEPER.."tags:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."tags:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4291,7 +4290,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Tag] [Video]")
 end
-elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityMention" and redis:get(KEEPER.."tags:lock" .. msg.chat_id_) then
+elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityMention" and redis:get(Arab_Forum.."tags:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4301,7 +4300,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Tag] [Video]")
 end
 if msg.content_.caption_:match("#") then
-if redis:get(KEEPER.."bot:hashtag:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:hashtag:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4310,7 +4309,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Hashtag] [Video]")
 end
-elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityHashtag" and redis:get(KEEPER.."bot:hashtag:mute" .. msg.chat_id_) then
+elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityHashtag" and redis:get(Arab_Forum.."bot:hashtag:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4320,7 +4319,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Hashtag] [Video]")
 end
 if msg.content_.caption_:match("[Hh][Tt][Tt][Pp][Ss]:[//]") or msg.content_.caption_:match("[Hh][Tt][Tt][Pp]:[//]") or msg.content_.caption_:match("[Ww][Ww][Ww]") or msg.content_.caption_:match(".[Cc][Oo]") or msg.content_.caption_:match(".[Ii][Rr]") or msg.content_.caption_:match(".[Oo][Rr][Gg]") then
-if redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4329,7 +4328,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Web] [Video]")
 end
-elseif msg.content_.entities_ and msg.content_.entities_[0] and (msg.content_.entities_[0].ID == "MessageEntityTextUrl" or msg.content_.entities_[0].ID == "MessageEntityUrl") and redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+elseif msg.content_.entities_ and msg.content_.entities_[0] and (msg.content_.entities_[0].ID == "MessageEntityTextUrl" or msg.content_.entities_[0].ID == "MessageEntityUrl") and redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4338,7 +4337,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Web] [Video]")
 end
-if msg.content_.web_page_ and redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+if msg.content_.web_page_ and redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4346,7 +4345,7 @@ local msgs = {
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
 end
-if msg.content_.caption_:match("[\216-\219][\121-\191]") and redis:get(KEEPER.."bot:arabic:mute" .. msg.chat_id_) then
+if msg.content_.caption_:match("[\216-\219][\121-\191]") and redis:get(Arab_Forum.."bot:arabic:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4355,7 +4354,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [arabic] [Video] ")
 end
-if (msg.content_.caption_:match("[A-Z]") or msg.content_.caption_:match("[a-z]")) and redis:get(KEEPER.."bot:english:mute" .. msg.chat_id_) then
+if (msg.content_.caption_:match("[A-Z]") or msg.content_.caption_:match("[a-z]")) and redis:get(Arab_Forum.."bot:english:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4367,9 +4366,9 @@ end
 end
 end
 elseif msg_type == "MSG:SelfVideo" then
-if redis:get(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
-local gps = redis:scard(KEEPER.."bot:groups") or 0
-local gpss = redis:smembers(KEEPER.."bot:groups") or 0
+if redis:get(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
+local gps = redis:scard(Arab_Forum.."bot:groups") or 0
+local gpss = redis:smembers(Arab_Forum.."bot:groups") or 0
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4378,18 +4377,18 @@ for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
 send(msg.chat_id_, msg.id_, 1, "🌀┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ", 1, "md")
-redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
+redis:del(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
-if redis:get(KEEPER.."anti-flood:" .. msg.chat_id_) then
-redis:setex(KEEPER..pm, TIME_CHECK, msgs + 1)
+if redis:get(Arab_Forum.."anti-flood:" .. msg.chat_id_) then
+redis:setex(Arab_Forum..pm, TIME_CHECK, msgs + 1)
 end
 if msg.content_.caption_ then
 if msg.content_.caption_:match("@") or msg.content_.caption_:match("#") then
 if string.len(msg.content_.caption_) > senspost.cappostwithtag then
 local post = msg.content_.caption_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4398,10 +4397,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4413,8 +4412,8 @@ end
 end
 elseif string.len(msg.content_.caption_) > senspost.cappost then
 local post = msg.content_.caption_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4423,10 +4422,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4438,7 +4437,7 @@ end
 end
 end
 
-if msg.forward_info_ and redis:get(KEEPER.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
+if msg.forward_info_ and redis:get(Arab_Forum.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4447,7 +4446,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Fwd] [Self Video]")
 end
-if redis:get(KEEPER.."bot:selfvideo:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:selfvideo:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4458,7 +4457,7 @@ print_del_msg("Deleted Because [Lock] [Self Video]")
 end
 if msg.content_.caption_ then
 check_filter_words(msg, msg.content_.caption_)
-if redis:get(KEEPER.."bot:links:mute" .. msg.chat_id_) and (msg.content_.caption_:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt].[Mm][Ee]")) then
+if redis:get(Arab_Forum.."bot:links:mute" .. msg.chat_id_) and (msg.content_.caption_:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or msg.content_.caption_:match("[Tt].[Mm][Ee]")) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4468,7 +4467,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Link] [Self Video]")
 end
 if msg.content_.caption_:match("@") then
-if redis:get(KEEPER.."tags:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."tags:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4477,7 +4476,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Tag] [Self Video]")
 end
-elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityMention" and redis:get(KEEPER.."tags:lock" .. msg.chat_id_) then
+elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityMention" and redis:get(Arab_Forum.."tags:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4487,7 +4486,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Tag] [Self Video]")
 end
 if msg.content_.caption_:match("#") then
-if redis:get(KEEPER.."bot:hashtag:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:hashtag:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4496,7 +4495,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Hashtag] [Self Video]")
 end
-elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityHashtag" and redis:get(KEEPER.."bot:hashtag:mute" .. msg.chat_id_) then
+elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityHashtag" and redis:get(Arab_Forum.."bot:hashtag:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4506,7 +4505,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Hashtag] [Self Video]")
 end
 if msg.content_.caption_:match("[Hh][Tt][Tt][Pp][Ss]:[//]") or msg.content_.caption_:match("[Hh][Tt][Tt][Pp]:[//]") or msg.content_.caption_:match("[Ww][Ww][Ww]") or msg.content_.caption_:match(".[Cc][Oo]") or msg.content_.caption_:match(".[Ii][Rr]") or msg.content_.caption_:match(".[Oo][Rr][Gg]") then
-if redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4515,7 +4514,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Web] [Self Video]")
 end
-elseif msg.content_.entities_ and msg.content_.entities_[0] and (msg.content_.entities_[0].ID == "MessageEntityTextUrl" or msg.content_.entities_[0].ID == "MessageEntityUrl") and redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+elseif msg.content_.entities_ and msg.content_.entities_[0] and (msg.content_.entities_[0].ID == "MessageEntityTextUrl" or msg.content_.entities_[0].ID == "MessageEntityUrl") and redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4524,7 +4523,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Web] [Self Video]")
 end
-if msg.content_.web_page_ and redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+if msg.content_.web_page_ and redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4532,7 +4531,7 @@ local msgs = {
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
 end
-if msg.content_.caption_:match("[\216-\219][\121-\191]") and redis:get(KEEPER.."bot:arabic:mute" .. msg.chat_id_) then
+if msg.content_.caption_:match("[\216-\219][\121-\191]") and redis:get(Arab_Forum.."bot:arabic:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4541,7 +4540,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [arabic] [Self Video] ")
 end
-if (msg.content_.caption_:match("[A-Z]") or msg.content_.caption_:match("[a-z]")) and redis:get(KEEPER.."bot:english:mute" .. msg.chat_id_) then
+if (msg.content_.caption_:match("[A-Z]") or msg.content_.caption_:match("[a-z]")) and redis:get(Arab_Forum.."bot:english:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4553,9 +4552,9 @@ end
 end
 end
 elseif msg_type == "MSG:Gif" then
-if redis:get(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
-local gps = redis:scard(KEEPER.."bot:groups") or 0
-local gpss = redis:smembers(KEEPER.."bot:groups") or 0
+if redis:get(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
+local gps = redis:scard(Arab_Forum.."bot:groups") or 0
+local gpss = redis:smembers(Arab_Forum.."bot:groups") or 0
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4564,18 +4563,18 @@ for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
 send(msg.chat_id_, msg.id_, 1, "🌀┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ", 1, "md")
-redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
+redis:del(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
-if redis:get(KEEPER.."anti-flood:" .. msg.chat_id_) then
-redis:setex(KEEPER..pm, TIME_CHECK, msgs + 1)
+if redis:get(Arab_Forum.."anti-flood:" .. msg.chat_id_) then
+redis:setex(Arab_Forum..pm, TIME_CHECK, msgs + 1)
 end
 if msg.content_.caption_ then
 if msg.content_.caption_:match("@") or msg.content_.caption_:match("#") then
 if string.len(msg.content_.caption_) > senspost.cappostwithtag then
 local post = msg.content_.caption_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4584,10 +4583,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4599,8 +4598,8 @@ end
 end
 elseif string.len(msg.content_.caption_) > senspost.cappost then
 local post = msg.content_.caption_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4609,10 +4608,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4623,7 +4622,7 @@ print_del_msg("Deleted Because [Lock] [Post]")
 end
 end
 end
-if msg.forward_info_ and redis:get(KEEPER.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
+if msg.forward_info_ and redis:get(Arab_Forum.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4632,7 +4631,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Fwd] [Gif]")
 end
-if redis:get(KEEPER.."bot:gifs:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:gifs:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4643,7 +4642,7 @@ print_del_msg("Deleted Because [Lock] [Gif]")
 end
 if msg.content_.caption_ then
 check_filter_words(msg, msg.content_.caption_)
-if redis:get(KEEPER.."bot:links:mute" .. msg.chat_id_) and (msg.content_.caption_:match("[Hh][Tt][Tt][Pp][Ss]://") or msg.content_.caption_:match("[Hh][Tt][Tt][Pp]://")) then
+if redis:get(Arab_Forum.."bot:links:mute" .. msg.chat_id_) and (msg.content_.caption_:match("[Hh][Tt][Tt][Pp][Ss]://") or msg.content_.caption_:match("[Hh][Tt][Tt][Pp]://")) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4653,7 +4652,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Link] [Gif] ")
 end
 if msg.content_.caption_:match("@") then
-if redis:get(KEEPER.."tags:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."tags:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4662,7 +4661,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Tag] [Gif]")
 end
-elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityMention" and redis:get(KEEPER.."tags:lock" .. msg.chat_id_) then
+elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityMention" and redis:get(Arab_Forum.."tags:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4672,7 +4671,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Tag] [Gif]")
 end
 if msg.content_.caption_:match("#") then
-if redis:get(KEEPER.."bot:hashtag:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:hashtag:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4681,7 +4680,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Hashtag] [Gif]")
 end
-elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityHashtag" and redis:get(KEEPER.."bot:hashtag:mute" .. msg.chat_id_) then
+elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityHashtag" and redis:get(Arab_Forum.."bot:hashtag:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4691,7 +4690,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Hashtag] [Gif]")
 end
 if msg.content_.caption_:match("[Hh][Tt][Tt][Pp][Ss]:[//]") or msg.content_.caption_:match("[Hh][Tt][Tt][Pp]:[//]") or msg.content_.caption_:match("[Ww][Ww][Ww]") or msg.content_.caption_:match(".[Cc][Oo]") or msg.content_.caption_:match(".[Ii][Rr]") or msg.content_.caption_:match(".[Oo][Rr][Gg]") then
-if redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4700,7 +4699,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Web] [Gif]")
 end
-elseif msg.content_.entities_ and msg.content_.entities_[0] and (msg.content_.entities_[0].ID == "MessageEntityTextUrl" or msg.content_.entities_[0].ID == "MessageEntityUrl") and redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+elseif msg.content_.entities_ and msg.content_.entities_[0] and (msg.content_.entities_[0].ID == "MessageEntityTextUrl" or msg.content_.entities_[0].ID == "MessageEntityUrl") and redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4709,7 +4708,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Web] [Gif]")
 end
-if msg.content_.web_page_ and redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+if msg.content_.web_page_ and redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4717,7 +4716,7 @@ local msgs = {
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
 end
-if msg.content_.caption_:match("[\216-\219][\121-\191]") and redis:get(KEEPER.."bot:arabic:mute" .. msg.chat_id_) then
+if msg.content_.caption_:match("[\216-\219][\121-\191]") and redis:get(Arab_Forum.."bot:arabic:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4726,7 +4725,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [arabic] [Gif]")
 end
-if (msg.content_.caption_:match("[A-Z]") or msg.content_.caption_:match("[a-z]")) and redis:get(KEEPER.."bot:english:mute" .. msg.chat_id_) then
+if (msg.content_.caption_:match("[A-Z]") or msg.content_.caption_:match("[a-z]")) and redis:get(Arab_Forum.."bot:english:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4739,77 +4738,77 @@ end
 end
 else
 if msg_type == "MSG:Text" then
-redis:setex(KEEPER.."bot:editid" .. msg.id_, day, msg.content_.text_)
-if redis:get(KEEPER.."anti-flood:" .. msg.chat_id_) and not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
-redis:setex(KEEPER..pm, TIME_CHECK, msgs + 1)
+redis:setex(Arab_Forum.."bot:editid" .. msg.id_, day, msg.content_.text_)
+if redis:get(Arab_Forum.."anti-flood:" .. msg.chat_id_) and not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
+redis:setex(Arab_Forum..pm, TIME_CHECK, msgs + 1)
 end
 ---------------------rem cam filters---------------------------------------------------------------------
-if redis:get(KEEPER.."Filtering:" .. msg.sender_user_id_) then
-local chat = redis:get(KEEPER.."Filtering:" .. msg.sender_user_id_)
+if redis:get(Arab_Forum.."Filtering:" .. msg.sender_user_id_) then
+local chat = redis:get(Arab_Forum.."Filtering:" .. msg.sender_user_id_)
 local name = string.sub(msg.content_.text_, 1, 50)
 local hash = "bot:filters:" .. chat
 if msg.content_.text_:match("^الغاء$") then
 send(msg.chat_id_, msg.id_, 1, "🔰- تم الغاء الامر بنجاح 🎈 ", 1, "md")
-redis:del(KEEPER.."Filtering:" .. msg.sender_user_id_, 10, chat)
+redis:del(Arab_Forum.."Filtering:" .. msg.sender_user_id_, 10, chat)
 elseif msg.content_.text_:match("^/[Cc]ancel$") then
 send(msg.chat_id_, msg.id_, 1, "تم الغاء الامر 🏌️", 1, "md")
-redis:del(KEEPER.."Filtering:" .. msg.sender_user_id_, 10, chat)
+redis:del(Arab_Forum.."Filtering:" .. msg.sender_user_id_, 10, chat)
 elseif filter_ok(name) then
-redis:hset(KEEPER..hash, name, "newword")
+redis:hset(Arab_Forum..hash, name, "newword")
 send(msg.chat_id_, msg.id_, 1, "● ◄  الكلمه ( [ " .. name .. " ] ) تم منعها \n- للخروج من الامر ارسل\n  الغاء  🎈",  1, "md")
-redis:setex(KEEPER.."Filtering:" .. msg.sender_user_id_, 10, chat)
+redis:setex(Arab_Forum.."Filtering:" .. msg.sender_user_id_, 10, chat)
 else
 send(msg.chat_id_, msg.id_, 1, "● ◄  الكلمه  [ " .. name .. " ] لا استطيع منعها🎋", 1, "md")
-redis:setex(KEEPER.."Filtering:" .. msg.sender_user_id_, 10, chat)
+redis:setex(Arab_Forum.."Filtering:" .. msg.sender_user_id_, 10, chat)
 return
 end
 end
 ---------------save name bot-----------------------------
-if redis:get(KEEPER..'botts:namess'..msg.sender_user_id_) then
-redis:del(KEEPER..'botts:namess'..msg.sender_user_id_)
+if redis:get(Arab_Forum..'botts:namess'..msg.sender_user_id_) then
+redis:del(Arab_Forum..'botts:namess'..msg.sender_user_id_)
 local NAME_BOT = msg.content_.text_:match("(.*)")
-redis:set(KEEPER..'keepernams',NAME_BOT)
+redis:set(Arab_Forum..'keepernams',NAME_BOT)
 send(msg.chat_id_, msg.id_, 1, "🌀┊ تم وضع اسم البوت 🍃",1, 'html')
 return false
 end
 ------------------------save cam link-----------------------------------
-if redis:get(KEEPER.."bot:group:link" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) and (msg.content_.text_:match("(https://telegram.me/joinchat/%S+)") or msg.content_.text_:match("(https://t.me/joinchat/%S+)")) then
+if redis:get(Arab_Forum.."bot:group:link" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) and (msg.content_.text_:match("(https://telegram.me/joinchat/%S+)") or msg.content_.text_:match("(https://t.me/joinchat/%S+)")) then
 local glink = msg.content_.text_:match("(https://telegram.me/joinchat/%S+)") or msg.content_.text_:match("(https://t.me/joinchat/%S+)")
 local hash = "bot:group:link" .. msg.chat_id_
-redis:set(KEEPER..hash, glink)
+redis:set(Arab_Forum..hash, glink)
 send(msg.chat_id_, msg.id_, 1, "🌀┊ تـــم  حفــــظ الرابط 🎈", 1, "md")
-redis:del(KEEPER.."bot:group:link" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
+redis:del(Arab_Forum.."bot:group:link" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 --------------------------------------------------------------------------
-if redis:get(KEEPER.."gettextsec" .. msg.sender_user_id_) then
+if redis:get(Arab_Forum.."gettextsec" .. msg.sender_user_id_) then
 local clerktext = msg.content_.text_
-redis:set(KEEPER.."textsec", clerktext)
+redis:set(Arab_Forum.."textsec", clerktext)
 send(msg.chat_id_, msg.id_, 1, "🌀┊  تم حفظ الكليشه 🎈", 1, "md")
-redis:del(KEEPER.."gettextsec" .. msg.sender_user_id_)
+redis:del(Arab_Forum.."gettextsec" .. msg.sender_user_id_)
 end
 ---------------------save com rules-----------------------------------------------------------------------------
-if redis:get(KEEPER.."rules" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
+if redis:get(Arab_Forum.."rules" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
 local rules = msg.content_.text_
-redis:set(KEEPER.."bot:rules" .. msg.chat_id_, rules)
+redis:set(Arab_Forum.."bot:rules" .. msg.chat_id_, rules)
 
 send(msg.chat_id_, msg.id_, 1, "🌀┊  تـــم حفــــظ القوانين 🎋",  1, "md")
-redis:del(KEEPER.."rules" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
+redis:del(Arab_Forum.."rules" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 -----------ch join------------------------------------------------------
 if text then
-if redis:get(KEEPER..'Kpch'..msg.sender_user_id_) then
-redis:del(KEEPER..'Kpch'..msg.sender_user_id_)
-redis:set(KEEPER..'Kpch1',text)
+if redis:get(Arab_Forum..'Kpch'..msg.sender_user_id_) then
+redis:del(Arab_Forum..'Kpch'..msg.sender_user_id_)
+redis:set(Arab_Forum..'Kpch1',text)
 send(msg.chat_id_, msg.id_, 1, "🌀┊ تم وضــــع معرف القناة ❗️\n🔰┊ ارفع البوت ادمن في قناتك\n",1, 'html')
 end end
 ---------------------rem cam broadcast--------------------------------------------------------------------
-if redis:get(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
+if redis:get(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
 if text:match("^الغاء$") then
 send(msg.chat_id_, msg.id_, 1, "🔰- تم الغاء الامر بنجاح🎈 ", 1, "md")
-redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
+redis:del(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 else
-local gps = redis:scard(KEEPER.."bot:groups") or 0
-local gpss = redis:smembers(KEEPER.."bot:groups") or 0
+local gps = redis:scard(Arab_Forum.."bot:groups") or 0
+local gpss = redis:smembers(Arab_Forum.."bot:groups") or 0
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4818,17 +4817,17 @@ for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
 send(msg.chat_id_, msg.id_, 1, "🌀┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ", 1, "md")
-redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
+redis:del(Arab_Forum.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 end
 --------------------rem  cam broadcast2--------------------------------------------------------------------------
-if redis:get(KEEPER.."broadcast2" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
+if redis:get(Arab_Forum.."broadcast2" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
 if text:match("^الغاء$") then
 send(msg.chat_id_, msg.id_, 1, "🔰- تم الغاء الامر بنجاح🎈 ", 1, "md")
-redis:del(KEEPER.."broadcast2" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
+redis:del(Arab_Forum.."broadcast2" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 else
-local gps = redis:scard(KEEPER.."bot:groups") or 0
-local gpss = redis:smembers(KEEPER.."bot:groups") or 0
+local gps = redis:scard(Arab_Forum.."bot:groups") or 0
+local gpss = redis:smembers(Arab_Forum.."bot:groups") or 0
 local msgs = {
 [0] = id
 }
@@ -4836,17 +4835,17 @@ for i = 1, #gpss do
 send(gpss[i], 0, 1, text, 1, "md")
 end
 send(msg.chat_id_, msg.id_, 1, "🌀┊ تم نشر رسالتك  في\n` " .. gps .. "` مجموعــه🎈  ", 1, "md")
-redis:del(KEEPER.."broadcast2" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
+redis:del(Arab_Forum.."broadcast2" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 end
-if redis:get(KEEPER.."bot:joinbylink:" .. msg.sender_user_id_) and (msg.content_.text_:match("(https://telegram.me/joinchat/%S+)") or msg.content_.text_:match("(https://t.me/joinchat/%S+)")) then
+if redis:get(Arab_Forum.."bot:joinbylink:" .. msg.sender_user_id_) and (msg.content_.text_:match("(https://telegram.me/joinchat/%S+)") or msg.content_.text_:match("(https://t.me/joinchat/%S+)")) then
 else
 end
 --------------------set cam sudo  ------------------------------------------
-if redis:get(KEEPER.."bot:keeper_dev" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
-redis:del(KEEPER.."bot:keeper_dev" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
+if redis:get(Arab_Forum.."bot:keeper_dev" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
+redis:del(Arab_Forum.."bot:keeper_dev" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 local keeper_dev = msg.content_.text_:match("(.*)")
-redis:set(KEEPER.."keeper_dev", keeper_dev)
+redis:set(Arab_Forum.."keeper_dev", keeper_dev)
 send(msg.chat_id_, msg.id_, 1, "🌀┊ تم وضــع كليشه المطور 🎗", 1, "md")
 end
 --------------------check_filter_words---------------------------------------------------------
@@ -4855,8 +4854,8 @@ check_filter_words(msg, text)
 if msg.content_.text_:match("@") or msg.content_.text_:match("#") then
 if string.len(msg.content_.text_) > senspost.textpostwithtag then
 local post = msg.content_.text_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4865,10 +4864,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4880,8 +4879,8 @@ end
 end
 elseif string.len(msg.content_.text_) > senspost.textpostwithtag then
 local post = msg.content_.text_
-if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-if redis:sismember(KEEPER.."Gp:Post" .. msg.chat_id_, post) then
+if redis:get(Arab_Forum.."bot:duplipost:mute" .. msg.chat_id_) then
+if redis:sismember(Arab_Forum.."Gp:Post" .. msg.chat_id_, post) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4890,10 +4889,10 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
-redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
+redis:sadd(Arab_Forum.."Gp:Post" .. msg.chat_id_, post)
 end
 end
-if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."post:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4903,7 +4902,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Post]")
 end
 end
-if msg.forward_info_ and redis:get(KEEPER.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
+if msg.forward_info_ and redis:get(Arab_Forum.."bot:forward:mute" .. msg.chat_id_) and (msg.forward_info_.ID == "MessageForwardedFromUser" or msg.forward_info_.ID == "MessageForwardedPost") then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4912,7 +4911,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Fwd] [Text]")
 end
-if (text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or text:match("[Tt].[Mm][Ee]")) and redis:get(KEEPER.."bot:links:mute" .. msg.chat_id_) then
+if (text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or text:match("[Tt].[Mm][Ee]")) and redis:get(Arab_Forum.."bot:links:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4920,11 +4919,11 @@ local msgs = {
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Link] [Text]")
-if redis:get(KEEPER.."bot:strict" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:strict" .. msg.chat_id_) then
 chat_kick(msg.chat_id_, msg.sender_user_id_)
 end
 end
-if redis:get(KEEPER.."bot:text:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:text:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4934,7 +4933,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Text]")
 end
 if msg.content_.text_:match("@") then
-if redis:get(KEEPER.."tags:lock" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."tags:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4943,7 +4942,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Tag] [Text]")
 end
-elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityMention" and redis:get(KEEPER.."tags:lock" .. msg.chat_id_) then
+elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityMention" and redis:get(Arab_Forum.."tags:lock" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4953,7 +4952,7 @@ delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Tag] [Text]")
 end
 if msg.content_.text_:match("#") then
-if redis:get(KEEPER.."bot:hashtag:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:hashtag:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4962,7 +4961,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Hashtag] [Text]")
 end
-elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityHashtag" and redis:get(KEEPER.."bot:hashtag:mute" .. msg.chat_id_) then
+elseif msg.content_.entities_ and msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityHashtag" and redis:get(Arab_Forum.."bot:hashtag:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4973,7 +4972,7 @@ print_del_msg("Deleted Because [Lock] [Hashtag] [Text]")
 end
 --«««««««««««««««««««««««« Developer By Karrar KeePer »»»»»»»»»»»»»»»»»»»»»»»»»»»--
 if msg.content_.text_:match("[Hh][Tt][Tt][Pp][Ss]:[//]") or msg.content_.text_:match("[Hh][Tt][Tt][Pp]:[//]") or msg.content_.text_:match("[Ww][Ww][Ww]") or msg.content_.text_:match(".[Cc][Oo]") or msg.content_.text_:match(".[Ii][Rr]") or msg.content_.text_:match(".[Oo][Rr][Gg]") then
-if redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4982,7 +4981,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Web] [Text]")
 end
-elseif msg.content_.entities_ and msg.content_.entities_[0] and (msg.content_.entities_[0].ID == "MessageEntityTextUrl" or msg.content_.entities_[0].ID == "MessageEntityUrl") and redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+elseif msg.content_.entities_ and msg.content_.entities_[0] and (msg.content_.entities_[0].ID == "MessageEntityTextUrl" or msg.content_.entities_[0].ID == "MessageEntityUrl") and redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4991,7 +4990,7 @@ local chat = msg.chat_id_
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Web] [Text]")
 end
-if msg.content_.web_page_ and redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
+if msg.content_.web_page_ and redis:get(Arab_Forum.."bot:webpage:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -4999,7 +4998,7 @@ local msgs = {
 local chat = msg.chat_id_
 delete_msg(chat, msgs)
 end
-if msg.content_.text_:match("[\216-\219][\121-\191]") and redis:get(KEEPER.."bot:arabic:mute" .. msg.chat_id_) then
+if msg.content_.text_:match("[\216-\219][\121-\191]") and redis:get(Arab_Forum.."bot:arabic:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -5017,17 +5016,17 @@ local msgs = {
 }
 local chat = msg.chat_id_
 local hash = "bot:sens:spam" .. msg.chat_id_
-if not redis:get(KEEPER..hash) then
+if not redis:get(Arab_Forum..hash) then
 sens = 400
 else
-sens = tonumber(redis:get(KEEPER..hash))
+sens = tonumber(redis:get(Arab_Forum..hash))
 end
-if redis:get(KEEPER.."bot:spam:mute" .. msg.chat_id_) and string.len(msg.content_.text_) > sens or ctrl_chars > sens or real_digits > sens then
+if redis:get(Arab_Forum.."bot:spam:mute" .. msg.chat_id_) and string.len(msg.content_.text_) > sens or ctrl_chars > sens or real_digits > sens then
 delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Lock] [Spam] ")
 end
 end
-if (msg.content_.text_:match("[A-Z]") or msg.content_.text_:match("[a-z]")) and redis:get(KEEPER.."bot:english:mute" .. msg.chat_id_) then
+if (msg.content_.text_:match("[A-Z]") or msg.content_.text_:match("[a-z]")) and redis:get(Arab_Forum.."bot:english:mute" .. msg.chat_id_) then
 local id = msg.id_
 local msgs = {
 [0] = id
@@ -5041,7 +5040,7 @@ if msg.date_ < os.time() - 10 then
 print("\01[" .. color.white[1] .. ";" .. color.magenta[2] .. "m>>> OLD MSG Pattern <<<\01[00m")
 return false
 end
-if redis:get(KEEPER.."bot:cmds" .. msg.chat_id_) and not is_momod(msg.sender_user_id_, msg.chat_id_) then
+if redis:get(Arab_Forum.."bot:cmds" .. msg.chat_id_) and not is_momod(msg.sender_user_id_, msg.chat_id_) then
 print("\01[" .. color.white[1] .. ";" .. color.magenta[2] .. "m>>> Lock Cmd Is Active In This Group <<<\01[00m")
 return false
 end
@@ -5050,61 +5049,61 @@ if is_owner(msg.sender_user_id_, msg.chat_id_) and not Kp_JoinCh(msg) or is_mons
 return false
 end
 -------------------------------leave groups----------------------------------------------------------------------
-if is_sudo(msg) and idf:match("-100(%d+)") and (text:match('^'..(redis:get(KEEPER..'keepernams') or 'كيبر')..' غادر$')) then
+if is_sudo(msg) and idf:match("-100(%d+)") and (text:match('^'..(redis:get(Arab_Forum..'keepernams') or 'كيبر')..' غادر$')) then
 send(msg.chat_id_, msg.id_, 1, "✺↓ تم مغادره المجموعــه ♩†",  1, "md")
-redis:srem(KEEPER.."bot:groups", msg.chat_id_)
+redis:srem(Arab_Forum.."bot:groups", msg.chat_id_)
 chat_leave(msg.chat_id_, bot_id)
 end
 --------------------------------------------
 if text == 'تفعيل رفع الادمن' and is_owner(msg.sender_user_id_, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تفعيل خاصية رفع الادمن\n ✓ ", 1, 'md')
-redis:del(KEEPER.."lock_addd"..msg.chat_id_)
+redis:del(Arab_Forum.."lock_addd"..msg.chat_id_)
 end
 if text == 'تعطيل رفع الادمن' and is_owner(msg.sender_user_id_, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تعطيل خاصية رفع الادمن\n ✓ ", 1, 'md')
-redis:set(KEEPER.."lock_addd"..msg.chat_id_, true)
+send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmArab_Forum(msg).."\n🎟┊ تم تعطيل خاصية رفع الادمن\n ✓ ", 1, 'md')
+redis:set(Arab_Forum.."lock_addd"..msg.chat_id_, true)
 end
 -------------------------------------------------
 if text == 'تفعيل رفع المميز' and is_owner(msg.sender_user_id_, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تفعيل خاصية رفع المميز\n ✓ ", 1, 'md')
-redis:del(KEEPER.."lock_adddvip"..msg.chat_id_)
+send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmArab_Forum(msg).."\n🎟┊ تم تفعيل خاصية رفع المميز\n ✓ ", 1, 'md')
+redis:del(Arab_Forum.."lock_adddvip"..msg.chat_id_)
 end
 if text == 'تعطيل رفع المميز' and is_owner(msg.sender_user_id_, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تعطيل خاصية رفع المميز\n ✓ ", 1, 'md')
-redis:set(KEEPER.."lock_adddvip"..msg.chat_id_, true)
+send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmArab_Forum(msg).."\n🎟┊ تم تعطيل خاصية رفع المميز\n ✓ ", 1, 'md')
+redis:set(Arab_Forum.."lock_adddvip"..msg.chat_id_, true)
 end
 --------------------------------------------------------------------
 if is_owner(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") and text:match("^رفع ادمن بالتفاعل (%d+)$")  then
 local uuuu = { string.match(text, "^(رفع ادمن بالتفاعل) (%d+)$")}
 send(msg.chat_id_, msg.id_, 1, "⚜️┊ تم حفظ العدد *"..uuuu[2].."*\n💬┊ سيتم رفع العضو ادمن\n🚫┊اذا اثبت تفاعله\n✓",1, 'md')
-redis:set(KEEPER.."KEEPER_O" .. msg.chat_id_, uuuu[2])
+redis:set(Arab_Forum.."KEEPER_O" .. msg.chat_id_, uuuu[2])
 end
-local msgs = tonumber(redis:get(KEEPER.."msgs:"..msg.sender_user_id_..":"..msg.chat_id_))
-local get_keeper = tonumber(redis:get(KEEPER.."KEEPER_O" .. msg.chat_id_)) 
-if msgs == get_keeper and not redis:get(KEEPER.."lock_addd"..msg.chat_id_) then
+local msgs = tonumber(redis:get(Arab_Forum.."msgs:"..msg.sender_user_id_..":"..msg.chat_id_))
+local get_Arab_Forum = tonumber(redis:get(Arab_Forum.."KEEPER_O" .. msg.chat_id_)) 
+if msgs == get_Arab_Forum and not redis:get(Arab_Forum.."lock_addd"..msg.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, "💬┊ هذا العضو اثبت تفاعله\n🎟┊تم رفعه ادمن في المجموعه\n✓",  1, "md")
-redis:sadd(KEEPER..'bot:momod:'..msg.chat_id_, msg.sender_user_id_)
+redis:sadd(Arab_Forum..'bot:momod:'..msg.chat_id_, msg.sender_user_id_)
 end
 --------------------------------------------------------------------
 if is_owner(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") and text:match("^رفع مميز بالتفاعل (%d+)$")  then
 local uuuu = { string.match(text, "^(رفع مميز بالتفاعل) (%d+)$")}
 send(msg.chat_id_, msg.id_, 1, "⚜️┊ تم حفظ العدد *"..uuuu[2].."*\n💬┊ سيتم رفع العضو مميز\n🚫┊اذا اثبت تفاعله\n✓",1, 'md')
-redis:set(KEEPER.."KEEPER_OO" .. msg.chat_id_, uuuu[2])
+redis:set(Arab_Forum.."Arab_Forum_OO" .. msg.chat_id_, uuuu[2])
 end
-local msgs = tonumber(redis:get(KEEPER.."msgs:"..msg.sender_user_id_..":"..msg.chat_id_))
-local get_keeper = tonumber(redis:get(KEEPER.."KEEPER_OO" .. msg.chat_id_)) 
-if msgs == get_keeper and not redis:get(KEEPER.."lock_adddvip"..msg.chat_id_) then
+local msgs = tonumber(redis:get(Arab_Forum.."msgs:"..msg.sender_user_id_..":"..msg.chat_id_))
+local get_Arab_Forum = tonumber(redis:get(Arab_Forum.."Arab_Forum_OO" .. msg.chat_id_)) 
+if msgs == get_Arab_Forum and not redis:get(Arab_Forum.."lock_adddvip"..msg.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, "📌┊ هذا العضو اثبت تفاعله\n🌀┊تم رفعه عضو مميز في المجموعه\n✓",  1, "md")
-redis:sadd(KEEPER..'bot:vipmem:'..msg.chat_id_, msg.sender_user_id_)
+redis:sadd(Arab_Forum..'bot:vipmem:'..msg.chat_id_, msg.sender_user_id_)
 end
 ------------------------------ADD vipmems BY Reply------------------------------------------------------------------
 if text:match("^رفع مميز عام$") and is_KP(msg) and msg.reply_to_message_id_ ~= 0  then
 function promote_by_reply(extra, result, success)
 local hash = 'bot:vipmems:'
-if redis:sismember(KEEPER..hash, result.sender_user_id_) then
+if redis:sismember(Arab_Forum..hash, result.sender_user_id_) then
 send(msg.chat_id_, msg.id_, 1,"🔍┊ العضو *("..result.sender_user_id_..")*\n🌀┊ تم رفعه عضو مميز عام ✔️\n‏", 1, "md")
 else
-redis:sadd(KEEPER..hash, result.sender_user_id_)
+redis:sadd(Arab_Forum..hash, result.sender_user_id_)
 send(msg.chat_id_, msg.id_, 1,"🔍┊ العضو *("..result.sender_user_id_..")*\n🌀┊ تم رفعه عضو مميز عام ✔️\n‏", 1, "md")
 end
 end
@@ -5117,7 +5116,7 @@ function promote_by_username(extra, result, success)
 local hash = 'bot:vipmems:'
 if result.id_ then
 texts = "🔍┊ العضو *("..result.id_..")*\n🌀┊ تم رفعه عضو مميز عام ✔️\n‏"
-redis:sadd(KEEPER..hash, result.id_)
+redis:sadd(Arab_Forum..hash, result.id_)
 else
 texts = '🌀┊ لا يوجد عضو بهذا المعرف 🍃'
 end
@@ -5130,16 +5129,16 @@ if text:match("^رفع مميز عام (%d+)$") and is_KP(msg) then
 local ap = {string.match(text, "^(رفع مميز عام) (%d+)$")}
 local hash = 'bot:vipmems:'
 send(msg.chat_id_, msg.id_, 1, "🔍┊ العضو *("..ap[2]..")*\n🌀┊ تم رفعه عضو مميز عام ✔️\n‏", 1, 'md')
-redis:sadd(KEEPER..hash, ap[2])
+redis:sadd(Arab_Forum..hash, ap[2])
 end
 ----------------------DEL vipmems BY REPLY-------------------------------------------------------------------------
 if text:match("^تنزيل مميز عام$") and is_KP(msg) and msg.reply_to_message_id_ ~= 0 then
 function demote_by_reply(extra, result, success)
 local hash = 'bot:vipmems:'
-if not redis:sismember(KEEPER..hash, result.sender_user_id_) then
+if not redis:sismember(Arab_Forum..hash, result.sender_user_id_) then
 send(msg.chat_id_, msg.id_, 1,"🔍┊ العضو *("..result.sender_user_id_..")*\n🌀┊ تم حذفه من مميزين العام ✔️\n‏", 1, "md")
 else
-redis:srem(KEEPER..hash, result.sender_user_id_)
+redis:srem(Arab_Forum..hash, result.sender_user_id_)
 send(msg.chat_id_, msg.id_, 1,"🔍┊ العضو *("..result.sender_user_id_..")*\n🌀┊ تم حذفه من مميزين العام ✔️\n‏", 1, "md")
 end
 end
@@ -5152,7 +5151,7 @@ function demote_by_username(extra, result, success)
 local hash = 'bot:vipmems:'
 if result.id_ then
 texts = "🔍┊ العضو *("..result.id_..")*\n🌀┊ تم حذفه من مميزين العام ✔️\n‏"
-redis:srem(KEEPER..hash, result.id_)
+redis:srem(Arab_Forum..hash, result.id_)
 else
 texts = '🌀┊ لا يوجد عضو بهذا المعرف 🍃 '
 end
@@ -5165,17 +5164,17 @@ if text:match("^تنزيل مميز عام (%d+)$") and is_KP(msg) then
 local ap = {string.match(text, "^(تنزيل مميز عام) (%d+)$")}
 local hash = 'bot:vipmems:'
 send(msg.chat_id_, msg.id_, 1, "🔍┊ العضو *("..ap[2]..")*\n🌀┊ تم حذفه من مميزين العام ✔️\n‏", 1, 'md')
-redis:srem(KEEPER..hash, ap[2])
+redis:srem(Arab_Forum..hash, ap[2])
 end
 -----------------------------promote_by_reply-------------------------------------------------------
 if text:match("^رفع ادمن$") and is_owner(msg.sender_user_id_, msg.chat_id_) and msg.reply_to_message_id_ ~= 0  then
 function promote_by_reply(extra, result, success)
 local hash = 'bot:momod:'..msg.chat_id_
-if redis:sismember(KEEPER..hash, result.sender_user_id_) then
+if redis:sismember(Arab_Forum..hash, result.sender_user_id_) then
 send(msg.chat_id_, msg.id_, 1,"🔍┊ العضو ("..result.sender_user_id_..")\n🌀┊ تم رفعه ادمن ✔️\n‏", 1, "md")
 else
 send(msg.chat_id_, msg.id_, 1,"🔍┊ العضو ("..result.sender_user_id_..")\n🌀┊ تم رفعه ادمن ✔️\n‏", 1, "md")
-redis:sadd(KEEPER..hash, result.sender_user_id_)
+redis:sadd(Arab_Forum..hash, result.sender_user_id_)
 end
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,promote_by_reply)
@@ -5186,7 +5185,7 @@ local ap = {string.match(text, "^(رفع ادمن) @(.*)$")}
 function promote_by_username(extra, result, success)
 if result.id_ then
 texts = "🔍┊ العضو ("..result.id_..")\n🌀┊ تم رفعه ادمن ✔️\n‏"
-redis:sadd(KEEPER..'bot:momod:'..msg.chat_id_, result.id_)
+redis:sadd(Arab_Forum..'bot:momod:'..msg.chat_id_, result.id_)
 else
 texts = '🌀┊ لا يوجد عضو بهذا المعرف 🍃'
 end
@@ -5198,15 +5197,15 @@ end
 if text:match("^رفع ادمن (%d+)$") and is_owner(msg.sender_user_id_, msg.chat_id_) then
 local ap = {string.match(text, "^(رفع ادمن) (%d+)$")}
 send(msg.chat_id_, msg.id_, 1, "🔍┊ العضو ("..ap[2]..")\n🌀┊ تم رفعه ادمن ✔️\n‏", 1, 'md')
-redis:sadd(KEEPER..'bot:momod:'..msg.chat_id_, ap[2])
+redis:sadd(Arab_Forum..'bot:momod:'..msg.chat_id_, ap[2])
 end
 -------------------------------demote_by_reply----------------------------------------------------------------------
 if text:match("^تنزيل ادمن$") and is_owner(msg.sender_user_id_, msg.chat_id_) and msg.reply_to_message_id_ ~= 0 then
 function demote_by_reply(extra, result, success)
 local hash = 'bot:momod:'..msg.chat_id_
-if not redis:sismember(KEEPER..hash, result.sender_user_id_) then
+if not redis:sismember(Arab_Forum..hash, result.sender_user_id_) then
 send(msg.chat_id_, msg.id_, 1,"🔍┊ العضو ("..result.sender_user_id_..")\n🌀┊ تم تنزيله من الادمنيه ✔️\n‏", 1, "md")
-redis:srem(KEEPER..hash, result.sender_user_id_)
+redis:srem(Arab_Forum..hash, result.sender_user_id_)
 end
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,demote_by_reply)
@@ -5218,7 +5217,7 @@ local ap = {string.match(text, "^(تنزيل ادمن) @(.*)$")}
 function demote_by_username(extra, result, success)
 if result.id_ then
 texts = "🔍┊ العضو ("..result.id_..")\n🌀┊ تم تنزيله من الادمنيه ✔️\n‏"
-redis:srem(KEEPER..hash, result.id_)
+redis:srem(Arab_Forum..hash, result.id_)
 else
 texts = '🌀┊ لا يوجد عضو بهذا المعرف 🍃'
 end
@@ -5231,16 +5230,16 @@ if text:match("^تنزيل ادمن (%d+)$") and is_owner(msg.sender_user_id_, m
 local hash = 'bot:momod:'..msg.chat_id_
 local ap = {string.match(text, "^(تنزيل ادمن) (%d+)$")}
 send(msg.chat_id_, msg.id_, 1, "🔍┊ العضو ("..ap[2]..")\n🌀┊ تم تنزيله من الادمنيه ✔️\n‏", 1, 'md')
-redis:srem(KEEPER..hash, ap[2])
+redis:srem(Arab_Forum..hash, ap[2])
 end
 ------------------------set vip BY REBLY-------------------------------------------------------------------------
 if text:match("^رفع مميز$") and is_momod(msg.sender_user_id_, msg.chat_id_) and msg.reply_to_message_id_ ~= 0  then
 function promote_by_reply(extra, result, success)
 local hash = 'bot:vipmem:'..msg.chat_id_
-if redis:sismember(KEEPER..hash, result.sender_user_id_) then
+if redis:sismember(Arab_Forum..hash, result.sender_user_id_) then
 send(msg.chat_id_, msg.id_, 1,"🔍┊ العضو *("..result.sender_user_id_..")*\n🌀┊ تم رفعه عضو مميز ✔️\n‏", 1, "md")
 else
-redis:sadd(KEEPER..hash, result.sender_user_id_)
+redis:sadd(Arab_Forum..hash, result.sender_user_id_)
 send(msg.chat_id_, msg.id_, 1,"🔍┊ العضو *("..result.sender_user_id_..")*\n🌀┊ تم رفعه عضو مميز ✔️\n‏", 1, "md")
 end
 end
@@ -5252,7 +5251,7 @@ local ap = {string.match(text, "^(رفع مميز) @(.*)$")}
 function promote_by_username(extra, result, success)
 if result.id_ then
 texts = "🔍┊ العضو *("..result.id_..")*\n🌀┊ تم رفعه عضو مميز ✔️\n‏"
-redis:sadd(KEEPER..'bot:vipmem:'..msg.chat_id_, result.id_)
+redis:sadd(Arab_Forum..'bot:vipmem:'..msg.chat_id_, result.id_)
 else
 texts = '🌀┊ لا يوجد عضو بهذا المعرف 🍃'
 end
@@ -5264,16 +5263,16 @@ end
 if text:match("^رفع مميز (%d+)$") and is_momod(msg.sender_user_id_, msg.chat_id_) then
 local ap = {string.match(text, "^(رفع مميز) (%d+)$")}
 send(msg.chat_id_, msg.id_, 1, "🔍┊ العضو *("..ap[2]..")*\n🌀┊ تم رفعه عضو مميز ✔️\n‏", 1, 'md')
-redis:sadd(KEEPER..'bot:vipmem:'..msg.chat_id_, ap[2])
+redis:sadd(Arab_Forum..'bot:vipmem:'..msg.chat_id_, ap[2])
 end
 -----------------------------delvipmem_by_reply------------------------------------------------------------------
 if text:match("^تنزيل مميز$") and is_momod(msg.sender_user_id_, msg.chat_id_) and msg.reply_to_message_id_ ~= 0 then
 function delvipmem_by_reply(extra, result, success)
 local hash = 'bot:vipmem:'..msg.chat_id_
-if not redis:sismember(KEEPER..hash, result.sender_user_id_) then
+if not redis:sismember(Arab_Forum..hash, result.sender_user_id_) then
 send(msg.chat_id_, msg.id_, 1,"🔍┊ العضو *("..result.sender_user_id_..")*\n🌀┊ تم تنزيله من المميزين ✔️\n‏", 1, "md")
 else
-redis:srem(KEEPER..hash, result.sender_user_id_)
+redis:srem(Arab_Forum..hash, result.sender_user_id_)
 send(msg.chat_id_, msg.id_, 1,"🔍┊ العضو *("..result.sender_user_id_..")*\n🌀┊ تم تنزيله من المميزين ✔️\n‏", 1, "md")
 end
 end
@@ -5286,7 +5285,7 @@ local ap = {string.match(text, "^(تنزيل مميز) @(.*)$")}
 function delvipmem_by_username(extra, result, success)
 if result.id_ then
 texts = "🔍┊ العضو *("..result.id_..")*\n🌀┊ تم تنزيله من المميزين ✔️\n‏"
-redis:srem(KEEPER..hash, result.id_)
+redis:srem(Arab_Forum..hash, result.id_)
 else
 texts = '🌀┊ لا يوجد عضو بهذا المعرف 🍃 '
 end
@@ -5299,7 +5298,7 @@ if text:match("^تنزيل مميز (%d+)$") and is_momod(msg.sender_user_id_, m
 local hash = 'bot:vipmem:'..msg.chat_id_
 local ap = {string.match(text, "^(تنزيل مميز) (%d+)$")}
 send(msg.chat_id_, msg.id_, 1, "🔍┊ العضو *("..ap[2]..")*\n🌀┊ تم تنزيله من المميزين ✔️\n‏", 1, 'md')
-redis:srem(KEEPER..hash, ap[2])
+redis:srem(Arab_Forum..hash, ap[2])
 end
 --------------------------ban_by_reply-------------------------------------------------------------
 if text:match("^حظر$") and is_momod(msg.sender_user_id_, msg.chat_id_) and msg.reply_to_message_id_ then
@@ -5308,11 +5307,11 @@ local hash = 'bot:banned:'..msg.chat_id_
 if is_momod(result.sender_user_id_, result.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🌀┊ عذراً لا استطيع (حظر،طرد،كتم)المدراء والادمنيه ❗️', 1, 'md')
 else
-if redis:sismember(KEEPER..hash, result.sender_user_id_) then
+if redis:sismember(Arab_Forum..hash, result.sender_user_id_) then
 send(msg.chat_id_, msg.id_, 1, '🌀┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم حظره بنجاح ✔️', 1, 'md')
 chat_kick(result.chat_id_, result.sender_user_id_)
 else
-redis:sadd(KEEPER..hash, result.sender_user_id_)
+redis:sadd(Arab_Forum..hash, result.sender_user_id_)
 send(msg.chat_id_, msg.id_, 1, '🌀┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم حظره بنجاح ✔️', 1, 'md')
 chat_kick(result.chat_id_, result.sender_user_id_)
 end
@@ -5328,7 +5327,7 @@ if result.id_ then
 if is_momod(result.id_, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🌀┊ عذراً لا استطيع (حظر،طرد،كتم)المدراء والادمنيه ❗️', 1, 'md')
 else
-redis:sadd(KEEPER..'bot:banned:'..msg.chat_id_, result.id_)
+redis:sadd(Arab_Forum..'bot:banned:'..msg.chat_id_, result.id_)
 texts = '🌀┊ العضو *('..result.id_..')*\n🔰┊ تم حظره بنجاح ✔️'
 chat_kick(msg.chat_id_, result.id_)
 end
@@ -5345,7 +5344,7 @@ local ap = {string.match(text, "^(حظر) (%d+)$")}
 if is_momod(ap[2], msg.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🌀┊ عذراً لا استطيع (حظر،طرد،كتم)المدراء والادمنيه ❗️', 1, 'md')
 else
-redis:sadd(KEEPER..'bot:banned:'..msg.chat_id_, ap[2])
+redis:sadd(Arab_Forum..'bot:banned:'..msg.chat_id_, ap[2])
 chat_kick(msg.chat_id_, ap[2])
 send(msg.chat_id_, msg.id_, 1, '🌀┊ العضو *('..ap[2]..')*\n🔰┊ تم حظره بنجاح ✔️', 1, 'md')
 end
@@ -5357,11 +5356,11 @@ local hash = "bot:gban:"
 if is_momod(result.sender_user_id_, result.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🌀┊ عذراً لا استطيع (حظر،طرد،كتم)المدراء والادمنيه ❗️', 1, 'md')
 else
-if redis:sismember(KEEPER..hash, result.sender_user_id_) then
+if redis:sismember(Arab_Forum..hash, result.sender_user_id_) then
 send(msg.chat_id_, msg.id_, 1, '🌀┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم حظره عام بنجاح ✔️', 1, 'md')
 chat_kick(result.chat_id_, result.sender_user_id_)
 else
-redis:sadd(KEEPER..hash, result.sender_user_id_)
+redis:sadd(Arab_Forum..hash, result.sender_user_id_)
 send(msg.chat_id_, msg.id_, 1, '🌀┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم حظره عام بنجاح ✔️', 1, 'md')
 chat_kick(result.chat_id_, result.sender_user_id_)
 end
@@ -5378,7 +5377,7 @@ if result.id_ then
 if is_momod(result.id_, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🌀┊ عذراً لا استطيع (حظر،طرد،كتم)المدراء والادمنيه ❗️', 1, 'md')
 else
-redis:sadd(KEEPER..hash, result.id_)
+redis:sadd(Arab_Forum..hash, result.id_)
 texts = '🌀┊ العضو *('..result.id_..')*\n🔰┊ تم حظره عام بنجاح ✔️'
 chat_kick(msg.chat_id_, result.id_)
 end
@@ -5396,7 +5395,7 @@ local hash = "bot:gban:"
 if is_momod(ap[2], msg.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🌀┊ عذراً لا استطيع (حظر،طرد،كتم)المدراء والادمنيه ❗️', 1, 'md')
 else
-redis:sadd(KEEPER..hash, ap[2])
+redis:sadd(Arab_Forum..hash, ap[2])
 chat_kick(msg.chat_id_, ap[2])
 send(msg.chat_id_, msg.id_, 1, '🌀┊ العضو *('..ap[2]..')*\n🔰┊ تم حظره عام بنجاح ✔️', 1, 'md')
 end
@@ -5405,10 +5404,10 @@ end
 if text:match("^الغاء العام$") and is_sudo(msg) and msg.reply_to_message_id_ then
 function ungban_by_reply(extra, result, success)
 local hash = "bot:gban:"
-if not redis:sismember(KEEPER..hash, result.sender_user_id_) then
+if not redis:sismember(Arab_Forum..hash, result.sender_user_id_) then
 send(msg.chat_id_, msg.id_, 1, '🌀┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم الغاء حظره العام ✔️', 1, 'md')
 else
-redis:srem(KEEPER..hash, result.sender_user_id_)
+redis:srem(Arab_Forum..hash, result.sender_user_id_)
 send(msg.chat_id_, msg.id_, 1, '🌀┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم الغاء حظره العام ✔️', 1, 'md')
 end
 end
@@ -5420,7 +5419,7 @@ local ap = {string.match(text, "^(الغاء العام) @(.*)$")}
 function ungban_by_username(extra, result, success)
 local hash = "bot:gban:"
 if result.id_ then
-redis:srem(KEEPER..hash, result.id_)
+redis:srem(Arab_Forum..hash, result.id_)
 text = '🌀┊ العضو *('..result.id_..')*\n🔰┊ تم الغاء حظره العام ✔️'
 else
 text = '🌀┊ لا يوجد عضو بهذا المعرف 🍃'
@@ -5433,7 +5432,7 @@ end
 if text:match("^الغاء العام (%d+)$") and is_sudo(msg) then
 local ap = {string.match(text, "^(الغاء العام) (%d+)$")}
 local hash = "bot:gban:"
-redis:srem(KEEPER..hash, ap[2])
+redis:srem(Arab_Forum..hash, ap[2])
 send(msg.chat_id_, msg.id_, 1, '🌀┊ العضو *('..ap[2]..')*\n🔰┊ تم الغاء حظره العام ✔️', 1, 'md')
 end
 ----------------------delall_by_reply------------------------------------------------------------------------------
@@ -5480,10 +5479,10 @@ end
 if text:match("^الغاء حظر$") and is_momod(msg.sender_user_id_, msg.chat_id_) and msg.reply_to_message_id_ then
 function unban_by_reply(extra, result, success)
 local hash = 'bot:banned:'..msg.chat_id_
-if not redis:sismember(KEEPER..hash, result.sender_user_id_) then
+if not redis:sismember(Arab_Forum..hash, result.sender_user_id_) then
 send(msg.chat_id_, msg.id_, 1, '🌀┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم الغاء حظره بنجاح ✔️', 1, 'md')
 else
-redis:srem(KEEPER..hash, result.sender_user_id_)
+redis:srem(Arab_Forum..hash, result.sender_user_id_)
 send(msg.chat_id_, msg.id_, 1, '🌀┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم الغاء حظره بنجاح ✔️', 1, 'md')
 end
 end
@@ -5494,7 +5493,7 @@ if text:match("^الغاء حظر @(.*)$") and is_momod(msg.sender_user_id_, msg
 local ap = {string.match(text, "^(الغاء حظر) @(.*)$")}
 function unban_by_username(extra, result, success)
 if result.id_ then
-redis:srem(KEEPER..'bot:banned:'..msg.chat_id_, result.id_)
+redis:srem(Arab_Forum..'bot:banned:'..msg.chat_id_, result.id_)
 text = '🌀┊ العضو *('..result.id_..')*\n🔰┊ تم الغاء حظره بنجاح ✔️'
 else
 text = '🌀┊ لا يوجد عضو بهذا المعرف 🍃'
@@ -5506,7 +5505,7 @@ end
 -----------------------unban_by_id------------------------------------------------------------------------
 if text:match("^الغاء حظر (%d+)$") and is_momod(msg.sender_user_id_, msg.chat_id_) then
 local ap = {string.match(text, "^(الغاء حظر) (%d+)$")}
-redis:srem(KEEPER..'bot:banned:'..msg.chat_id_, ap[2])
+redis:srem(Arab_Forum..'bot:banned:'..msg.chat_id_, ap[2])
 send(msg.chat_id_, msg.id_, 1, '🌀┊ العضو *('..ap[2]..')*\n🔰┊ تم الغاء حظره بنجاح ✔️', 1, 'md')
 end
 -----------------------mute_by_reply---------------------------------------------------------------------
@@ -5516,10 +5515,10 @@ local hash = 'bot:muted:'..msg.chat_id_
 if is_momod(result.sender_user_id_, result.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🌀┊ عذراً لا استطيع (حظر،طرد،كتم)المدراء والادمنيه ❗️', 1, 'md')
 else
-if redis:sismember(KEEPER..hash, result.sender_user_id_) then
+if redis:sismember(Arab_Forum..hash, result.sender_user_id_) then
 send(msg.chat_id_, msg.id_, 1, '🌀┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم كتمه بنجاح ✔️', 1, 'md')
 else
-redis:sadd(KEEPER..hash, result.sender_user_id_)
+redis:sadd(Arab_Forum..hash, result.sender_user_id_)
 send(msg.chat_id_, msg.id_, 1, '🌀┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم كتمه بنجاح ✔️', 1, 'md')
 end
 end
@@ -5534,7 +5533,7 @@ if result.id_ then
 if is_momod(result.id_, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🌀┊ عذراً لا استطيع (حظر،طرد،كتم)المدراء والادمنيه ❗️', 1, 'md')
 else
-redis:sadd(KEEPER..'bot:muted:'..msg.chat_id_, result.id_)
+redis:sadd(Arab_Forum..'bot:muted:'..msg.chat_id_, result.id_)
 texts = '🌀┊ العضو *('..result.id_..')*\n🔰┊ تم كتمه بنجاح ✔️'
 chat_kick(msg.chat_id_, result.id_)
 end
@@ -5551,7 +5550,7 @@ local ap = {string.match(text, "^(كتم) (%d+)$")}
 if is_momod(ap[2], msg.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🌀┊ عذراً لا استطيع (حظر،طرد،كتم)المدراء والادمنيه ❗️', 1, 'md')
 else
-redis:sadd(KEEPER..'bot:muted:'..msg.chat_id_, ap[2])
+redis:sadd(Arab_Forum..'bot:muted:'..msg.chat_id_, ap[2])
 send(msg.chat_id_, msg.id_, 1, '🌀┊ العضو *('..ap[2]..')*\n🔰┊ تم كتمه بنجاح ✔️', 1, 'md')
 end
 end
@@ -5563,7 +5562,7 @@ if is_momod(result.sender_user_id_, result.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🌀┊ عذراً لا استطيع (تقييد)المدراء والادمنيه ❗️', 1, 'md')
 else
 HTTPS.request("https://api.telegram.org/bot"..KEEPER_TOKEN.."/restrictChatMember?chat_id=" ..msg.chat_id_.. "&user_id=" ..result.sender_user_id_.."")
-redis:sadd(KEEPER..hash, result.sender_user_id_)
+redis:sadd(Arab_Forum..hash, result.sender_user_id_)
 send(msg.chat_id_, msg.id_, 1, '🌀┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم تقييده بنجاح ✔️', 1, 'md')
 end
 end
@@ -5577,8 +5576,8 @@ if result.id_ then
 if is_momod(result.id_, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🌀┊ عذراً لا استطيع (تقييد)المدراء والادمنيه ❗️', 1, 'md')
 else
-HTTPS.request("https://api.telegram.org/bot"..KEEPER_TOKEN.."/restrictChatMember?chat_id=" ..msg.chat_id_.. "&user_id=" ..result.id_.."")
-redis:sadd(KEEPER.."bot:keed:"..msg.chat_id_, result.id_)
+HTTPS.request("https://api.telegram.org/bot"..itachi_TOKEN.."/restrictChatMember?chat_id=" ..msg.chat_id_.. "&user_id=" ..result.id_.."")
+redis:sadd(Arab_Forum.."bot:keed:"..msg.chat_id_, result.id_)
 texts = '🌀┊ العضو *('..result.id_..')*\n🔰┊ تم تقييده بنجاح ✔️'
 end
 else
@@ -5594,8 +5593,8 @@ local ap = {string.match(text, "^(تقييد) (%d+)$")}
 if is_momod(ap[2], msg.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🌀┊ عذراً لا استطيع (تقييد)المدراء والادمنيه ❗️', 1, 'md')
 else
-HTTPS.request("https://api.telegram.org/bot"..KEEPER_TOKEN.."/restrictChatMember?chat_id=" ..msg.chat_id_.. "&user_id=" ..ap[2].."")
-redis:sadd(KEEPER.."bot:keed:"..msg.chat_id_, ap[2])
+HTTPS.request("https://api.telegram.org/bot"..itachi_TOKEN.."/restrictChatMember?chat_id=" ..msg.chat_id_.. "&user_id=" ..ap[2].."")
+redis:sadd(Arab_Forum.."bot:keed:"..msg.chat_id_, ap[2])
 send(msg.chat_id_, msg.id_, 1, '🌀┊ العضو *('..ap[2]..')*\n🔰┊ تم تقييده بنجاح ✔️', 1, 'md')
 end
 end
