@@ -1,5 +1,5 @@
 # <p align="center" style="color:#cb3349" > ســــــورس كيبــــر 🍃
-# <p align="center" style="color:#cb3349" > source keePer 🍃
+# <p align="center" style="color:#cb3349" > source ra7lon 🍃
  
 # <p align="center" style="color: #14635c;" > 📣اقــوى ســورس على التليـكرام
 
@@ -12,18 +12,18 @@
 <br> `redis-server`<br>
 <br>🌀¦ اترك الترمنال مفتوح وافتح ترمنال جديد وخلي<br>
 
-<br>` git clone https://github.com/alqaser/KEEPER.git && cd KEEPER && chmod +x keeper && ./keeper `<br>
+<br>` git clone https://github.com/ra7lon.git && cd ra7lon && chmod +x ra7lon && ./ra7lon `<br>
 
 # <p align="center">لتنصيبه بالأكواد 
 ## افتح ترمنال وخلي الكود بعد كل كود انتر
 
--    `git clone https://github.com/alqaser/KEEPER.git` 
+-    `git clone https://github.com/ra7lon.git` 
 
--    `cd KEEPER`
+-    `cd ra7lon`
 
--    `chmod +x keeper`
+-    `chmod +x ra7lon`
 
--    `./keeper`
+-    `./ra7lon`
 
 # <p align="center"> بعد ما تخلص التنصيب 
 
@@ -34,21 +34,6 @@
 
 ##  يشتغل تلقائيا بعد ه سد الترمنال وافتح جديد وخلي
 
-##   `cd KEEPER && screen ./keeper`
+##   `cd ra7lon && screen ./ra7lon`
 
 ##  💬¦ البوت خالي من الحقوق
-
-
-🛡¦ الي عنده استفسار او مشكله <br>
-🛡¦ : [تواصل مع المطور 🍃](https://telegram.me/llX8Xll)<br>
-
-
-# <p align="center"> رابــط  دعــم السورس
-
-  # <p align="center">[📨اضغط هنا للدخول الى المجموعه](https://t.me/keeper_ch)
-  
-  [📨حسابــي](https://telegram.me/karrar_alqaser) <br>
-  
-  [٠ツقناتــي٠](https://telegram.me/keeper_ch) <br>
-  
-  [📨تواصل القناه](https://t.me/lqlxlqlbot) <br>
